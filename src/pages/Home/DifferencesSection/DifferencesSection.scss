@@ -1,0 +1,96 @@
+.Difference-content {
+  color: white !important;
+  width: 13rem;
+  height: 13rem;
+  max-width: 13rem;
+  max-height: 13rem;
+
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  padding: 1rem;
+  .Difference-tittle {
+    margin: 1rem 0;
+  }
+  .Difference-text {
+    display: none;
+  }
+  .Difference-icon {
+    display: inline;
+    animation-name: fade-in;
+    animation-fill-mode: both;
+    animation-duration: 0.5s;
+  }
+}
+
+.Difference-content:hover {
+  .Difference-tittle {
+    animation: text-up;
+    animation-fill-mode: both;
+    animation-duration: 0.5s;
+  }
+  .Difference-text {
+    display: block;
+    animation-name: fade-in;
+    animation-fill-mode: both;
+    animation-duration: 0.5s;
+  }
+  .Difference-icon {
+    display: none;
+  }
+}
+.Difference-content:not(:hover) {
+  .Difference-tittle {
+    animation: text-down;
+    animation-duration: 0.5s;
+  }
+  .Difference-text {
+    animation-name: fade-out;
+    animation-duration: 0.5s;
+  }
+  .Difference-icon {
+    animation: text-down;
+    animation-duration: 0.5s;
+  }
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fade-out {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes text-up {
+  0% {
+    transform: translateY(0%);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-60%);
+    opacity: 1;
+  }
+}
+
+@keyframes text-down {
+  0% {
+    transform: translateY(-60%);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(0%);
+    opacity: 1;
+  }
+}

@@ -1,0 +1,2 @@
+all utility functions
+pure functions -> gives you the same output regarding the input
