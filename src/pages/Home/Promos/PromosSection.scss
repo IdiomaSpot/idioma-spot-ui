@@ -1,0 +1,82 @@
+@import '../../../assets/styles/variables.scss';
+
+.promos-section {
+  width: 100%;
+  background-color: rgb(255, 255, 255);
+  display: flex;
+  .promos-container {
+    text-align: left;
+    align-content: center;
+    .promos-tittle {
+      font-size: xx-large;
+      font-weight: 900;
+    }
+    .promos-text {
+      color: $light-gray;
+      line-height: 2rem;
+    }
+    .promos-button {
+      background-color: $flourescent-cyan;
+    }
+  }
+  .promos-img-container {
+    max-width: 50%;
+    .promos-img {
+      width: 100%;
+      height: auto;
+    }
+  }
+  .space-between {
+    padding: 1.5rem 0;
+  }
+}
+// Big screens
+@media screen and (min-width: 980px) {
+  .promos-section {
+    height: 30rem;
+    .promos-container {
+      padding-left: 5rem;
+      max-width: 50%;
+      .promos-tittle {
+        text-align: center;
+      }
+      .promos-text {
+        text-align: justify;
+      }
+    }
+    .promos-img-container {
+      display: flex;
+    }
+  }
+}
+
+//tablets
+@media screen and (min-width: 760px) and (max-width: 980px) {
+  .promos-section {
+    height: 40vh;
+    .promos-container {
+      max-width: 100%;
+      padding: 7vw;
+      .promos-tittle,
+      .promos-text {
+        text-align: left;
+      }
+    }
+    .promos-img-container {
+      display: none;
+    }
+  }
+}
+//Mobile
+@media screen and (min-width: 350px) and (max-width: 760px) {
+  .promos-section {
+    height: 70vh;
+    .promos-container {
+      max-width: 100%;
+      padding: 7vw;
+    }
+    .promos-img-container {
+      display: none;
+    }
+  }
+}
