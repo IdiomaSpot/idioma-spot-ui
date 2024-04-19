@@ -12,15 +12,18 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+
     .main-banner-button {
-            background-color: $dark-blue;
-}
+        background-color: $dark-blue;
+    }
+
     & h1 {
         color: whitesmoke;
         font-weight: bold;
         letter-spacing: 3px;
         font-size: 100px;
         padding: 8px;
+        text-shadow: 1px 1px 3px whitesmoke;
     }
 
     & span {
