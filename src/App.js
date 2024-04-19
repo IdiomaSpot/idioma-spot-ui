@@ -1,6 +1,6 @@
 import './App.scss';
 import { ScrollTopButton } from './components/ui';
-import { Difference } from './pages/Home';
+import { Difference, PromosSection } from './pages/Home';
 
 function App() {
   return (
@@ -86,6 +86,7 @@ function App() {
         </section>
       </div>
       <ScrollTopButton></ScrollTopButton>
+      <PromosSection></PromosSection>
     </div>
   );
 }

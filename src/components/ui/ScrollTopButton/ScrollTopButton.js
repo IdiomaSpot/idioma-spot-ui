@@ -19,6 +19,7 @@ const ScrollTopButton = () => {
       variant='contained'
       aria-label='delete'
       onClick={scrollToTop}
+      sx={{ boxShadow: 2 }}
     >
       <KeyboardArrowUpIcon fontSize='inherit' />
     </IconButton>

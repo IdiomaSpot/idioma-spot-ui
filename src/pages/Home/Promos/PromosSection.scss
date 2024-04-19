@@ -1,0 +1,72 @@
+@import '../../../assets/styles/variables.scss';
+
+.promos-section {
+  width: 100%;
+  background-color: rgb(255, 255, 255);
+  display: flex;
+  .promos-container {
+    text-align: left;
+    align-content: center;
+    .promos-tittle {
+      font-size: xx-large;
+      font-weight: 900;
+    }
+    .promos-text {
+      color: $light-gray;
+      line-height: 2rem;
+    }
+    .promos-button {
+      background-color: $flourescent-cyan;
+    }
+  }
+  .promos-img-container {
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    padding: 0 !important;
+    .promos-img {
+      height: auto;
+    }
+  }
+  .space-between {
+    padding: 1.5rem 0;
+  }
+}
+// Big screens
+@media screen and (min-width: 980px) {
+  .promos-section {
+    height: 30rem;
+    .promos-container {
+      padding-left: 5rem !important;
+      .promos-tittle {
+        text-align: center;
+      }
+      .promos-text {
+        text-align: justify;
+      }
+    }
+  }
+}
+
+//tablets
+@media screen and (min-width: 760px) and (max-width: 980px) {
+  .promos-section {
+    height: 40vh;
+    .promos-container {
+      padding: 7vw !important;
+      .promos-tittle,
+      .promos-text {
+        text-align: left;
+      }
+    }
+  }
+}
+//Mobile
+@media screen and (min-width: 280px) and (max-width: 760px) {
+  .promos-section {
+    height: 70vh;
+    .promos-container {
+      padding: 9vw !important;
+    }
+  }
+}
