@@ -20,9 +20,11 @@
     }
   }
   .promos-img-container {
-    max-width: 50%;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    padding: 0 !important;
     .promos-img {
-      width: 100%;
       height: auto;
     }
   }
@@ -35,17 +37,13 @@
   .promos-section {
     height: 30rem;
     .promos-container {
-      padding-left: 5rem;
-      max-width: 50%;
+      padding-left: 5rem !important;
       .promos-tittle {
         text-align: center;
       }
       .promos-text {
         text-align: justify;
       }
-    }
-    .promos-img-container {
-      display: flex;
     }
   }
 }
@@ -55,28 +53,20 @@
   .promos-section {
     height: 40vh;
     .promos-container {
-      max-width: 100%;
-      padding: 7vw;
+      padding: 7vw !important;
       .promos-tittle,
       .promos-text {
         text-align: left;
       }
     }
-    .promos-img-container {
-      display: none;
-    }
   }
 }
 //Mobile
-@media screen and (min-width: 350px) and (max-width: 760px) {
+@media screen and (min-width: 280px) and (max-width: 760px) {
   .promos-section {
     height: 70vh;
     .promos-container {
-      max-width: 100%;
-      padding: 7vw;
-    }
-    .promos-img-container {
-      display: none;
+      padding: 9vw !important;
     }
   }
 }
