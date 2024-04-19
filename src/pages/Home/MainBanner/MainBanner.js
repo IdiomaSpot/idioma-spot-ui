@@ -7,7 +7,11 @@ export default function MainBanner() {
         <>
             <div className='main-banner'>
                 <h1>IDIOMA SPOT</h1>
-                <Button variant="contained" href="https://docs.google.com/forms" target='_blank' size='large'>
+                <Button
+                    className='main-banner-button'
+                    variant="contained" 
+                    href="https://docs.google.com/forms"
+                    target='_blank' size='large'>
                     <span>EVALUA TU DOMINIO DEL IDIOMA</span>
                 </Button>
             </div>
