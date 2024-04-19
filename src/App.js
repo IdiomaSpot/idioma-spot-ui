@@ -1,5 +1,5 @@
 import './App.scss';
-import { Difference, MainBanner } from './pages/Home';
+import { Difference, MainBanner, PromosSection } from './pages/Home';
 
 function App() {
   return (
@@ -7,6 +7,7 @@ function App() {
       {/*<header className='App-header'> </header> */}
       <MainBanner></MainBanner>
       <Difference></Difference>
+      <PromosSection></PromosSection>
     </div>
   );
 }
