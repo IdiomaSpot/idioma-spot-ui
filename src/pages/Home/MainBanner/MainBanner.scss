@@ -10,7 +10,9 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-
+    .main-banner-button {
+            background-color: $dark-blue;
+}
     & h1 {
         color: whitesmoke;
         font-weight: bold;
