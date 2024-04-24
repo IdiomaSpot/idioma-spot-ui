@@ -1,6 +1,9 @@
 import './App.scss';
 import { ScrollTopButton } from './components/ui';
 import { Difference, MainBanner, PromosSection } from './pages/Home';
+import { register } from 'swiper/element/bundle';
+
+register();
 
 function App() {
   return (
@@ -8,6 +11,7 @@ function App() {
       {/*<header className='App-header'> </header> */}
       <MainBanner></MainBanner>
       <Difference></Difference>
+      <PromosSection></PromosSection>
       <div>
         <section>
           <p>
@@ -87,7 +91,6 @@ function App() {
         </section>
       </div>
       <ScrollTopButton></ScrollTopButton>
-      <PromosSection></PromosSection>
     </div>
   );
 }
