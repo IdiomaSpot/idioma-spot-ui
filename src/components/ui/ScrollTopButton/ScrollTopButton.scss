@@ -1,5 +1,10 @@
 @import '../../../assets/styles/variables.scss';
 
+.scroll-button-container {
+  position: absolute;
+  right: 150px;
+  bottom: -490px;
+}
 .scroll-button {
   background-color: $flourescent-cyan !important;
   color: white !important;

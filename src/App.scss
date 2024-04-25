@@ -1,9 +1,12 @@
 @import './assets/styles/variables.scss';
 @import './assets/styles/fonts.scss';
+html {
+  background-color: $light-pale-blue;
+}
 .App {
   text-align: center;
+  overflow-x: hidden;
   background-color: $light-pale-blue;
-  height: 100vh;
   font-family: 'Lato', Helvetica, sans-serif;
 }
 
