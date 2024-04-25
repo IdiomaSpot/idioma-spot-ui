@@ -36,7 +36,7 @@
     }
   }
 
-  @media screen and (min-width: 980px) {
+  @media screen and (min-width: $big-screen-min-width) {
     height: 60vh;
     .space-between {
       padding: 1.5rem 0;
@@ -46,11 +46,9 @@
     }
   }
 
-  @media screen and (min-width: 280px) and (max-width: 980px) {
+  @media screen and (min-width: $medium-screen-min-width) and (max-width: $medium-screen-max-width) {
     height: 50vh;
-  }
 
-  @media screen and (min-width: 760px) and (max-width: 980px) {
     .space-between {
       padding: 2rem 0;
     }
@@ -58,7 +56,8 @@
       line-height: 2rem;
     }
   }
-  @media screen and (min-width: 280px) and (max-width: 760px) {
+  @media screen and (min-width: $small-screen-min-width) and (max-width: $small-screen-max-width) {
+    height: 50vh;
     .space-between {
       padding: 1rem 0;
     }
