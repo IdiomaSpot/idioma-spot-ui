@@ -1,34 +1,46 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './PromosSection.scss';
-import { Box, Button, Grid } from '@mui/material';
+import { Box, Button, Container, Grid } from '@mui/material';
 import imagePromoUrl from '../../../assets/img/promoImg2.png';
 
 const PromosSection = ({ title, text, imgUrl }) => {
   return (
-    <div className='promos'>
-      <Box container spacing={2} component={Grid} className='promos-section'>
-        <Box item component={Grid} xs={12} md={7} className='promos-container'>
-          <div className='promos-tittle'>{title}</div>
-          <div className='promos-text space-between'>{text}</div>
-          <Button className='promos-button' size='large' variant='contained'>
-            REGISTRARSE
-          </Button>
+    <div className='promos-section'>
+      <Container maxWidth='lg'>
+        <Box container spacing={2} component={Grid}>
+          <Box
+            item
+            component={Grid}
+            xs={12}
+            md={6}
+            className='promos-container'
+          >
+            <div className='promos-tittle'>{title}</div>
+            <div className='promos-text space-between'>{text}</div>
+            <Button className='promos-button' size='large' variant='contained'>
+              REGISTRARSE
+            </Button>
+          </Box>
+          <Box
+            item
+            component={Grid}
+            md={6}
+            sx={{
+              display: { xs: 'none', md: 'flex' },
+            }}
+            className='promos-img-container'
+          >
+            <div className='img-container'>
+              <img
+                className='promos-img'
+                src={imgUrl}
+                alt='current promotion'
+              />
+            </div>
+          </Box>
         </Box>
-        <Box
-          item
-          component={Grid}
-          md={5}
-          sx={{
-            display: { xs: 'none', md: 'flex' },
-          }}
-          className='promos-img-container'
-        >
-          <div className='img-container'>
-            <img className='promos-img' src={imgUrl} alt='current promotion' />
-          </div>
-        </Box>
-      </Box>
+      </Container>
     </div>
   );
 };

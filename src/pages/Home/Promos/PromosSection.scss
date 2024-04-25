@@ -1,27 +1,23 @@
 @import '../../../assets/styles/variables.scss';
 
-.promos {
-  position: relative;
-  width: 100%;
-  height: 50vh;
-}
-
 .promos-section {
-  height: 100%;
   background-color: rgb(255, 255, 255);
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  overflow-y: hidden;
 
   .promos-container {
     text-align: left;
     align-content: center;
     .promos-tittle {
-      font-size: xx-large;
+      font-size: 2rem;
       font-weight: 900;
     }
     .promos-text {
       color: $light-gray;
-      line-height: 2rem;
     }
     .promos-button {
       background-color: $flourescent-cyan;
@@ -31,49 +27,43 @@
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    padding: 0 !important;
+    .img-container {
+      width: -webkit-fill-available;
+    }
     .promos-img {
+      width: 90%;
       height: auto;
     }
   }
-  .space-between {
-    padding: 1.5rem 0;
-  }
-}
-// Big screens
-@media screen and (min-width: 980px) {
-  .promos-section {
-    .promos-container {
-      padding-left: 5rem !important;
-      .promos-tittle {
-        text-align: center;
-      }
-      .promos-text {
-        text-align: justify;
-      }
-    }
-  }
-}
 
-//tablets
-@media screen and (min-width: 760px) and (max-width: 980px) {
-  .promos-section {
-    height: 40vh;
-    .promos-container {
-      padding: 7vw !important;
-      .promos-tittle,
-      .promos-text {
-        text-align: left;
-      }
+  @media screen and (min-width: 980px) {
+    height: 60vh;
+    .space-between {
+      padding: 1.5rem 0;
+    }
+    .promos-text {
+      line-height: 2rem;
     }
   }
-}
-//Mobile
-@media screen and (min-width: 280px) and (max-width: 760px) {
-  .promos-section {
-    height: 70vh;
-    .promos-container {
-      padding: 9vw !important;
+
+  @media screen and (min-width: 280px) and (max-width: 980px) {
+    height: 50vh;
+  }
+
+  @media screen and (min-width: 760px) and (max-width: 980px) {
+    .space-between {
+      padding: 2rem 0;
+    }
+    .promos-text {
+      line-height: 2rem;
+    }
+  }
+  @media screen and (min-width: 280px) and (max-width: 760px) {
+    .space-between {
+      padding: 1rem 0;
+    }
+    .promos-text {
+      line-height: 1.5rem;
     }
   }
 }
