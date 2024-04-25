@@ -26,11 +26,8 @@ function App() {
       {/*</Animator>
         </ScrollPage>
 </ScrollContainer>*/}
-      <div>
-        <Difference />
-        <PromosSection />
-        <WhyUsSection />
-      </div>
+      <PromosSection />
+      <WhyUsSection />
     </div>
   );
 }

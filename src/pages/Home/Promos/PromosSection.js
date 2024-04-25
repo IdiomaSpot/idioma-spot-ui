@@ -30,7 +30,6 @@ const PromosSection = ({ title, text, imgUrl }) => {
           </div>
         </Box>
       </Box>
-      <ScrollTopButton></ScrollTopButton>
     </div>
   );
 };
