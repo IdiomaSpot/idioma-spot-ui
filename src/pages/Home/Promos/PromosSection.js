@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import './PromosSection.scss';
 import { Box, Button, Grid } from '@mui/material';
 import imagePromoUrl from '../../../assets/img/promoImg2.png';
-import { ScrollTopButton } from '../../../components/ui';
 
 const PromosSection = ({ title, text, imgUrl }) => {
   return (
