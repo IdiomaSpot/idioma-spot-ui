@@ -1,6 +1,6 @@
 import './App.scss';
 import { ScrollTopButton } from './components/ui';
-import { Difference, MainBanner, PromosSection } from './pages/Home';
+import { Difference, MainBanner, Methodology, PromosSection } from './pages/Home';
 
 function App() {
   return (
@@ -9,6 +9,7 @@ function App() {
       <MainBanner></MainBanner>
       <Difference></Difference>
       <PromosSection></PromosSection>
+      <Methodology></Methodology>
       <div>
         <section>
           <p>
