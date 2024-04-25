@@ -5,8 +5,9 @@ html {
 }
 .App {
   text-align: center;
-  font-family: 'Lato';
   overflow-x: hidden;
+  background-color: $light-pale-blue;
+  font-family: 'Lato', Helvetica, sans-serif;
 }
 
 .App-logo {
