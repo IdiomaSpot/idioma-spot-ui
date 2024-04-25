@@ -1,8 +1,10 @@
 @import './assets/styles/variables.scss';
 @import './assets/styles/fonts.scss';
+html {
+  background-color: $light-pale-blue;
+}
 .App {
   text-align: center;
-  background-color: $light-pale-blue;
   height: 100vh;
   font-family: 'Lato';
 }

@@ -1,9 +1,15 @@
 @import '../../../assets/styles/variables.scss';
 
+.promos {
+  position: relative;
+  width: 100%;
+}
+
 .promos-section {
   width: 100%;
   background-color: rgb(255, 255, 255);
   display: flex;
+  position: absolute;
   .promos-container {
     text-align: left;
     align-content: center;

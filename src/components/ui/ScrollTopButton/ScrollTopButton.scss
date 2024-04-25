@@ -1,5 +1,10 @@
 @import '../../../assets/styles/variables.scss';
 
+.scroll-button-container {
+  position: absolute;
+  right: 150px;
+  bottom: -490px;
+}
 .scroll-button {
   background-color: $flourescent-cyan !important;
   color: white !important;
@@ -8,4 +13,82 @@
 .scroll-button:hover {
   transition: box-shadow 0.3s ease;
   box-shadow: 0px 6px 9px -3px rgba(0, 0, 0, 0.4);
+}
+
+@media screen and (min-width: 980px) {
+  .scroll-button-container {
+    right: 150px;
+    bottom: -490px;
+  }
+}
+
+@media screen and (min-width: 910px) and (max-width: 980px) {
+  .scroll-button-container {
+    right: 50px;
+    bottom: -550px;
+  }
+}
+
+@media screen and (min-width: 770) and (max-width: 910px) {
+  .scroll-button-container {
+    right: 50px;
+    bottom: -475px;
+  }
+}
+
+@media screen and (min-width: 670px) and (max-width: 770px) {
+  .scroll-button-container {
+    right: 50px;
+    bottom: -420px;
+  }
+}
+@media screen and (min-width: 530px) and (max-width: 670px) {
+  .scroll-button-container {
+    right: 50px;
+    bottom: -510px;
+  }
+}
+@media screen and (min-width: 420px) and (max-width: 530px) {
+  .scroll-button-container {
+    right: 50px;
+    bottom: -660px;
+  }
+}
+@media screen and (min-width: 413px) and (max-width: 420px) {
+  .scroll-button-container {
+    right: 50px;
+    bottom: -630px;
+  }
+}
+@media screen and (min-width: 400px) and (max-width: 413px) {
+  .scroll-button-container {
+    right: 50px;
+    bottom: -650px;
+  }
+}
+@media screen and (min-width: 380px) and (max-width: 400px) {
+  .scroll-button-container {
+    right: 50px;
+    bottom: -600px;
+  }
+}
+@media screen and (min-width: 370px) and (max-width: 380px) {
+  .scroll-button-container {
+    right: 50px;
+    bottom: -475px;
+  }
+}
+
+@media screen and (min-width: 350px) and (max-width: 370px) {
+  .scroll-button-container {
+    right: 50px;
+    bottom: -525px;
+  }
+}
+
+@media screen and (min-width: 280px) and (max-width: 350px) {
+  .scroll-button-container {
+    right: 50px;
+    bottom: -630px;
+  }
 }

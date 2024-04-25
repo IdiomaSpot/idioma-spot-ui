@@ -8,3 +8,27 @@ $greeanest-cyan: #34c3ac;
 $cyan-cyan-dark: #30c4b4;
 $cyan-cyan-light: #29ccb4;
 $light-gray: #7d8080;
+
+$mobile-landscape: 568px;
+$tablet: 768px;
+$desktop: 992px;
+
+$breakpoints: (
+  'small': (
+    min-width: $mobile-landscape,
+  ),
+  'medium': (
+    min-width: $tablet,
+  ),
+  'large': (
+    min-width: $desktop,
+  ),
+);
+
+@mixin responsive($size) {
+  $query: map-get($breakpoints, $size);
+
+  @media #{$query} {
+    @content;
+  }
+}
