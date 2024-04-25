@@ -14,3 +14,27 @@ $medium-screen-min-width: 760px;
 $medium-screen-max-width: 980px;
 $small-screen-min-width: 280px;
 $small-screen-max-width: 760px;
+
+$mobile-landscape: 568px;
+$tablet: 768px;
+$desktop: 992px;
+
+$breakpoints: (
+  'small': (
+    min-width: $mobile-landscape,
+  ),
+  'medium': (
+    min-width: $tablet,
+  ),
+  'large': (
+    min-width: $desktop,
+  ),
+);
+
+@mixin responsive($size) {
+  $query: map-get($breakpoints, $size);
+
+  @media #{$query} {
+    @content;
+  }
+}

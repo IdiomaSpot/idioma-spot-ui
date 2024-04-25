@@ -1,0 +1,54 @@
+@import '../../../assets/styles/variables.scss';
+.whyus-section {
+  width: 100vw;
+  height: 100vh;
+  background-image: url('../../../assets/img/whyus.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  & h1 {
+    color: whitesmoke;
+    font-weight: bold;
+    font-size: 5rem;
+    padding: 8px;
+    text-shadow: 1px 1px 8px rgb(128, 128, 128);
+  }
+
+  & span {
+    color: whitesmoke;
+    padding: 4px;
+  }
+
+  @media screen and (min-width: $medium-screen-max-width) {
+    h1 {
+      font-size: 5rem;
+    }
+
+    span {
+      font-size: 2rem !important;
+    }
+  }
+
+  @media screen and (min-width: $medium-screen-min-width) and (max-width: $medium-screen-max-width) {
+    h1 {
+      font-size: 3rem;
+    }
+
+    span {
+      font-size: 2rem !important;
+    }
+  }
+  @media screen and (min-width: $small-screen-min-width) and (max-width: $small-screen-max-width) {
+    h1 {
+      font-size: 3rem;
+    }
+
+    span {
+      font-size: 1.5rem !important;
+    }
+  }
+}

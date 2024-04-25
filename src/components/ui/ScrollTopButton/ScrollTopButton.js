@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import './ScrollTopButton.scss';
 import { IconButton } from '@mui/material';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
@@ -13,22 +12,19 @@ const ScrollTopButton = () => {
     });
   };
   return (
-    <IconButton
-      className='scroll-button'
-      size='large'
-      variant='contained'
-      aria-label='delete'
-      onClick={scrollToTop}
-      sx={{ boxShadow: 2 }}
-    >
-      <KeyboardArrowUpIcon fontSize='inherit' />
-    </IconButton>
+    <div className='scroll-button-container'>
+      <IconButton
+        className='scroll-button'
+        size='large'
+        variant='contained'
+        aria-label='delete'
+        onClick={scrollToTop}
+        sx={{ boxShadow: 2 }}
+      >
+        <KeyboardArrowUpIcon fontSize='inherit' />
+      </IconButton>
+    </div>
   );
 };
-
-ScrollTopButton.propTypes = {
-  idTop: PropTypes.string.isRequired,
-};
-ScrollTopButton.defaultProps = {};
 
 export default ScrollTopButton;
