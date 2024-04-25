@@ -33,7 +33,7 @@
   }
 }
 // Big screens
-@media screen and (min-width: 980px) {
+@media screen and (min-width: $big-screen-min-width) {
   .promos-section {
     height: 30rem;
     .promos-container {
@@ -49,7 +49,7 @@
 }
 
 //tablets
-@media screen and (min-width: 760px) and (max-width: 980px) {
+@media screen and (min-width: $medium-screen-min-width) and (max-width: $medium-screen-max-width) {
   .promos-section {
     height: 40vh;
     .promos-container {
@@ -62,7 +62,7 @@
   }
 }
 //Mobile
-@media screen and (min-width: 280px) and (max-width: 760px) {
+@media screen and (min-width: $small-screen-min-width) and (max-width: $small-screen-max-width) {
   .promos-section {
     height: 70vh;
     .promos-container {

@@ -8,6 +8,7 @@ function App() {
       {/*<header className='App-header'> </header> */}
       <MainBanner></MainBanner>
       <Difference></Difference>
+      <PromosSection></PromosSection>
       <div>
         <section>
           <p>
@@ -87,7 +88,6 @@ function App() {
         </section>
       </div>
       <ScrollTopButton></ScrollTopButton>
-      <PromosSection></PromosSection>
     </div>
   );
 }
