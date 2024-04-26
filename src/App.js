@@ -1,5 +1,10 @@
 import './App.scss';
-import { MainBanner, PromosSection, WhyUsSection } from './pages/Home';
+import {
+  AdvantagesSection,
+  MainBanner,
+  PromosSection,
+  WhyUsSection,
+} from './pages/Home';
 import { TextBloc } from './components/ui';
 import text from './data/constants.json';
 
@@ -8,7 +13,7 @@ function App() {
     <div className='App'>
       <MainBanner />
       <PromosSection />
-
+      <AdvantagesSection />
       <WhyUsSection />
       <TextBloc text={text['phrase']} />
     </div>
