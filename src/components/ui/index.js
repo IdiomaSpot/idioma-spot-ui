@@ -1,4 +1,4 @@
 import ScrollTopButton from './ScrollTopButton/ScrollTopButton';
-import TextBloc from './TextBloc/TextBloc';
+import TextBlock from './TextBlock/TextBlock';
 
-export { ScrollTopButton, TextBloc };
+export { ScrollTopButton, TextBlock };

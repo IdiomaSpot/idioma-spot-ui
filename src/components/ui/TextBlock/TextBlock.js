@@ -1,19 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './TextBloc.scss';
+import './TextBlock.scss';
 import { Container } from '@mui/material';
 
-const TextBloc = ({ text }) => (
-  <div className='textbloc-container'>
+const TextBlock = ({ text }) => (
+  <div className='textblock-container'>
     <Container>
       <span>{text}</span>
     </Container>
   </div>
 );
 
-TextBloc.propTypes = {
+TextBlock.propTypes = {
   text: PropTypes.string.isRequired,
 };
-TextBloc.defaultProps = {};
+TextBlock.defaultProps = {};
 
-export default TextBloc;
+export default TextBlock;
