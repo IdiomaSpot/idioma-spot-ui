@@ -5,6 +5,8 @@ import {
   PromosSection,
   WhyUsSection,
 } from './pages/Home';
+import { TextBloc } from './components/ui';
+import text from './data/constants.json';
 
 function App() {
   return (
@@ -13,6 +15,7 @@ function App() {
       <PromosSection />
       <AdvantagesSection />
       <WhyUsSection />
+      <TextBloc text={text['phrase']} />
     </div>
   );
 }
