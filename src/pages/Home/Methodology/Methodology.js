@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Grid from '@mui/material/Grid';
+//import Grid from '@mui/material/Grid';
 import Container from "@mui/material/Container";
 import './Methodology.scss';
 
-const MethodologyItem = ({ icon, title, description }) => {
+/*const MethodologyItem = ({ icon, title, description }) => {
     return <>
         <div className='methodology-item-container'>
             <Grid container xs={12} md={4} lg={3} spacing={2}>
@@ -27,7 +27,7 @@ const MethodologyItem = ({ icon, title, description }) => {
             </Grid>
         </div>
     </>
-}
+}*/
 
 Methodology.propTypes = {
     icon: PropTypes.string.isRequired,
