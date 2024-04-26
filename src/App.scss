@@ -1,12 +1,12 @@
 @import './assets/styles/variables.scss';
 @import './assets/styles/fonts.scss';
 html {
-  background-color: $light-pale-blue;
+  background-color: white;
+  color: #404244;
 }
 .App {
   text-align: center;
   overflow-x: hidden;
-  background-color: $light-pale-blue;
   font-family: 'Lato', Helvetica, sans-serif;
 }
 

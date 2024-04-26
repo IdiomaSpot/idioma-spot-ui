@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import './DifferencesSection.scss';
+import './Advantage.scss';
 import { Paper } from '@mui/material';
-import AutoStoriesIcon from '@mui/icons-material/AutoStories';
 
-const Difference = ({ id, title, text, changeColor }) => {
+const Advantage = ({ id, title, text, changeColor, icon }) => {
   const [elevation, setElevation] = useState(3);
-  const color = changeColor ? '#FF0062' : '#0099FF';
+  const color = changeColor ? '#103c93' : '#30c4b4';
 
   const overHandler = (event) => {
     setElevation(7);
@@ -19,31 +18,31 @@ const Difference = ({ id, title, text, changeColor }) => {
 
   return (
     <Paper
-      className='Difference-content'
+      className='Advantage-content'
       elevation={elevation}
       onMouseOver={overHandler}
       onMouseLeave={leaveHandler}
       style={{ backgroundColor: color }}
     >
-      <AutoStoriesIcon className={`Difference-icon ${id}`} fontSize='medium' />
-      <h2 className={`Difference-tittle ${id}`}>{title}</h2>
-      <div className={`Difference-text ${id}`}>{text}</div>
+      <h2 className={`Advantage-tittle ${id}`}>{title}</h2>
+      <div className={`Advantage-text ${id}`}>{text}</div>
     </Paper>
   );
 };
 
-Difference.propTypes = {
+Advantage.propTypes = {
   id: PropTypes.number,
   title: PropTypes.string,
   text: PropTypes.string,
   changeColor: PropTypes.bool,
-  lable: PropTypes.string,
+  icon: PropTypes.element,
 };
-Difference.defaultProps = {
+Advantage.defaultProps = {
   id: 0,
   title: 'test',
   text: 'The Slide component also accepts container prop, which is a reference to a DOM node. If this prop is set, the Slide component will slide from the edge of that DOM node.',
   changeColor: false,
+  icon: <></>,
 };
 
-export default Difference;
+export default Advantage;

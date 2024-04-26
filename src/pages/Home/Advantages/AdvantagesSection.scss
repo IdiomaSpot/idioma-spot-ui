@@ -1,0 +1,49 @@
+@import '../../../assets/styles/variables.scss';
+.advantages-section {
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  & h1 {
+    font-size: 3rem;
+  }
+  .advantages-body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+  }
+
+  @media screen and (min-width: $big-screen-min-width) {
+    height: 35em;
+    & h1 {
+      padding: 3rem;
+    }
+    .advantages-body {
+      flex-direction: row;
+    }
+  }
+
+  @media screen and (min-width: $medium-screen-min-width) and (max-width: $medium-screen-max-width) {
+    height: 50em;
+    & h1 {
+      padding: 2rem;
+    }
+
+    .advantages-body {
+      flex-wrap: wrap;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+    }
+  }
+  @media screen and (min-width: $small-screen-min-width) and (max-width: $small-screen-max-width) {
+    height: 90em;
+    & h1 {
+      padding: 1rem;
+    }
+    .advantages-body {
+      flex-direction: column;
+    }
+  }
+}

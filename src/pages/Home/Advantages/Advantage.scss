@@ -1,4 +1,4 @@
-.Difference-content {
+.Advantage-content {
   color: white !important;
   width: 13rem;
   height: 13rem;
@@ -11,13 +11,13 @@
   text-align: center;
   justify-content: center;
   padding: 1rem;
-  .Difference-tittle {
+  .Advantage-tittle {
     margin: 1rem 0;
   }
-  .Difference-text {
+  .Advantage-text {
     display: none;
   }
-  .Difference-icon {
+  .Advantage-icon {
     display: inline;
     animation-name: fade-in;
     animation-fill-mode: both;
@@ -25,32 +25,32 @@
   }
 }
 
-.Difference-content:hover {
-  .Difference-tittle {
+.Advantage-content:hover {
+  .Advantage-tittle {
     animation: text-up;
     animation-fill-mode: both;
     animation-duration: 0.5s;
   }
-  .Difference-text {
+  .Advantage-text {
     display: block;
     animation-name: fade-in;
     animation-fill-mode: both;
     animation-duration: 0.5s;
   }
-  .Difference-icon {
+  .Advantage-icon {
     display: none;
   }
 }
-.Difference-content:not(:hover) {
-  .Difference-tittle {
+.Advantage-content:not(:hover) {
+  .Advantage-tittle {
     animation: text-down;
     animation-duration: 0.5s;
   }
-  .Difference-text {
+  .Advantage-text {
     animation-name: fade-out;
     animation-duration: 0.5s;
   }
-  .Difference-icon {
+  .Advantage-icon {
     animation: text-down;
     animation-duration: 0.5s;
   }
