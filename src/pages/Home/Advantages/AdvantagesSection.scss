@@ -1,12 +1,12 @@
 @import '../../../assets/styles/variables.scss';
+@import '/src/assets/styles/mixins.scss'; 
 .advantages-section {
   width: 100vw;
   display: flex;
   justify-content: center;
   flex-direction: row;
-  & h1 {
-    font-size: 3rem;
-  }
+  @include titles(2em);
+
   .advantages-body {
     display: flex;
     align-items: center;

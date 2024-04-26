@@ -24,7 +24,7 @@ const Advantage = ({ id, title, text, changeColor, icon }) => {
       onMouseLeave={leaveHandler}
       style={{ backgroundColor: color }}
     >
-      <h2 className={`Advantage-tittle ${id}`}>{title}</h2>
+      <h2 className={`Advantage-title ${id}`}>{title}</h2>
       <div className={`Advantage-text ${id}`}>{text}</div>
     </Paper>
   );

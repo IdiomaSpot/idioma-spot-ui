@@ -15,9 +15,9 @@ function App() {
       <MainBanner />
       <PromosSection />
       <AdvantagesSection />
-      <Methodology />
       <WhyUsSection />
       <TextBloc text={text['phrase']} />
+      <Methodology />
     </div>
   );
 }
