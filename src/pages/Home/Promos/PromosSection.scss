@@ -1,4 +1,5 @@
 @import '../../../assets/styles/variables.scss';
+@import '/src/assets/styles/mixins.scss';
 
 .promos-section {
   background-color: rgb(255, 255, 255);
@@ -12,24 +13,27 @@
   .promos-container {
     text-align: left;
     align-content: center;
-    .promos-tittle {
-      font-size: 2rem;
-      font-weight: 900;
-    }
+
+    @include titles(2em);
+
     .promos-text {
       color: $light-gray;
     }
+
     .promos-button {
       background-color: $flourescent-cyan;
     }
   }
+
   .promos-img-container {
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
+
     .img-container {
       width: -webkit-fill-available;
     }
+
     .promos-img {
       width: 90%;
       height: auto;
@@ -38,9 +42,11 @@
 
   @media screen and (min-width: $big-screen-min-width) {
     height: 60vh;
+
     .space-between {
       padding: 1.5rem 0;
     }
+
     .promos-text {
       line-height: 2rem;
     }
@@ -52,15 +58,19 @@
     .space-between {
       padding: 2rem 0;
     }
+
     .promos-text {
       line-height: 2rem;
     }
   }
+
   @media screen and (min-width: $small-screen-min-width) and (max-width: $small-screen-max-width) {
     height: 50vh;
+
     .space-between {
       padding: 1rem 0;
     }
+
     .promos-text {
       line-height: 1.5rem;
     }

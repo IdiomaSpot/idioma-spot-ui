@@ -1,5 +1,5 @@
 import './App.scss';
-import { MainBanner, PromosSection, WhyUsSection } from './pages/Home';
+import { MainBanner, PromosSection, WhyUsSection, Methodology } from './pages/Home';
 
 function App() {
   return (

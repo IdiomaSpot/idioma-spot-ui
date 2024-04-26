@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Grid from '@mui/material/Grid';
+import Container from "@mui/material/Container";
+import './Methodology.scss';
 
 const MethodologyItem = ({ icon, title, description }) => {
     return <>
@@ -36,10 +38,17 @@ Methodology.propTypes = {
 export default function Methodology() {
 
     return <>
+        <section className='methodology-section'>
+            <Container maxWidth="sm">
+                <h1>METODOLOGIA IDIOMA SPOT</h1>
+                <p>Nuestro programa academico <b>IIS</b> esta enfocado en las necesidades de nuestros estudiantes,
+                    con las metodologías educativas de vanguardia aprenderas de manera interactiva, intuitiva y sinergica</p>
 
 
-    
-    <MethodologyItem icon={''} description={''} title={''}></MethodologyItem>
+                {/*<MethodologyItem icon={''} description={''} title={''}></MethodologyItem>*/}
+
+            </Container>
+        </section>
     </>
 
 }
