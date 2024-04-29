@@ -3,6 +3,7 @@ import {
   AdvantagesSection,
   MainBanner,
   Methodology,
+  MissionVision,
   PromosSection,
   WhyUsSection,
 } from './pages/Home';
@@ -17,6 +18,7 @@ function App() {
       <AdvantagesSection />
       <WhyUsSection />
       <TextBlock text={text['phrase']} />
+      <MissionVision />
       <Methodology />
     </div>
   );
