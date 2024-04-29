@@ -41,8 +41,8 @@ export default function Methodology() {
         <section className='methodology-section'>
             <Container maxWidth="sm">
                 <h1>METODOLOGIA IDIOMA SPOT</h1>
-                <p>Nuestro programa academico <b>IIS</b> esta enfocado en las necesidades de nuestros estudiantes,
-                    con las metodologías educativas de vanguardia aprenderas de manera interactiva, intuitiva y sinergica</p>
+                <p>Nuestro programa académico <b>IIS</b> está enfocado en las necesidades de nuestros estudiantes,
+                    con las metodologías educativas de vanguardia aprenderás de manera interactiva, intuitiva y sinérgica</p>
 
 
                 {/*<MethodologyItem icon={''} description={''} title={''}></MethodologyItem>*/}
