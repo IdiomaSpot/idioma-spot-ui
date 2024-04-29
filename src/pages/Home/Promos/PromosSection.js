@@ -16,7 +16,7 @@ const PromosSection = ({ title, text, imgUrl }) => {
             md={6}
             className='promos-container'
           >
-            <div className='promos-tittle'>{title}</div>
+            <h1 className='promos-title'>{title}</h1>
             <div className='promos-text space-between'>{text}</div>
             <Button className='promos-button' size='large' variant='contained'>
               REGISTRARSE

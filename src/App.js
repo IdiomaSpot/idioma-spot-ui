@@ -2,10 +2,11 @@ import './App.scss';
 import {
   AdvantagesSection,
   MainBanner,
+  Methodology,
   PromosSection,
   WhyUsSection,
 } from './pages/Home';
-import { TextBloc } from './components/ui';
+import { TextBlock } from './components/ui';
 import text from './data/constants.json';
 
 function App() {
@@ -15,7 +16,8 @@ function App() {
       <PromosSection />
       <AdvantagesSection />
       <WhyUsSection />
-      <TextBloc text={text['phrase']} />
+      <TextBlock text={text['phrase']} />
+      <Methodology />
     </div>
   );
 }

@@ -5,10 +5,10 @@ import advantagesText from '../../../data/advantages.json';
 import Advantage from './Advantage';
 import { Container } from '@mui/material';
 
-const tittleAdvantages = Object.keys(advantagesText)[0];
-const textObjArr = advantagesText[tittleAdvantages];
+const titleAdvantages = Object.keys(advantagesText)[0];
+const textObjArr = advantagesText[titleAdvantages];
 
-const AdvantagesSection = ({ tittle, array }) => {
+const AdvantagesSection = ({ title, array }) => {
   const getAdvantages = () => {
     let changeColor = false;
     return array.map((obj, index) => {
@@ -29,8 +29,8 @@ const AdvantagesSection = ({ tittle, array }) => {
   return (
     <div className='advantages-section'>
       <Container maxWidth='lg'>
-        <div className='advantages-tittle'>
-          <h1>{tittle}</h1>
+        <div className='advantages-title'>
+          <h1>{title}</h1>
         </div>
         <div className='advantages-body'>{getAdvantages()}</div>
       </Container>
@@ -39,12 +39,12 @@ const AdvantagesSection = ({ tittle, array }) => {
 };
 
 AdvantagesSection.propTypes = {
-  tittle: PropTypes.string,
+  title: PropTypes.string,
   array: PropTypes.arrayOf(PropTypes.shape({})),
 };
 
 AdvantagesSection.defaultProps = {
-  tittle: tittleAdvantages,
+  title: titleAdvantages,
   array: textObjArr,
 };
 
