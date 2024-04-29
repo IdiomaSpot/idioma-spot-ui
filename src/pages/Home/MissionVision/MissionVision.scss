@@ -11,8 +11,8 @@
     background-position: center;
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
+    background-color: #C7D4EE;
 
     .mission-vision-container {
         margin-left: auto;
@@ -46,5 +46,6 @@
         color: $light-gray;
         line-height: 2em;
         font-weight: 400;
+        font-size: 1.2em;
     }
 }

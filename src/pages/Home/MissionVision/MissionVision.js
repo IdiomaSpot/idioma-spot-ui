@@ -8,17 +8,18 @@ export default function MissionVision() {
             <Container maxWidth='lg' className='mission-vision-container'>
                 <Grid container spacing={2}>
                     <Grid item xs={12} lg={6}>
-                        <h1>MISION Y VISION</h1>
+                        <h1>VISION</h1>
                         <p>
-                            En IdiomaSpot, nos destacamos por ofrecer un enfoque personalizado
-                            y adaptado a las necesidades de cada estudiante.<br />
-                            Nuestro equipo de profesionales altamente calificados y con amplia
-                            experiencia en la enseñanza del inglés, garantiza un aprendizaje
-                            efectivo y significativo. Además, utilizamos las últimas tecnologías
-                            y metodologías innovadoras para hacer que el proceso de aprendizaje
-                            sea dinámico y motivador. En IdiomasSpot, no solo enseñamos inglés,
-                            ¡sino que también inspiramos a nuestros estudiantes a alcanzar sus
-                            metas lingüisticas y profesionales.
+                            En IdiomaSpot no solo enseñamos, ¡sino que nos motiva inspirar a nuestros estudiantes
+                            a que alcancen sus metas lingüísticas y profesionales!
+                        </p>
+
+                        <h1>MISION</h1>
+                        <p>
+                            En IdiomaSpot nuestra misión es ofrecer un enfoque personalizado y adaptado a las
+                            necesidades de cada uno de nuestros estudiantes, a través de nuestro equipo de
+                            profesores altamente calificados, con el fin de lograr un aprendizaje efectivo y
+                            significativo.
                         </p>
                     </Grid>
                 </Grid>
