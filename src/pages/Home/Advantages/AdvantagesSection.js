@@ -16,8 +16,7 @@ const AdvantagesSection = ({ title, array }) => {
       changeColor = !changeColor;
       const text1 = Object.keys(obj)[0];
       const text2 = obj[text1];
-      console.log(text1);
-      console.log(getAdvantagesIcon(text1));
+
       return (
         <Advantage
           id={`advantage-${index}`}
