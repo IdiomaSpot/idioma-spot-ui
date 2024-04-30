@@ -1,0 +1,23 @@
+@import '../../../assets/styles/variables.scss';
+
+footer {
+  background-color: $dark-blue;
+  color: $pale-blue;
+  display: inline-flex;
+  width: 100%;
+  & .contact-info-list {
+    display: flex;
+    text-decoration: none;
+    list-style-type: none;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    > * {
+      list-style-type: none;
+      margin: 0 0.5rem;
+    }
+    .link-color {
+      color: $light-pale-blue;
+    }
+  }
+}
