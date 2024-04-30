@@ -4,6 +4,7 @@ import './AdvantagesSection.scss';
 import advantagesText from '../../../data/advantages.json';
 import Advantage from './Advantage';
 import { Container } from '@mui/material';
+import getAdvantagesIcon from '../../../utils/utils';
 
 const titleAdvantages = Object.keys(advantagesText)[0];
 const textObjArr = advantagesText[titleAdvantages];
@@ -15,13 +16,15 @@ const AdvantagesSection = ({ title, array }) => {
       changeColor = !changeColor;
       const text1 = Object.keys(obj)[0];
       const text2 = obj[text1];
-
+      console.log(text1);
+      console.log(getAdvantagesIcon(text1));
       return (
         <Advantage
           id={`advantage-${index}`}
           title={text1}
           text={text2}
           changeColor={changeColor}
+          icon={getAdvantagesIcon(text1)}
         ></Advantage>
       );
     });

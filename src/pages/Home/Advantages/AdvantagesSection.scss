@@ -1,5 +1,5 @@
 @import '../../../assets/styles/variables.scss';
-@import '/src/assets/styles/mixins.scss'; 
+@import '/src/assets/styles/mixins.scss';
 .advantages-section {
   width: 100vw;
   display: flex;
@@ -10,8 +10,11 @@
   .advantages-body {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
     flex-direction: row;
+    > * {
+      margin: 0.5rem 0.5rem;
+    }
   }
 
   @media screen and (min-width: $big-screen-min-width) {
