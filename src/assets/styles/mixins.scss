@@ -14,3 +14,24 @@
         font-weight: 500;
     }
 }
+
+//Responsive section
+$mobile-portrait: "screen and ( min-width: 280px ) and (max-width: 760px)";
+$mobile-landscape: "screen and ( min-width: 568px ) and (max-width: 760px)";
+$tablet: "screen and ( min-width: 760px ) and (max-width: 980px)";
+$desktop: "screen and ( min-width: 980px )";
+
+$breakpoints: (
+  'small': $mobile-portrait,
+  'small-landscape': $mobile-landscape,
+  'medium': $tablet,
+  'large': $desktop
+);
+
+@mixin responsive($size) {
+  $query: map-get($breakpoints, $size);
+
+  @media #{$query} {
+    @content;
+  }
+}
