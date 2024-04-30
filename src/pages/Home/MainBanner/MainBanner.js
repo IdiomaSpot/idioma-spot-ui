@@ -25,21 +25,21 @@ function RewardsStep() {
   return (
     <>
       <div className='banner-container step-2'>
-        <h1>¿TE IMAGINAS GANAR PREMIOS POR APRENDER?</h1>
-        <h2>¡En Idioma Spot es posible!</h2>
-        <p>
-          A través de diversas actividades obtendras puntos <b>IS</b>, los
-          cuales podrás canjear en nuestra Sala de Recompensas.
-        </p>
-        <Button
-          className='idioma-spot-button'
-          variant='contained'
-          href='https://docs.google.com/forms'
-          target='_blank'
-          size='large'
-        >
-          <span>REGISTRATE AHORA</span>
-        </Button>
+        <div className='step-2-wrapper'>
+          <h1>¿TE IMAGINAS GANAR PREMIOS POR APRENDER?</h1>
+          <br />
+          <h2>¡En IdiomaSpot es posible!</h2>
+          <br />
+          <Button
+            className='idioma-spot-button'
+            variant='contained'
+            href='https://docs.google.com/forms'
+            target='_blank'
+            size='large'
+          >
+            <span>REGISTRATE AHORA</span>
+          </Button>
+        </div>
       </div>
     </>
   );
