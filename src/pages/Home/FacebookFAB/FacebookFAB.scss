@@ -1,0 +1,12 @@
+.messenger-fab {
+    position: fixed !important;
+    right: 0;
+    bottom: 0;
+    z-index: 999;
+    margin: 2em !important;
+
+    .icon {
+        width: 4em;
+        height: auto;
+    }
+}

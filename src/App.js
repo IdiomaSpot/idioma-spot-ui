@@ -6,6 +6,7 @@ import {
   MissionVision,
   PromosSection,
   WhyUsSection,
+  FacebookFAB,
 } from './pages/Home';
 import { TextBlock } from './components/ui';
 import text from './data/constants.json';
@@ -20,6 +21,7 @@ function App() {
       <TextBlock text={text['phrase']} />
       <MissionVision />
       <Methodology />
+      <FacebookFAB />
     </div>
   );
 }
