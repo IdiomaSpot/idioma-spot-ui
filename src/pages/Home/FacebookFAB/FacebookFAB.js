@@ -8,7 +8,7 @@ export default function FacebookFAB() {
         <Button
             className='messenger-fab'
             variant='text'
-            href='https://docs.google.com/forms'
+            href='https://m.me/335938772926240'
             target='_blank'
             size='medium'
         >
