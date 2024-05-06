@@ -1,6 +1,7 @@
 import './App.scss';
 import {
   AdvantagesSection,
+  InfoFooter,
   MainBanner,
   Methodology,
   MissionVision,
@@ -21,6 +22,7 @@ function App() {
       <TextBlock text={text['phrase']} />
       <MissionVision />
       <Methodology />
+      <InfoFooter />
       <FacebookFAB />
     </div>
   );
