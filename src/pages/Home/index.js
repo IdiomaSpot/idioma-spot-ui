@@ -5,6 +5,7 @@ import WhyUsSection from './WhyUs/WhyUsSection';
 import Methodology from './Methodology/Methodology';
 import MissionVision from './MissionVision/MissionVision';
 import InfoFooter from './InfoFooter/InfoFooter';
+import MenuBar from './MenuBar/MenuBar';
 import FacebookFAB from './FacebookFAB/FacebookFAB';
 
 export {
@@ -15,5 +16,6 @@ export {
   Methodology,
   MissionVision,
   InfoFooter,
+  MenuBar,
   FacebookFAB,
 };

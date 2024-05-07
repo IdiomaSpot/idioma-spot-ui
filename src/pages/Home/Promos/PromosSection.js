@@ -6,7 +6,7 @@ import imagePromoUrl from '../../../assets/img/promoImg2.png';
 
 const PromosSection = ({ title, text, imgUrl }) => {
   return (
-    <div className='promos-section'>
+    <div id='promos-section' className='promos-section'>
       <Container maxWidth='lg'>
         <Box container spacing={2} component={Grid}>
           <Box

@@ -2,99 +2,96 @@
 @import '../../../assets/styles/mixins.scss';
 
 .main-banner {
-    width: 100vw;
-    height: 99vh;
-    color: whitesmoke;
-    text-transform: uppercase;
+  width: 100vw;
+  height: 95vh;
+  color: whitesmoke;
+  text-transform: uppercase;
+  margin-top: 3rem;
 
-    & .banner-container {
-        width: 100%;
-        height: 100%;
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-position: center center;
-        opacity: 1;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
+  & .banner-container {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    opacity: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 
+    &.step-1 {
+      background-image: url('../../../assets/img/banner2.jpeg');
 
-        &.step-1 {
-            background-image: url('../../../assets/img/banner2.jpeg');
+      @include titles(7em);
 
-            @include titles(7em);
+      h1 {
+        font-weight: bold;
+        letter-spacing: 3px;
+        padding: 8px;
+        text-shadow: 1px 1px 3px whitesmoke;
+      }
 
-            h1 {
-                font-weight: bold;
-                letter-spacing: 3px;
-                padding: 8px;
-                text-shadow: 1px 1px 3px whitesmoke;
-            }
+      .idioma-spot-button {
+        background-color: $cyan-cyan-dark;
+      }
 
-            .idioma-spot-button {
-                background-color: $cyan-cyan-dark;
-            }
-
-            @include responsive('small') {
-                @include titles(4em);
-            }
-        }
-
-        &.step-2 {
-            background-image: url('../../../assets/img/rewards-banner.png');
-
-            & .step-2-wrapper {
-                padding-left: 25%;
-
-                @include responsive('small') {
-                    padding-left: initial;
-                }
-
-            }
-
-            @include titles(5em);
-
-            h1 {
-                font-weight: bold;
-                padding: 0px 8px 0px 8px;
-                color: white;
-            }
-
-            h2 {
-                font-weight: bold;
-                letter-spacing: 3px;
-                padding: 0px 8px 0px 8px;
-                color: white;
-                text-transform: capitalize;
-            }
-
-            .idioma-spot-button {
-                background-color: $dark-blue;
-            }
-
-            @include responsive('small') {
-                @include titles(3em);
-            }
-        }
-
-        & .idioma-spot-button {
-
-            span {
-                font-size: 1.3rem;
-
-                @include responsive('small') {
-                    font-size: 1.1em;
-                }
-            }
-        }
-
-        //Tablet and Mobile
-        @media screen and (min-width: $small-screen-min-width) and (max-width: $small-screen-max-width) {
-            &.step-2 {
-                background-position: right;
-            }
-        }
+      @include responsive('small') {
+        @include titles(4em);
+      }
     }
 
+    &.step-2 {
+      background-image: url('../../../assets/img/rewards-banner.png');
+
+      & .step-2-wrapper {
+        padding-left: 25%;
+
+        @include responsive('small') {
+          padding-left: initial;
+        }
+      }
+
+      @include titles(5em);
+
+      h1 {
+        font-weight: bold;
+        padding: 0px 8px 0px 8px;
+        color: white;
+      }
+
+      h2 {
+        font-weight: bold;
+        letter-spacing: 3px;
+        padding: 0px 8px 0px 8px;
+        color: white;
+        text-transform: capitalize;
+      }
+
+      .idioma-spot-button {
+        background-color: $dark-blue;
+      }
+
+      @include responsive('small') {
+        @include titles(3em);
+      }
+    }
+
+    & .idioma-spot-button {
+      span {
+        font-size: 1.3rem;
+
+        @include responsive('small') {
+          font-size: 1.1em;
+        }
+      }
+    }
+
+    //Tablet and Mobile
+    @media screen and (min-width: $small-screen-min-width) and (max-width: $small-screen-max-width) {
+      &.step-2 {
+        background-position: right;
+      }
+    }
+  }
 }

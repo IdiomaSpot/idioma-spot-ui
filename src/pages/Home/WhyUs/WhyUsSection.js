@@ -4,7 +4,7 @@ import { Container, Grid } from '@mui/material';
 
 const WhyUsSection = () => {
   return (
-    <div className='whyus-section'>
+    <div id='whyus-section' className='whyus-section'>
       <Container maxWidth='lg'>
         <Grid container spacing={2}>
           <Grid item xs={12} lg={6}>
