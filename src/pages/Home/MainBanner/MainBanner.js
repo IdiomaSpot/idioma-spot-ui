@@ -1,6 +1,7 @@
 import React, { useRef } from 'react';
 import './MainBanner.scss';
 import { Button } from '@mui/material';
+import { motion } from 'framer-motion';
 
 function IdiomaSpotStep() {
   return (
@@ -48,8 +49,28 @@ function RewardsStep() {
 export default function MainBanner() {
   const swiperElRef = useRef(null);
 
+  const scrollVariants = {
+    offscreen: {
+      y: -100,
+    },
+    onscreen: {
+      y: 0,
+      transition: {
+        type: 'spring',
+        bounce: 0.4,
+        duration: 0.5,
+      },
+    },
+  };
+
   return (
-    <>
+    <motion.div
+      className='main-animation'
+      initial='offscreen'
+      whileInView='onscreen'
+      viewport={{ amount: 0.6 }}
+      variants={scrollVariants}
+    >
       <swiper-container
         ref={swiperElRef}
         centered-slides='true'
@@ -67,6 +88,6 @@ export default function MainBanner() {
           <RewardsStep />
         </swiper-slide>
       </swiper-container>
-    </>
+    </motion.div>
   );
 }

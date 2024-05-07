@@ -1,5 +1,6 @@
 @import '../../../assets/styles/variables.scss';
 @import '../../../assets/styles/fonts.scss';
+@import '../../../assets/styles/mixins.scss';
 
 .textblock-container {
   width: 100vw;
@@ -18,5 +19,8 @@
     font-style: italic;
     font-size: 2rem;
     font-weight: 300;
+    @include responsive('small') {
+      font-size: 1.5rem;
+    }
   }
 }

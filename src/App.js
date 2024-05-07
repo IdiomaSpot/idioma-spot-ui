@@ -19,6 +19,7 @@ function App() {
       <MenuBar />
       <MainBanner />
       <PromosSection />
+
       <AdvantagesSection />
       <WhyUsSection />
       <TextBlock text={text['phrase']} />

@@ -32,7 +32,7 @@ const Advantage = ({ id, title, text, changeColor, icon }) => {
 };
 
 Advantage.propTypes = {
-  id: PropTypes.number,
+  id: PropTypes.string,
   title: PropTypes.string,
   text: PropTypes.string,
   changeColor: PropTypes.bool,
