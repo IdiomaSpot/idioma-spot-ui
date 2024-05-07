@@ -25,7 +25,7 @@ const TextBlock = ({ text }) => {
   return (
     <div className='textblock-container'>
       <Container>
-        <motion.span>{displayText}</motion.span>
+        <motion.span className='text-container'>{displayText}</motion.span>
       </Container>
     </div>
   );

@@ -23,6 +23,7 @@ const WhyUsSection = () => {
         <Grid container spacing={2}>
           <Grid item xs={12} lg={6}>
             <motion.div
+              className='fading-text'
               initial='offscreen'
               whileInView='onscreen'
               viewport={{ amount: 0.5 }}
