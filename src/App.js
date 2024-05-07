@@ -3,6 +3,7 @@ import {
   AdvantagesSection,
   InfoFooter,
   MainBanner,
+  MenuBar,
   Methodology,
   MissionVision,
   PromosSection,
@@ -14,6 +15,7 @@ import text from './data/constants.json';
 function App() {
   return (
     <div className='App'>
+      <MenuBar />
       <MainBanner />
       <PromosSection />
       <AdvantagesSection />

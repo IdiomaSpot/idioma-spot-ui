@@ -4,7 +4,7 @@ import { Container, Grid } from '@mui/material';
 
 export default function MissionVision() {
     return <>
-        <section className='mission-vision'>
+        <section id='mission-vision-section' className='mission-vision'>
             <Container maxWidth='lg' className='mission-vision-container'>
                 <Grid container spacing={2}>
                     <Grid item xs={12} lg={6}>

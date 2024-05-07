@@ -58,6 +58,7 @@ export default function MainBanner() {
         pagination-clickable='true'
         navigation='false'
         class='main-banner'
+        id='main-banner'
       >
         <swiper-slide>
           <IdiomaSpotStep />

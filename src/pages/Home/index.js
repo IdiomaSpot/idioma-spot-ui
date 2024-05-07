@@ -5,6 +5,7 @@ import WhyUsSection from './WhyUs/WhyUsSection';
 import Methodology from './Methodology/Methodology';
 import MissionVision from './MissionVision/MissionVision';
 import InfoFooter from './InfoFooter/InfoFooter';
+import MenuBar from './MenuBar/MenuBar';
 
 export {
   AdvantagesSection,
@@ -14,4 +15,5 @@ export {
   Methodology,
   MissionVision,
   InfoFooter,
+  MenuBar,
 };

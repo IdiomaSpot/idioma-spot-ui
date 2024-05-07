@@ -29,7 +29,7 @@ const AdvantagesSection = ({ title, array }) => {
     });
   };
   return (
-    <div className='advantages-section'>
+    <div id='advantages-section' className='advantages-section'>
       <Container maxWidth='lg'>
         <div className='advantages-title'>
           <h1>{title}</h1>

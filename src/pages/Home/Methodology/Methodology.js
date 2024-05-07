@@ -38,7 +38,7 @@ Methodology.propTypes = {
 export default function Methodology() {
 
     return <>
-        <section className='methodology-section'>
+        <section id='methodology-section' className='methodology-section'>
             <Container maxWidth="sm">
                 <h1>METODOLOGIA IDIOMA SPOT</h1>
                 <p>Nuestro programa académico <b>IIS</b> está enfocado en las necesidades de nuestros estudiantes,

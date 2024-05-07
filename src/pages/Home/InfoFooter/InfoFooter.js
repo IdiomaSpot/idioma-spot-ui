@@ -3,7 +3,8 @@ import './InfoFooter.scss';
 
 const InfoFooter = () => {
   return (
-    <footer>
+    <footer id='contact-section'>
+      <h3>CONTACTANOS</h3>
       <ul className='contact-info-list'>
         <li className='phone'>
           <b>Phone:</b>{' '}
