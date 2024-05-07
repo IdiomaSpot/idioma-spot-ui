@@ -8,6 +8,7 @@ import {
   MissionVision,
   PromosSection,
   WhyUsSection,
+  FacebookFAB,
 } from './pages/Home';
 import { TextBlock } from './components/ui';
 import text from './data/constants.json';
@@ -24,6 +25,7 @@ function App() {
       <MissionVision />
       <Methodology />
       <InfoFooter />
+      <FacebookFAB />
     </div>
   );
 }
