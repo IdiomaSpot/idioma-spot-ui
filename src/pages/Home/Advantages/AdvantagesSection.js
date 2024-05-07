@@ -19,6 +19,7 @@ const AdvantagesSection = ({ title, array }) => {
 
       return (
         <Advantage
+          key={index}
           id={`advantage-${index}`}
           title={text1}
           text={text2}

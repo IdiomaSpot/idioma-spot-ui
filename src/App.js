@@ -15,6 +15,7 @@ function App() {
     <div className='App'>
       <MainBanner />
       <PromosSection />
+
       <AdvantagesSection />
       <WhyUsSection />
       <TextBlock text={text['phrase']} />
