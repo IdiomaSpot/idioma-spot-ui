@@ -8,8 +8,8 @@ const InfoFooter = () => {
       <ul className='contact-info-list'>
         <li className='phone'>
           <b>Phone:</b>{' '}
-          <a className='link-color' href='tel:2225257987'>
-            2225257987
+          <a className='link-color' href='tel:2214255638'>
+            2214255638
           </a>
         </li>
         <li className='email'>
@@ -20,8 +20,8 @@ const InfoFooter = () => {
         </li>
         <li className='whatsapp'>
           <b>Whatsapp:</b>{' '}
-          <a className='link-color' href='https://wa.me/2225257987'>
-            2225257987
+          <a className='link-color' href='https://wa.me/2214255638' target='_blank' rel='noreferrer'>
+            2214255638
           </a>
         </li>
       </ul>
