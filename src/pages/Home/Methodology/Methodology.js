@@ -1,54 +1,62 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-//import Grid from '@mui/material/Grid';
-import Container from "@mui/material/Container";
+import Grid from '@mui/material/Grid';
 import './Methodology.scss';
+import methodology from '../../../data/methodology.json';
+import CampaignIcon from '@mui/icons-material/Campaign';
+import GroupIcon from '@mui/icons-material/Group';
+import FamilyRestroomIcon from '@mui/icons-material/FamilyRestroom';
+import LocalLibraryIcon from '@mui/icons-material/LocalLibrary';
+import { Box } from '@mui/material';
 
-/*const MethodologyItem = ({ icon, title, description }) => {
-    return <>
-        <div className='methodology-item-container'>
-            <Grid container xs={12} md={4} lg={3} spacing={2}>
-                <Grid item xs={3}>
-                    <span>icon</span>
-                </Grid>
-                <Grid item xs={9}>
-                    <Grid container
-                        direction="column"
-                        justifyContent="flex-start"
-                        alignItems="flex-start">
-                    </Grid>
-                    <Grid item xs={3}>
-                        <span>title</span>
-                    </Grid>
-                    <Grid item xs={6}>
-                        <span>text</span>
-                    </Grid>
-                </Grid>
-            </Grid>
-        </div>
+const MethodologyItem = ({ icon, title, description }) => {
+  return (
+    <>
+      <Grid item xs={3} md={1}>
+        <span className='icon'>{icon}</span>
+      </Grid>
+      <Grid item xs={7} md={2}>
+        <Box container direction='column' className='methodology-content'>
+          <Grid item>
+            <h2 className='text'>{title}</h2>
+          </Grid>
+          <Grid item>
+            <span className='text'>{description}</span>
+          </Grid>
+        </Box>
+      </Grid>
     </>
-}*/
+  );
+};
 
-Methodology.propTypes = {
-    icon: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired,
-    description: PropTypes.string.isRequired,
+MethodologyItem.propTypes = {
+  icon: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
 };
 
 export default function Methodology() {
-
-    return <>
-        <section id='methodology-section' className='methodology-section'>
-            <Container maxWidth="sm">
-                <h1>METODOLOGIA IDIOMA SPOT</h1>
-                <p>Nuestro programa académico <b>IIS</b> está enfocado en las necesidades de nuestros estudiantes,
-                    con las metodologías educativas de vanguardia aprenderás de manera interactiva, intuitiva y sinérgica</p>
-
-
-                {/*<MethodologyItem icon={''} description={''} title={''}></MethodologyItem>*/}
-
-            </Container>
-        </section>
+  const titles = Object.keys(methodology);
+  const icons = [
+    <CampaignIcon fontSize='large' />,
+    <GroupIcon fontSize='large' />,
+    <FamilyRestroomIcon fontSize='large' />,
+    <LocalLibraryIcon fontSize='large' />,
+  ];
+  return (
+    <>
+      <section id='methodology-section' className='methodology-section'>
+        <h1>METODOLOGIA IDIOMA SPOT</h1>
+        <Grid container xs={12}>
+          {titles.map((title, index) => (
+            <MethodologyItem
+              icon={icons[index]}
+              description={methodology[title]}
+              title={title}
+            />
+          ))}
+        </Grid>
+      </section>
     </>
-
+  );
 }
