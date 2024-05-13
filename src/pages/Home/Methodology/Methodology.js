@@ -7,7 +7,7 @@ import CampaignIcon from '@mui/icons-material/Campaign';
 import GroupIcon from '@mui/icons-material/Group';
 import FamilyRestroomIcon from '@mui/icons-material/FamilyRestroom';
 import LocalLibraryIcon from '@mui/icons-material/LocalLibrary';
-import { Box } from '@mui/material';
+import { Box, Container } from '@mui/material';
 
 const MethodologyItem = ({ icon, title, description }) => {
   return (
@@ -16,7 +16,7 @@ const MethodologyItem = ({ icon, title, description }) => {
         <span className='icon'>{icon}</span>
       </Grid>
       <Grid item xs={7} md={2}>
-        <Box container direction='column' className='methodology-content'>
+        <Box container direction='column' className='methodology-text'>
           <Grid item>
             <h2 className='text'>{title}</h2>
           </Grid>
@@ -45,9 +45,13 @@ export default function Methodology() {
   ];
   return (
     <>
-      <section id='methodology-section' className='methodology-section'>
+      <Container
+        id='methodology-section'
+        className='methodology-section'
+        maxWidth='lg'
+      >
         <h1>METODOLOGIA IDIOMA SPOT</h1>
-        <Grid container xs={12}>
+        <Box component={Grid} container xs={12} className='methodology-content'>
           {titles.map((title, index) => (
             <MethodologyItem
               icon={icons[index]}
@@ -55,8 +59,8 @@ export default function Methodology() {
               title={title}
             />
           ))}
-        </Grid>
-      </section>
+        </Box>
+      </Container>
     </>
   );
 }

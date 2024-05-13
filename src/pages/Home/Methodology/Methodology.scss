@@ -5,8 +5,10 @@
 
 .methodology-section {
   background-color: white;
-  padding-top: 3em;
-  padding-bottom: 3em;
+  padding: 3em 0 !important;
+  & .methodology-content {
+    padding: 2em 0;
+  }
 }
 h2 {
   margin: 0;
@@ -15,7 +17,7 @@ h2 {
   color: $cyan-cyan-dark;
 }
 
-.methodology-content {
+.methodology-text {
   text-align: left !important;
   color: $light-gray;
   padding-bottom: 1rem;
