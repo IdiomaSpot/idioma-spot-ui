@@ -10,8 +10,10 @@
     padding: 2em 0;
   }
 }
+
 h2 {
   margin: 0;
+  font-size: 1.7em;
 }
 .icon {
   color: $cyan-cyan-dark;
@@ -26,4 +28,8 @@ h2 {
   -webkit-hyphens: auto;
   -moz-hyphens: auto;
   hyphens: auto;
+  font-size: 1.1em;
+  .text-title {
+    padding-bottom: 0.25em;
+  }
 }

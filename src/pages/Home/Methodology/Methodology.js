@@ -18,7 +18,7 @@ const MethodologyItem = ({ icon, title, description }) => {
       <Grid item xs={7} md={2}>
         <Box container direction='column' className='methodology-text'>
           <Grid item>
-            <h2 className='text'>{title}</h2>
+            <h2 className='text-title text'>{title}</h2>
           </Grid>
           <Grid item>
             <span className='text'>{description}</span>

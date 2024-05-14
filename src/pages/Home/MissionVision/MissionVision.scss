@@ -1,52 +1,62 @@
 @import '/src/assets/styles/mixins.scss';
 @import '/src/assets/styles/variables.scss';
 
-
 .mission-vision {
-    width: 100vw;
-    height: 80vh;
-    background-image: url('../../../assets/img/missionvision.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    background-color: #C7D4EE;
+  width: 100vw;
+  height: 80vh;
+  background-image: url('../../../assets/img/missionvision.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #c7d4ee;
+  color: #dfdfdf;
 
+  .mission-vision-container {
+    margin-left: auto;
+
+    .mission-vision-text {
+      background-color: rgba(0, 0, 0, 0.384);
+      padding: 0 1em;
+    }
+  }
+
+  @include titles(2em);
+
+  @include responsive('small') {
+    background-image: none;
+    background-color: #c7d4ee;
+    height: 45rem;
     .mission-vision-container {
-        margin-left: auto;
+      padding: 0 1em !important;
+      .MuiGrid-container {
+        width: auto !important;
+        margin: auto !important;
+      }
+    }
+  }
+
+  @include responsive('medium') {
+    background-image: none;
+    background-color: #c7d4ee;
+    height: 30rem;
+  }
+
+  @include responsive('large') {
+    .mission-vision-container {
+      padding: 3em;
     }
 
-    @include titles(2em);
+    @include titles(2.5em);
+  }
 
-    @include responsive('small') {
-        background-image: none;
-        background-color: #C7D4EE;
-    }
-
-    @include responsive('medium') {
-        background-image: none;
-        background-color: #C7D4EE;
-
-    }
-
-    @include responsive('large') {
-        .mission-vision-container {
-            margin-left: 10%;
-        }
-
-        @include titles(2.5em);
-
-    }
-
-
-    p {
-        text-align: start;
-        color: $light-gray;
-        line-height: 2em;
-        font-weight: 400;
-        font-size: 1.225em;
-        text-align: justify;
-    }
+  p {
+    text-align: start;
+    line-height: 2em;
+    font-weight: 400;
+    font-size: 1.225em;
+    text-align: justify;
+  }
 }
