@@ -8,7 +8,7 @@ import MissionVision from './MissionVision/MissionVision';
 import InfoFooter from './InfoFooter/InfoFooter';
 import FacebookFAB from './FacebookFAB/FacebookFAB';
 
-import { TextBlock } from '../../components/ui';
+import { TextBlock, Grades } from '../../components/ui';
 import text from '../../data/constants.json';
 
 const Home = () => (
@@ -18,6 +18,7 @@ const Home = () => (
     <Methodology />
     <AdvantagesSection />
     <WhyUsSection />
+    <Grades />
     <TextBlock text={text['phrase']} />
     <MissionVision />
     <InfoFooter />
