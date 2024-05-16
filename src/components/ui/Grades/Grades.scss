@@ -1,0 +1,40 @@
+@import '../../../assets/styles/fonts.scss';
+@import '../../../assets/styles/variables.scss';
+@import '../../../assets/styles/mixins.scss';
+
+.font-OnLive {
+  font-family: 'Shrikhand', serif;
+}
+.font-Teens {
+  font-family: 'Seymour One', sans-serif;
+}
+.font-KIDS {
+  font-family: 'Comic Sans MS', 'Comic Sans', cursive;
+}
+.font-Just-Speak {
+  font-family: 'Norwester', sans-serif;
+}
+
+.grades-item-container {
+  border-radius: 2.5rem;
+  padding: 8em 0 !important;
+  width: 100%;
+  .card-container {
+    background-image: radial-gradient($light-cyan, $dark-blue);
+    color: whitesmoke !important;
+    border-radius: 2.3rem;
+    margin-bottom: 1em;
+    .card-body {
+      text-align: left;
+    }
+    .text-schedule {
+      width: 100%;
+    }
+  }
+  .text-container {
+    height: 9em;
+  }
+  @include responsive('small') {
+    padding: 3em 0 !important;
+  }
+}
