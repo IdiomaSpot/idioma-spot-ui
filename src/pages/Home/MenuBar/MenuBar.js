@@ -16,6 +16,7 @@ const pages = [
   { name: 'Promociones', target: 'promos-section' },
   { name: 'Ventajas', target: 'advantages-section' },
   { name: '¿Por qué IS?', target: 'whyus-section' },
+  { name: 'Clases', target: 'offers-section' },
   { name: 'Misión y Visión', target: 'mission-vision-section' },
   { name: 'Metodología IIS', target: 'methodology-section' },
   { name: 'Contacto', target: 'contact-section' },
