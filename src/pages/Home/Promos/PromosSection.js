@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import './PromosSection.scss';
 import { Box, Button, Container, Grid } from '@mui/material';
 import imagePromoUrl from '../../../assets/img/promoImg2.png';
+import { Link } from 'react-router-dom';
 
 const PromosSection = ({ title, text, imgUrl }) => {
   return (
@@ -19,7 +20,9 @@ const PromosSection = ({ title, text, imgUrl }) => {
             <h1 className='promos-title'>{title}</h1>
             <div className='promos-text space-between'>{text}</div>
             <Button className='promos-button' size='large' variant='contained'>
-              REGISTRARSE
+              <Link to='/signup' className='button-text'>
+                REGISTRARSE
+              </Link>
             </Button>
           </Box>
           <Box
