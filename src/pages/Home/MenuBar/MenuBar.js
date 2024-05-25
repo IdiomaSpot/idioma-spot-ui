@@ -12,6 +12,7 @@ import MenuItem from '@mui/material/MenuItem';
 import { Drawer } from '@mui/material';
 import logoText from '../../../assets/img/logo-text-white.png';
 import SignMenu from '../../../components/ui/SignMenu/SignMenu';
+import { useSelector } from 'react-redux';
 
 const pages = [
   { name: 'Inicio', target: 'main-banner' },
@@ -26,6 +27,7 @@ const pages = [
 
 function MenuBar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
+  const user = useSelector((state) => state.user);
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -102,7 +104,6 @@ function MenuBar() {
                 className='logo-img-small'
                 alt='IdomaSpot'
                 src={logoText}
-                noWrap
                 sx={{
                   mr: 2,
                   display: { xs: 'flex', md: 'none' },
@@ -141,8 +142,8 @@ function MenuBar() {
                 {page.name}
               </Button>
             ))}
-            <SignMenu />
           </Box>
+          <SignMenu user={user.data} />
         </Toolbar>
       </Container>
     </AppBar>

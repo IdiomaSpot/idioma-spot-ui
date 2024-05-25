@@ -1,12 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PersonIcon from '@mui/icons-material/Person';
 import { Avatar, IconButton, Menu, MenuItem } from '@mui/material';
 import './SignMenu.scss';
 import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { resetUser } from '../../../context/features/user/userSlice';
 
 const SignMenu = ({ user }) => {
-  const [anchorEl, setAnchorEl] = React.useState(null);
+  const [anchorEl, setAnchorEl] = useState(null);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
@@ -30,7 +33,8 @@ const SignMenu = ({ user }) => {
   };
   const handleLogout = () => {
     handleClose();
-    // clear sessionStorage and clear global state -> need redux
+    sessionStorage.clear();
+    dispatch(resetUser());
   };
 
   const signInMenu = () => (
@@ -67,7 +71,7 @@ const SignMenu = ({ user }) => {
           aria-expanded={open ? 'true' : undefined}
           onClick={handleClick}
         >
-          <Avatar alt={name} sx={{ width: 56, height: 56 }}>
+          <Avatar alt={name} sx={{ width: 40, height: 40 }}>
             {name}
           </Avatar>
         </IconButton>
@@ -77,20 +81,12 @@ const SignMenu = ({ user }) => {
           anchorEl={anchorEl}
           open={open}
           onClose={handleClose}
-          anchorOrigin={{
-            vertical: 'top',
-            horizontal: 'left',
-          }}
-          transformOrigin={{
-            vertical: 'top',
-            horizontal: 'left',
-          }}
         >
           <MenuItem onClick={handleProfile}>Pérfil</MenuItem>
           <MenuItem onClick={handleStudentDashboard}>
             Tablero de estudiantes
           </MenuItem>
-          <MenuItem onClick={handleLogout}>Cerrar Sesión</MenuItem>
+          <MenuItem onClick={handleLogout}>Cerrar sesión</MenuItem>
         </Menu>
       </div>
     );
