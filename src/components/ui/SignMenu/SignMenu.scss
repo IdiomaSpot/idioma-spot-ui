@@ -1,0 +1,14 @@
+@import '../../../assets/styles/variables.scss';
+
+.MuiMenu-list {
+  background-color: $dark-blue !important;
+  color: whitesmoke !important;
+}
+.sign-menu {
+  flex-grow: 1;
+  text-align: end;
+  align-content: center;
+  svg {
+    color: whitesmoke !important;
+  }
+}

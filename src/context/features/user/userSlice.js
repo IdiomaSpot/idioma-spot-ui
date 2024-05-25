@@ -3,34 +3,37 @@ import { createSlice } from '@reduxjs/toolkit';
 const user = sessionStorage.getItem('user');
 const token = sessionStorage.getItem('token');
 
+const initialUserData = () => {
+  return user
+    ? {
+        name: user?.name || '',
+        surname: user?.surname || '',
+        phone: user?.phone || '',
+        email: user?.email || '',
+      }
+    : null;
+};
+
 export const userSlice = createSlice({
   name: 'user',
   initialState: {
     token: token || null,
-    user: {
-      name: user?.name || '',
-      surname: user?.surname || '',
-      phone: user?.phone || '',
-      email: user?.email || '',
-    },
+    data: initialUserData(),
   },
   reducers: {
     saveToken: (state, action) => {
       state.token = action.payload;
     },
     saveUser: (state, action) => {
-      state.user.name = action.payload.name || '';
-      state.user.surname = action.payload.surname || '';
-      state.user.phone = action.payload.phone || '';
-      state.user.email = action.payload.email;
-      state.user.role = action.payload.role;
+      state.data.name = action.payload.name || '';
+      state.data.surname = action.payload.surname || '';
+      state.data.phone = action.payload.phone || '';
+      state.data.email = action.payload.email;
+      state.data.role = action.payload.role;
     },
     resetUser: (state) => {
-      state.user.name = '';
-      state.user.surname = '';
-      state.user.email = '';
-      state.user.phone = '';
-      state.user.role = '';
+      state.data = null;
+      state.token = null;
     },
   },
 });

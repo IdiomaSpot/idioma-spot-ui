@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import AdvantagesSection from './Advantages/AdvantagesSection';
 import PromosSection from './Promos/PromosSection';
 import MainBanner from './MainBanner/MainBanner';
@@ -8,22 +8,36 @@ import MissionVision from './MissionVision/MissionVision';
 import InfoFooter from './InfoFooter/InfoFooter';
 import FacebookFAB from './FacebookFAB/FacebookFAB';
 
-import { TextBlock, Grades } from '../../components/ui';
+import { TextBlock, Offers, LoadingLogo } from '../../components/ui';
 import text from '../../data/constants.json';
 
-const Home = () => (
-  <>
-    <MainBanner />
-    <PromosSection />
-    <Methodology />
-    <AdvantagesSection />
-    <WhyUsSection />
-    <Grades />
-    <TextBlock text={text['phrase']} />
-    <MissionVision />
-    <InfoFooter />
-    <FacebookFAB />
-  </>
-);
+const Home = () => {
+  const [isLoading, setIsLoading] = useState(true);
+  useEffect(() => {
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 1000);
+  }, []);
+
+  return (
+    <>
+      <LoadingLogo open={isLoading} />
+      {!isLoading && (
+        <>
+          <MainBanner />
+          <PromosSection />
+          <Methodology />
+          <AdvantagesSection />
+          <WhyUsSection />
+          <Offers />
+          <TextBlock text={text['phrase']} />
+          <MissionVision />
+          <InfoFooter />
+          <FacebookFAB />
+        </>
+      )}
+    </>
+  );
+};
 
 export default Home;
