@@ -1,5 +1,8 @@
 import React from 'react';
 import './InfoFooter.scss';
+import PhoneIcon from '@mui/icons-material/Phone';
+import EmailIcon from '@mui/icons-material/Email';
+import { AiOutlineWhatsApp } from 'react-icons/ai';
 
 const InfoFooter = () => {
   return (
@@ -7,22 +10,43 @@ const InfoFooter = () => {
       <h3>CONTACTANOS</h3>
       <ul className='contact-info-list'>
         <li className='phone'>
-          <b>Phone:</b>{' '}
-          <a className='link-color' href='tel:5658580066'>
-            56-58-58-00-66
-          </a>
+          <div className='list-container'>
+            <div>
+              <PhoneIcon fontSize='small' /> {'  '}
+              <span>Llamanos</span>
+            </div>
+            <span>221-425-56-38</span>
+            <span>565-858-00-66</span>
+          </div>
         </li>
         <li className='email'>
-          <b>Email:</b>{' '}
-          <a className='link-color' href='mailto:idiomaspot@gmail.com'>
-            idiomaspot@gmail.com
-          </a>
+          <div className='list-container'>
+            <div>
+              <EmailIcon fontSize='small' /> <span>Envíanos un e-mail</span>
+            </div>
+            <a className='link-color' href='mailto:idiomaspot@gmail.com'>
+              idiomaspot@gmail.com
+            </a>
+          </div>
         </li>
         <li className='whatsapp'>
-          <b>Whatsapp:</b>{' '}
-          <a className='link-color' href='https://wa.me/2214255638' target='_blank' rel='noreferrer'>
-            22-14-25-56-38
-          </a>
+          <div className='list-container'>
+            <div>
+              <AiOutlineWhatsApp className='whatsapp-icon' /> Chatea con
+              nosotros
+            </div>
+            <a
+              className='link-color'
+              href='https://wa.me/2214255638'
+              target='_blank'
+              rel='noreferrer'
+            >
+              221-425-56-38
+            </a>
+            <a className='link-color' href='https://wa.me/5658580066'>
+              565-858-00-66
+            </a>
+          </div>
         </li>
       </ul>
     </footer>

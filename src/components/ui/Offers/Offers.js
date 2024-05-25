@@ -1,5 +1,5 @@
 import React from 'react';
-import './Grades.scss';
+import './Offers.scss';
 import {
   Card,
   CardActionArea,
@@ -11,7 +11,7 @@ import {
   Grid,
   Typography,
 } from '@mui/material';
-import gradeTypes from '../../../data/gradeTypes.json';
+import offerTypes from '../../../data/offerTypes.json';
 import onlive from '../../../assets/img/onlive.jpg';
 import teens from '../../../assets/img/teens.jpg';
 import justSpeak from '../../../assets/img/just-speak.jpg';
@@ -24,7 +24,7 @@ const images = {
   'Just-Speak': justSpeak,
 };
 
-const card = (gradeType, body, image) => {
+const card = (offerType, body, image) => {
   return (
     <Card
       sx={{ width: 280, minWidth: 280, height: 450 }}
@@ -35,7 +35,7 @@ const card = (gradeType, body, image) => {
           title={
             <Typography variant='h5'>
               IdiomaSpot{' '}
-              <span className={`font-${gradeType}`}>{gradeType}</span>
+              <span className={`font-${offerType}`}>{offerType}</span>
             </Typography>
           }
         />
@@ -59,10 +59,14 @@ const card = (gradeType, body, image) => {
 };
 
 const Grades = () => (
-  <Container className='grades-item-container' maxWidth='lg'>
+  <Container
+    id='offers-section'
+    className='offers-item-container'
+    maxWidth='lg'
+  >
     <Grid container spacing={1} direction='row'>
-      {gradeTypes.map((grade, index) => {
-        const { gradeType, body } = grade;
+      {offerTypes.map((offer, index) => {
+        const { offerType, body } = offer;
         const htmlBody = (
           <div
             className='Container text-container'
@@ -79,11 +83,11 @@ const Grades = () => (
             display={'flex'}
             justifyContent='center'
             alignItems='center'
-            key={gradeType}
+            key={offerType}
           >
-            {card(gradeType, htmlBody, {
-              img: images[gradeType],
-              alt: gradeType,
+            {card(offerType, htmlBody, {
+              img: images[offerType],
+              alt: offerType,
             })}
           </Grid>
         );

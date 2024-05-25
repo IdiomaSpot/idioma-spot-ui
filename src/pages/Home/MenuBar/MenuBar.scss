@@ -1,5 +1,32 @@
 @import '../../../assets/styles/variables.scss';
+@import '../../../assets/styles/mixins.scss';
 
+.MuiDrawer-paper {
+  background-color: $dark-blue !important;
+  color: white !important;
+}
 #menu-bar {
-    background-color: $dark-blue;
+  background-color: $dark-blue;
+
+  .logo-img-bigscreen {
+    width: 9vw;
+    padding: 0 1rem;
+    @include responsive('small') {
+      display: none;
+    }
+  }
+  .image-container {
+    width: 100%;
+    padding-right: 2rem;
+    height: 3rem;
+    .logo-img-small {
+      width: 6rem;
+    }
+    @include responsive('medium') {
+      display: none;
+    }
+    @include responsive('large') {
+      display: none;
+    }
+  }
 }

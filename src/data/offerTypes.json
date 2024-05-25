@@ -1,18 +1,18 @@
 [
   {
-    "gradeType": "OnLive",
+    "offerType": "OnLive",
     "body": "<div><i>Clases de inglés para adultos en vivo, cumple tu objetivo con <b>IdiomaSpot</b></i><ul><li>Lunes y Miércoles o Martes y Jueves</li><li>3 horas por semana</li><li>Speaking Plus mensual (1 hora)</li></ul></div>"
   },
   {
-    "gradeType": "Teens",
+    "offerType": "Teens",
     "body": "<div><i>Clases de inglés para adolescentes online</i><ul><li>Lunes y Miércoles o Martes y Jueves</li><li>3 horas por semana</li><li>Speaking Plus mensual (1 hora)</li></ul></div>"
   },
   {
-    "gradeType": "KIDS",
+    "offerType": "KIDS",
     "body": "<div><i>Clases de inglés para niños adecuadas y divertidas para ellos</i><ul><li>Lunes y Miércoles o Martes y Jueves</li><li>3 horas por semana</li></ul></div>"
   },
   {
-    "gradeType": "Just-Speak",
+    "offerType": "Just-Speak",
     "body": "<div><i>Sesión con profesores en vivo, mejora tu pronunciación y dile adiós al miedo de hablar inglés</i><ul><li>Sábados (3 horas)</li></ul></div>"
   }
 ]

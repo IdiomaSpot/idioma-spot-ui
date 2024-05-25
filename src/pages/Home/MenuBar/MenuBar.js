@@ -10,6 +10,8 @@ import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
 import { Drawer } from '@mui/material';
+import logoText from '../../../assets/img/logo-text-white.png';
+import SignMenu from '../../../components/ui/SignMenu/SignMenu';
 
 const pages = [
   { name: 'Inicio', target: 'main-banner' },
@@ -43,22 +45,30 @@ function MenuBar() {
     <AppBar position='fixed' id='menu-bar'>
       <Container maxWidth='xl'>
         <Toolbar disableGutters>
-          <Typography
-            variant='h6'
-            noWrap
-            component='a'
-            sx={{
-              mr: 2,
-              display: { xs: 'none', md: 'flex' },
-              fontFamily: 'inherit',
-              fontWeight: 700,
-              letterSpacing: '.3rem',
-              color: 'inherit',
-              textDecoration: 'none',
-            }}
-          >
-            IdiomaSpot
-          </Typography>
+          {logoText ? (
+            <img
+              className='logo-img-bigscreen'
+              alt='IdomaSpot'
+              src={logoText}
+            />
+          ) : (
+            <Typography
+              variant='h6'
+              noWrap
+              component='a'
+              sx={{
+                mr: 2,
+                display: { xs: 'none', md: 'flex' },
+                fontFamily: 'inherit',
+                fontWeight: 700,
+                letterSpacing: '.3rem',
+                color: 'inherit',
+                textDecoration: 'none',
+              }}
+            >
+              IdiomaSpot
+            </Typography>
+          )}
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton
@@ -71,7 +81,11 @@ function MenuBar() {
             >
               <MenuIcon />
             </IconButton>
-            <Drawer open={Boolean(anchorElNav)} onClose={handleCloseNavMenu}>
+            <Drawer
+              className='side-menu'
+              open={Boolean(anchorElNav)}
+              onClose={handleCloseNavMenu}
+            >
               {pages.map((page) => (
                 <MenuItem
                   key={page.name}
@@ -82,24 +96,41 @@ function MenuBar() {
               ))}
             </Drawer>
           </Box>
-          <Typography
-            variant='h5'
-            noWrap
-            component='a'
-            href='#app-bar-with-responsive-menu'
-            sx={{
-              mr: 2,
-              display: { xs: 'flex', md: 'none' },
-              flexGrow: 1,
-              fontFamily: 'monospace',
-              fontWeight: 700,
-              letterSpacing: '.3rem',
-              color: 'inherit',
-              textDecoration: 'none',
-            }}
-          >
-            IdiomaSpot
-          </Typography>
+          {logoText ? (
+            <div className='image-container'>
+              <img
+                className='logo-img-small'
+                alt='IdomaSpot'
+                src={logoText}
+                noWrap
+                sx={{
+                  mr: 2,
+                  display: { xs: 'flex', md: 'none' },
+                  flexGrow: 1,
+                }}
+                href='#app-bar-with-responsive-menu'
+              />
+            </div>
+          ) : (
+            <Typography
+              variant='h5'
+              noWrap
+              component='a'
+              href='#app-bar-with-responsive-menu'
+              sx={{
+                mr: 2,
+                display: { xs: 'flex', md: 'none' },
+                flexGrow: 1,
+                fontFamily: 'monospace',
+                fontWeight: 700,
+                letterSpacing: '.3rem',
+                color: 'inherit',
+                textDecoration: 'none',
+              }}
+            >
+              IdiomaSpot
+            </Typography>
+          )}
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
               <Button
@@ -110,6 +141,7 @@ function MenuBar() {
                 {page.name}
               </Button>
             ))}
+            <SignMenu />
           </Box>
         </Toolbar>
       </Container>
