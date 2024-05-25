@@ -1,0 +1,36 @@
+@import '../../assets/styles/variables.scss';
+@import '../../assets/styles/mixins.scss';
+
+.signup {
+  background-image: linear-gradient(to right, $light-cyan, $dark-blue);
+  background-size: 200% 200%;
+  animation: gradientAnimation 5s infinite alternate;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  .signup-container {
+    width: 30vw;
+    padding: 1em 3em;
+    .signup-avatar {
+      border: medium solid $dark-blue !important;
+    }
+    @include responsive('small') {
+      width: 90vw;
+    }
+    @include responsive('medium') {
+      width: 70vw;
+    }
+  }
+}
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}

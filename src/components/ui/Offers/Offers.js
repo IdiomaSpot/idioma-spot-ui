@@ -58,7 +58,7 @@ const card = (offerType, body, image) => {
   );
 };
 
-const Grades = () => (
+const Offers = () => (
   <Container
     id='offers-section'
     className='offers-item-container'
@@ -96,7 +96,7 @@ const Grades = () => (
   </Container>
 );
 
-Grades.propTypes = {};
-Grades.defaultProps = {};
+Offers.propTypes = {};
+Offers.defaultProps = {};
 
-export default Grades;
+export default Offers;

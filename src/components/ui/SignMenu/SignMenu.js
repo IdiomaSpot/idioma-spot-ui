@@ -2,9 +2,12 @@ import React from 'react';
 import PersonIcon from '@mui/icons-material/Person';
 import { Avatar, IconButton, Menu, MenuItem } from '@mui/material';
 import './SignMenu.scss';
+import { useNavigate } from 'react-router-dom';
 
 const SignMenu = ({ user }) => {
   const [anchorEl, setAnchorEl] = React.useState(null);
+  const navigate = useNavigate();
+
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -20,6 +23,10 @@ const SignMenu = ({ user }) => {
   const handleStudentDashboard = () => {
     handleClose();
     // send to student dashboard -> I need router installed
+  };
+  const handleLogin = () => {
+    handleClose();
+    navigate('/login');
   };
   const handleLogout = () => {
     handleClose();
@@ -44,7 +51,7 @@ const SignMenu = ({ user }) => {
         open={open}
         onClose={handleClose}
       >
-        <MenuItem onClick={handleClose}>Inicia sesión</MenuItem>
+        <MenuItem onClick={handleLogin}>Inicia sesión</MenuItem>
       </Menu>
     </div>
   );

@@ -2,6 +2,7 @@ import React, { useRef } from 'react';
 import './MainBanner.scss';
 import { Button } from '@mui/material';
 import { motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 
 function IdiomaSpotStep() {
   return (
@@ -23,6 +24,7 @@ function IdiomaSpotStep() {
 }
 
 function RewardsStep() {
+  const navigate = useNavigate();
   return (
     <>
       <div className='banner-container step-2'>
@@ -34,9 +36,9 @@ function RewardsStep() {
           <Button
             className='idioma-spot-button'
             variant='contained'
-            href='https://docs.google.com/forms'
             target='_blank'
             size='large'
+            onClick={() => navigate('/signup')}
           >
             <span>REGISTRATE AHORA</span>
           </Button>
