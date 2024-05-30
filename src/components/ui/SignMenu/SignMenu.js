@@ -30,7 +30,6 @@ const SignMenu = ({ user }) => {
   const handleLogout = () => {
     handleClose();
     sessionStorage.clear();
-    console.log(sessionStorage);
     dispatch(resetUser());
     navigate('/login');
   };
@@ -92,7 +91,7 @@ const SignMenu = ({ user }) => {
       </div>
     );
   };
-  return user.email ? signedMenu() : signInMenu();
+  return user.token ? signedMenu() : signInMenu();
 };
 
 export default SignMenu;

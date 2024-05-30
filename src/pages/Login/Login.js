@@ -85,7 +85,6 @@ const Login = () => {
         sessionStorage.setItem('token', data.accessToken);
         sessionStorage.setItem('user', JSON.stringify(data.user));
         sessionStorage.setItem('bgcolor', randomColor);
-        console.log(sessionStorage);
         navigate('/student');
       }
     }
