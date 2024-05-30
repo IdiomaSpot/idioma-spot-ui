@@ -70,7 +70,7 @@ const Signup = () => {
           case 409:
             setNotification({
               type: 'error',
-              message: 'El correo electrónico proporcionado ya está reistrado.',
+              message: 'El correo electrónico proporcionado ya está registrado.',
               open: true,
             });
             break;
