@@ -7,7 +7,8 @@ import Copyright from './Copyright/Copyright';
 import Notification from './Notification/Notification';
 import LoadingPage from './LoadingPage/LoadingPage';
 import PasswordInput from './PasswordInput/PasswordInput';
-
+import SideMenu from './SideMenu/SideMenu';
+import SideMenuOption from './SideMenu/SideMenuOption';
 export {
   Copyright,
   LoadingLogo,
@@ -18,4 +19,6 @@ export {
   ScrollTopButton,
   SignMenu,
   TextBlock,
+  SideMenu,
+  SideMenuOption,
 };

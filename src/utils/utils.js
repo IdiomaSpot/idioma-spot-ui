@@ -28,5 +28,4 @@ const getAdvantagesIcon = (icon) => {
       return <AnalyticsIcon fontSize='large' className='Advantage-icon' />;
   }
 };
-
 export default getAdvantagesIcon;

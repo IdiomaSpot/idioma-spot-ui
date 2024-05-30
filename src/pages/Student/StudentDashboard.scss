@@ -1,0 +1,8 @@
+.student-dashboard {
+  & .bar-menu {
+    & svg {
+      color: white !important;
+      width: 100%;
+    }
+  }
+}
