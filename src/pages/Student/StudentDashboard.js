@@ -26,7 +26,7 @@ const StudentDashboard = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (!user?.token) {
+    if (!user?.token && user.role === 'student') {
       navigate('/login');
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
