@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
 import './Signup.scss';
 import {
   Avatar,
@@ -31,7 +30,6 @@ const Signup = () => {
   });
   const [phone, setPhone] = useState('');
   const navigate = useNavigate();
-  const dispatch = useDispatch();
 
   const someEmpty = (dataForm) =>
     dataForm.get('email').length === 0 ||
@@ -68,11 +66,22 @@ const Signup = () => {
   useEffect(() => {
     if (!isLoading) {
       if (hasError) {
-        setNotification({
-          type: 'error',
-          message: 'Ocurrió un error, intente de nuevo más tarde.',
-          open: true,
-        });
+        switch (errorMessage.status) {
+          case 409:
+            setNotification({
+              type: 'error',
+              message: 'El correo electrónico proporcionado ya está reistrado.',
+              open: true,
+            });
+            break;
+          default:
+            setNotification({
+              type: 'error',
+              message: 'Ocurrió un error, intente de nuevo más tarde.',
+              open: true,
+            });
+            break;
+        }
       } else if (data) {
         setNotification({
           type: 'success',
@@ -82,7 +91,7 @@ const Signup = () => {
         navigate('/login');
       }
     }
-  }, [isLoading, hasError, errorMessage, data, dispatch, navigate]);
+  }, [isLoading, hasError, errorMessage, data, navigate]);
 
   const handleClose = (event, reason) => {
     if (reason === 'clickaway') {

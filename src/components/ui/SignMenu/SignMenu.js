@@ -19,13 +19,9 @@ const SignMenu = ({ user }) => {
     setAnchorEl(null);
   };
 
-  const handleProfile = () => {
-    handleClose();
-    // would it even be a profile page???
-  };
   const handleStudentDashboard = () => {
     handleClose();
-    // send to student dashboard -> I need router installed
+    navigate('/student');
   };
   const handleLogin = () => {
     handleClose();
@@ -34,7 +30,9 @@ const SignMenu = ({ user }) => {
   const handleLogout = () => {
     handleClose();
     sessionStorage.clear();
+    console.log(sessionStorage);
     dispatch(resetUser());
+    navigate('/login');
   };
 
   const signInMenu = () => (
@@ -61,7 +59,7 @@ const SignMenu = ({ user }) => {
   );
 
   const signedMenu = () => {
-    const { name } = user;
+    const { name, surname } = user;
     return (
       <div className='sign-menu'>
         <IconButton
@@ -71,8 +69,12 @@ const SignMenu = ({ user }) => {
           aria-expanded={open ? 'true' : undefined}
           onClick={handleClick}
         >
-          <Avatar alt={name} sx={{ width: 40, height: 40 }}>
-            {name}
+          <Avatar
+            className='sign-menu__avatar'
+            alt={name}
+            sx={{ width: 40, height: 40, bgcolor: user.color }}
+          >
+            {name.charAt(0) + surname.charAt(0)}
           </Avatar>
         </IconButton>
         <Menu
@@ -82,7 +84,6 @@ const SignMenu = ({ user }) => {
           open={open}
           onClose={handleClose}
         >
-          <MenuItem onClick={handleProfile}>Pérfil</MenuItem>
           <MenuItem onClick={handleStudentDashboard}>
             Tablero de estudiantes
           </MenuItem>
@@ -91,7 +92,7 @@ const SignMenu = ({ user }) => {
       </div>
     );
   };
-  return user ? signedMenu() : signInMenu();
+  return user.email ? signedMenu() : signInMenu();
 };
 
 export default SignMenu;
