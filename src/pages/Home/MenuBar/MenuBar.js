@@ -143,7 +143,7 @@ function MenuBar() {
               </Button>
             ))}
           </Box>
-          <SignMenu user={user.data} />
+          <SignMenu user={user} />
         </Toolbar>
       </Container>
     </AppBar>

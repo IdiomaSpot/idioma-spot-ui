@@ -1,42 +1,43 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-const user = sessionStorage.getItem('user');
+const user = JSON.parse(sessionStorage.getItem('user'));
 const token = sessionStorage.getItem('token');
-
-const initialUserData = () => {
-  return user
-    ? {
-        name: user?.name || '',
-        surname: user?.surname || '',
-        phone: user?.phone || '',
-        email: user?.email || '',
-      }
-    : null;
-};
+const randomColor = sessionStorage.getItem('bgcolor');
 
 export const userSlice = createSlice({
   name: 'user',
   initialState: {
-    token: token || 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiYWRtaW4iLCJzdXJuYW1lIjoiYWRtaW4iLCJpZCI6MSwicm9sZSI6ImFkbWluIiwiZW1haWwiOiJlbWFpbEBlbWFpbC5jb20iLCJpYXQiOjE3MTcwMTQ2MTksImV4cCI6MTcxNzA1NzgxOX0._XGLrTylIiOGY7qKoXSsie9B1FyOKlUFtvECWiuHVD0',
-    data: initialUserData(),
+    token: token || null,
+    name: user?.name || null,
+    surname: user?.surname || null,
+    phone: user?.phone || null,
+    email: user?.email || null,
+    color: randomColor || null,
   },
   reducers: {
     saveToken: (state, action) => {
       state.token = action.payload;
     },
     saveUser: (state, action) => {
-      state.data.name = action.payload.name || '';
-      state.data.surname = action.payload.surname || '';
-      state.data.phone = action.payload.phone || '';
-      state.data.email = action.payload.email;
-      state.data.role = action.payload.role;
+      state.name = action.payload.name || '';
+      state.surname = action.payload.surname || '';
+      state.phone = action.payload.phone || '';
+      state.email = action.payload.email;
+      state.role = action.payload.role;
+    },
+    saveUserColor: (state, action) => {
+      state.color = action.payload;
     },
     resetUser: (state) => {
-      state.data = null;
       state.token = null;
+      state.name = null;
+      state.surname = null;
+      state.phone = null;
+      state.email = null;
     },
   },
 });
 
-export const { saveToken, saveUser, resetUser } = userSlice.actions;
+export const { saveToken, saveUser, saveUserColor, resetUser } =
+  userSlice.actions;
 export default userSlice.reducer;

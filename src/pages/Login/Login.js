@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { saveToken, saveUser } from '../../context/features/user/userSlice';
+import {
+  saveToken,
+  saveUser,
+  saveUserColor,
+} from '../../context/features/user/userSlice';
 import './Login.scss';
 import {
   Avatar,
@@ -75,8 +79,12 @@ const Login = () => {
             role,
           })
         );
+        const randomColor =
+          '#' + (((1 << 24) * Math.random()) | 0).toString(16);
+        dispatch(saveUserColor(randomColor));
         sessionStorage.setItem('token', data.accessToken);
         sessionStorage.setItem('user', JSON.stringify(data.user));
+        sessionStorage.setItem('bgcolor', randomColor);
         navigate('/student');
       }
     }

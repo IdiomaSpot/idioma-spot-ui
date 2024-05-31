@@ -3,7 +3,12 @@ import PropTypes from 'prop-types';
 import { Alert, Snackbar } from '@mui/material';
 
 const Notification = ({ type, text, open, onClose }) => (
-  <Snackbar open={open} autoHideDuration={6000} onClose={onClose}>
+  <Snackbar
+    open={open}
+    autoHideDuration={6000}
+    onClose={onClose}
+    anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
+  >
     <Alert
       onClose={onClose}
       severity={type}
