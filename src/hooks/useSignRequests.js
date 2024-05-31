@@ -13,7 +13,7 @@ const useSignRequest = (initialRequest = {}) => {
         options: {
           mode: 'cors',
           method: 'post',
-          headers: new Headers(HEADERS),
+          headers: HEADERS,
           body: JSON.stringify({
             email,
             password,

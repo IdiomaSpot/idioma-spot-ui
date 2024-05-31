@@ -10,12 +10,12 @@ import {
 } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import { SideMenu, SignMenu } from '../../components/ui';
-import ScheduleContent from './ScheduleContent/SchedulesContent';
 import PaymentContent from './PaymentContent/PaymentContent';
 import HomeContent from './HomeContent/HomeContent';
 import menuOptions from '../../data/studentsMenu';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import Enrollment from '../Student/Enrollment/Enrollment';
 
 const drawerWidth = 240;
 
@@ -35,7 +35,7 @@ const StudentDashboard = () => {
   const getContent = (type) => {
     switch (type) {
       case 'schedule':
-        return <ScheduleContent />;
+        return <Enrollment />;
       case 'payment':
         return <PaymentContent />;
       default:

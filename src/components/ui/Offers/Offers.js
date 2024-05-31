@@ -16,6 +16,7 @@ import onlive from '../../../assets/img/onlive.jpg';
 import teens from '../../../assets/img/teens.jpg';
 import justSpeak from '../../../assets/img/just-speak.jpg';
 import kids from '../../../assets/img/kids.jpg';
+import PropTypes from 'prop-types';
 
 const images = {
   OnLive: onlive,
@@ -58,7 +59,7 @@ const card = (offerType, body, image) => {
   );
 };
 
-const Offers = () => (
+const Offers = ({ handleNext, responsiveValues }) => (
   <Container
     id='offers-section'
     className='offers-item-container'
@@ -76,14 +77,15 @@ const Offers = () => (
         return (
           <Grid
             item
-            xs={12}
-            sm={6}
-            md={6}
-            lg={3}
+            xs={responsiveValues.xs}
+            sm={responsiveValues.sm}
+            md={responsiveValues.md}
+            lg={responsiveValues.lg}
             display={'flex'}
             justifyContent='center'
             alignItems='center'
             key={offerType}
+            onClick={() => handleNext ? handleNext(offer) : console.log(offer)}
           >
             {card(offerType, htmlBody, {
               img: images[offerType],
@@ -96,7 +98,19 @@ const Offers = () => (
   </Container>
 );
 
-Offers.propTypes = {};
-Offers.defaultProps = {};
+Offers.propTypes = {
+  handleNext: Function,
+  responsiveValues: {
+    xs: PropTypes.number,
+    sm: PropTypes.number,
+    md: PropTypes.number,
+    lg: PropTypes.number
+  },
+};
+
+Offers.defaultProps = {
+  handleNext: undefined,
+  responsiveValues: { xs: 12, sm: 6, md: 6, lg: 3 }
+};
 
 export default Offers;
