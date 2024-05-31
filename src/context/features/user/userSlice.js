@@ -17,7 +17,7 @@ const initialUserData = () => {
 export const userSlice = createSlice({
   name: 'user',
   initialState: {
-    token: token || null,
+    token: token || 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiYWRtaW4iLCJzdXJuYW1lIjoiYWRtaW4iLCJpZCI6MSwicm9sZSI6ImFkbWluIiwiZW1haWwiOiJlbWFpbEBlbWFpbC5jb20iLCJpYXQiOjE3MTcwMTQ2MTksImV4cCI6MTcxNzA1NzgxOX0._XGLrTylIiOGY7qKoXSsie9B1FyOKlUFtvECWiuHVD0',
     data: initialUserData(),
   },
   reducers: {

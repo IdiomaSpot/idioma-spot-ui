@@ -1,4 +1,6 @@
 import { useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
+
 
 const useFetch = (initialUrl = '', initialOptions = {}) => {
   const [fetchingData, setFetch] = useState({
@@ -9,12 +11,18 @@ const useFetch = (initialUrl = '', initialOptions = {}) => {
   const [isLoading, setIsLoading] = useState(false);
   const [hasError, setHasError] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
+  const userToken = useSelector((state) => state.user.token);
+
 
   useEffect(() => {
     if (!fetchingData.url) return;
     const fetchData = async () => {
       setIsLoading(true);
       try {
+        //Add Authorization Bearer
+        if (fetchingData?.options?.headers)
+          fetchingData.options.headers = { ...fetchingData.options.headers, 'Authorization': userToken ? `Bearer ${userToken}` : undefined };
+
         const response = await fetch(fetchingData.url, fetchingData.options);
         const result = await response.json();
         if (response.ok) {
@@ -32,7 +40,7 @@ const useFetch = (initialUrl = '', initialOptions = {}) => {
       }
     };
     fetchData();
-  }, [fetchingData.url, fetchingData.options]);
+  }, [fetchingData, userToken]);
 
   return [{ data, isLoading, hasError, errorMessage }, setFetch];
 };
