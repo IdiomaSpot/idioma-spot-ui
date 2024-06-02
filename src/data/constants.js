@@ -1,5 +1,5 @@
 const IDIOMA_SPOT_API =
-  'https://bd15-2806-2f0-2180-21b8-64db-4ba2-bb0-d55f.ngrok-free.app/api';
+  'https://b12f-2806-269-4480-3b9-ac1c-22b-2788-2160.ngrok-free.app/api';
 
 const HEADERS = {
   'Accept': 'application/json',

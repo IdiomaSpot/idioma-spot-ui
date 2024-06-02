@@ -28,7 +28,7 @@ const images = {
 const card = (offerType, body, image) => {
   return (
     <Card
-      sx={{ width: 280, minWidth: 280, height: 450 }}
+      sx={{ width: 280, minWidth: 280, height: 'fit-content' }}
       className='card-container'
     >
       <CardActionArea>
