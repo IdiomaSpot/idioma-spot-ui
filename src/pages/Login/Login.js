@@ -82,10 +82,11 @@ const Login = () => {
         const randomColor =
           '#' + (((1 << 24) * Math.random()) | 0).toString(16);
         dispatch(saveUserColor(randomColor));
-        sessionStorage.setItem('token', data.accessToken);
-        sessionStorage.setItem('user', JSON.stringify(data.user));
-        sessionStorage.setItem('bgcolor', randomColor);
-        navigate('/student');
+        if (role === 'admin') {
+          navigate('/admin');
+        } else {
+          navigate('/student');
+        }
       }
     }
   }, [isLoading, hasError, errorMessage, data, navigate, dispatch]);

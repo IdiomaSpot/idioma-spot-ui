@@ -1,4 +1,6 @@
 import { useState, useEffect } from 'react';
+import { resetUser } from '../context/features/user/userSlice';
+import { useDispatch } from 'react-redux';
 
 const useFetch = (initialUrl = '', initialOptions = {}) => {
   const [fetchingData, setFetch] = useState({
@@ -9,6 +11,7 @@ const useFetch = (initialUrl = '', initialOptions = {}) => {
   const [isLoading, setIsLoading] = useState(false);
   const [hasError, setHasError] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
+  const dispatch = useDispatch();
 
   useEffect(() => {
     if (!fetchingData.url) return;
@@ -33,6 +36,12 @@ const useFetch = (initialUrl = '', initialOptions = {}) => {
     };
     fetchData();
   }, [fetchingData.url, fetchingData.options]);
+
+  useEffect(() => {
+    if (errorMessage?.status === 401) {
+      dispatch(resetUser());
+    }
+  }, [errorMessage, dispatch]);
 
   return [{ data, isLoading, hasError, errorMessage }, setFetch];
 };
