@@ -8,8 +8,9 @@ import { Provider } from 'react-redux';
 import {
   HomeContent,
   PaymentContent,
-  ScheduleContent,
+  Enrollment,
   StudentDashboard,
+  ClassesContent,
 } from './pages/Student';
 import { AdminDashboard } from './pages/Admin';
 import { AdminRoute, ProtectedRoute, StudentRoute } from './components/routes';
@@ -49,7 +50,8 @@ const router = createBrowserRouter([
       },
       { path: 'home', element: <HomeContent /> },
       { path: 'payment', element: <PaymentContent /> },
-      { path: 'schedule', element: <ScheduleContent /> },
+      { path: 'my-classes', element: <ClassesContent /> },
+      { path: 'enrollment', element: <Enrollment /> },
     ],
   },
   {

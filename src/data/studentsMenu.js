@@ -1,7 +1,6 @@
-import { RiCalendarScheduleLine } from 'react-icons/ri';
-import { RiContactsFill } from 'react-icons/ri';
 import { MdOutlinePayments } from 'react-icons/md';
 import { TiHome } from 'react-icons/ti';
+import { PiBookOpenTextDuotone } from 'react-icons/pi';
 
 const optionsMenu = [
   {
@@ -10,19 +9,14 @@ const optionsMenu = [
     icon: <TiHome />,
   },
   {
-    name: 'Horarios',
-    type: 'schedule',
-    icon: <RiCalendarScheduleLine />,
+    name: 'Mis clases',
+    type: 'my-classes',
+    icon: <PiBookOpenTextDuotone />,
   },
   {
     name: 'Pagos',
     type: 'payment',
     icon: <MdOutlinePayments />,
-  },
-  {
-    name: 'Contacto',
-    type: 'contact',
-    icon: <RiContactsFill />,
   },
 ];
 
