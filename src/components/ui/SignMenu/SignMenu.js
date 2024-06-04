@@ -19,9 +19,13 @@ const SignMenu = ({ user }) => {
     setAnchorEl(null);
   };
 
-  const handleStudentDashboard = () => {
+  const handleDashboard = (type) => {
     handleClose();
-    navigate('/student');
+    if (type === 'admin') {
+      navigate('/admin');
+    } else {
+      navigate('/student');
+    }
   };
   const handleLogin = () => {
     handleClose();
@@ -29,7 +33,6 @@ const SignMenu = ({ user }) => {
   };
   const handleLogout = () => {
     handleClose();
-    sessionStorage.clear();
     dispatch(resetUser());
     navigate('/login');
   };
@@ -58,7 +61,7 @@ const SignMenu = ({ user }) => {
   );
 
   const signedMenu = () => {
-    const { name, surname } = user;
+    const { name, surname, role } = user;
     return (
       <div className='sign-menu'>
         <IconButton
@@ -83,8 +86,12 @@ const SignMenu = ({ user }) => {
           open={open}
           onClose={handleClose}
         >
-          <MenuItem onClick={handleStudentDashboard}>
-            Tablero de estudiantes
+          <MenuItem
+            onClick={() => {
+              handleDashboard(role);
+            }}
+          >
+            {role === 'admin' ? 'Panel' : 'Tablero de estudiantes'}
           </MenuItem>
           <MenuItem onClick={handleLogout}>Cerrar sesión</MenuItem>
         </Menu>

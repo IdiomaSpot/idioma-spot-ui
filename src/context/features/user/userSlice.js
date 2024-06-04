@@ -1,8 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-const user = JSON.parse(sessionStorage.getItem('user'));
-const token = sessionStorage.getItem('token');
-const randomColor = sessionStorage.getItem('bgcolor');
+const user = JSON.parse(localStorage.getItem('user'));
+const token = localStorage.getItem('token');
+const randomColor = localStorage.getItem('bgcolor');
 
 export const userSlice = createSlice({
   name: 'user',
@@ -12,11 +12,13 @@ export const userSlice = createSlice({
     surname: user?.surname || null,
     phone: user?.phone || null,
     email: user?.email || null,
+    role: user?.role || null,
     color: randomColor || null,
   },
   reducers: {
     saveToken: (state, action) => {
       state.token = action.payload;
+      localStorage.setItem('token', action.payload);
     },
     saveUser: (state, action) => {
       state.name = action.payload.name || '';
@@ -24,9 +26,11 @@ export const userSlice = createSlice({
       state.phone = action.payload.phone || '';
       state.email = action.payload.email;
       state.role = action.payload.role;
+      localStorage.setItem('user', JSON.stringify(action.payload));
     },
     saveUserColor: (state, action) => {
       state.color = action.payload;
+      localStorage.setItem('bgcolor', action.payload);
     },
     resetUser: (state) => {
       state.token = null;
@@ -34,6 +38,8 @@ export const userSlice = createSlice({
       state.surname = null;
       state.phone = null;
       state.email = null;
+      state.role = null;
+      localStorage.clear();
     },
   },
 });

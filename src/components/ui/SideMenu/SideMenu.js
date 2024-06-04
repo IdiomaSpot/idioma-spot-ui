@@ -12,8 +12,10 @@ import {
 } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
 import SideMenuOption from './SideMenuOption';
+import { useNavigate } from 'react-router-dom';
 
 const SideMenu = ({ width, options, setSelectedContent, open, setOpen }) => {
+  const navigate = useNavigate();
   const getMenuContent = (s) => (
     <>
       <Toolbar>
@@ -49,6 +51,7 @@ const SideMenu = ({ width, options, setSelectedContent, open, setOpen }) => {
             icon={option.icon}
             onClick={() => {
               setSelectedContent(option);
+              navigate('/student/' + option.type);
               setOpen(false);
             }}
           />

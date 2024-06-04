@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
+import { resetUser } from '../context/features/user/userSlice';
+import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
-
 
 const useFetch = (initialUrl = '', initialOptions = {}) => {
   const [fetchingData, setFetch] = useState({
@@ -11,8 +12,8 @@ const useFetch = (initialUrl = '', initialOptions = {}) => {
   const [isLoading, setIsLoading] = useState(false);
   const [hasError, setHasError] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
+  const dispatch = useDispatch();
   const userToken = useSelector((state) => state.user.token);
-
 
   useEffect(() => {
     if (!fetchingData.url) return;
@@ -21,7 +22,10 @@ const useFetch = (initialUrl = '', initialOptions = {}) => {
       try {
         //Add Authorization Bearer
         if (fetchingData?.options?.headers)
-          fetchingData.options.headers = { ...fetchingData.options.headers, 'Authorization': userToken ? `Bearer ${userToken}` : undefined };
+          fetchingData.options.headers = {
+            ...fetchingData.options.headers,
+            Authorization: userToken ? `Bearer ${userToken}` : undefined,
+          };
 
         const response = await fetch(fetchingData.url, fetchingData.options);
         const result = await response.json();
@@ -41,6 +45,12 @@ const useFetch = (initialUrl = '', initialOptions = {}) => {
     };
     fetchData();
   }, [fetchingData, userToken]);
+
+  useEffect(() => {
+    if (errorMessage?.status === 401) {
+      dispatch(resetUser());
+    }
+  }, [errorMessage, dispatch]);
 
   return [{ data, isLoading, hasError, errorMessage }, setFetch];
 };
