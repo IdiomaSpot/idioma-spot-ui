@@ -1,74 +1,8 @@
+import { RouterProvider } from 'react-router-dom';
 import './App.scss';
-import { Home, MenuBar } from './pages/Home';
-import { Login } from './pages/Login';
-import { Signup } from './pages/Signup';
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import store from './context/store';
 import { Provider } from 'react-redux';
-import {
-  HomeContent,
-  PaymentContent,
-  Enrollment,
-  StudentDashboard,
-  ClassesContent,
-} from './pages/Student';
-import { AdminDashboard } from './pages/Admin';
-import { AdminRoute, ProtectedRoute, StudentRoute } from './components/routes';
-import NotFound from './pages/NotFound';
-
-const router = createBrowserRouter([
-  {
-    path: '',
-    element: (
-      <div>
-        <MenuBar />
-        <Home />
-      </div>
-    ),
-  },
-  {
-    path: '/login',
-    element: <Login />,
-  },
-  {
-    path: '/signup',
-    element: <Signup />,
-  },
-  {
-    path: '/student',
-    element: (
-      <ProtectedRoute>
-        <StudentRoute>
-          <StudentDashboard />
-        </StudentRoute>
-      </ProtectedRoute>
-    ),
-    children: [
-      {
-        index: true,
-        element: <HomeContent />,
-      },
-      { path: 'home', element: <HomeContent /> },
-      { path: 'payment', element: <PaymentContent /> },
-      { path: 'my-classes', element: <ClassesContent /> },
-      { path: 'enrollment', element: <Enrollment /> },
-    ],
-  },
-  {
-    path: '/admin',
-    element: (
-      <ProtectedRoute>
-        <AdminRoute>
-          <AdminDashboard />
-        </AdminRoute>
-      </ProtectedRoute>
-    ),
-  },
-  {
-    path: '*',
-    element: <NotFound />,
-  },
-]);
+import router from './routing';
 
 function App() {
   return (
