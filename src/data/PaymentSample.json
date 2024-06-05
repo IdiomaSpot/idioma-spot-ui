@@ -1,0 +1,7 @@
+[
+  { "paymentId": "1", "quantity": 1, "cost": 4234.0, "date": "2024-05-02" },
+  { "paymentId": "2", "quantity": 1, "cost": 4234.0, "date": "2024-05-30" },
+  { "paymentId": "3", "quantity": 1, "cost": 4234.0, "date": "2024-05-02" },
+  { "paymentId": "4", "quantity": 1, "cost": 4234.0, "date": "2024-05-23" },
+  { "paymentId": "5", "quantity": 1, "cost": 4234.0, "date": "2024-05-01" }
+]
