@@ -11,7 +11,7 @@ import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
 import { Drawer } from '@mui/material';
 import logoText from '../../../assets/img/logo-text-white.png';
-import SignMenu from '../../../components/ui/SignMenu/SignMenu';
+import { SignMenu } from '../../../components/ui';
 import { useSelector } from 'react-redux';
 
 const pages = [
