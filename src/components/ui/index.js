@@ -9,7 +9,9 @@ import LoadingPage from './LoadingPage/LoadingPage';
 import PasswordInput from './PasswordInput/PasswordInput';
 import SideMenu from './SideMenu/SideMenu';
 import SideMenuOption from './SideMenu/SideMenuOption';
+import AnimatedTextWord from './AnimatedTextWord/AnimatedTextWord';
 export {
+  AnimatedTextWord,
   Copyright,
   LoadingLogo,
   LoadingPage,

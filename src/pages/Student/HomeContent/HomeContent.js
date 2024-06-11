@@ -1,10 +1,10 @@
-import React from 'react';
-
+import { AnimatedTextWord } from '../../../components/ui';
 const HomeContent = () => {
   return (
     <>
-      {' '}
-      <p>Home Page</p>
+      <h1>
+        <AnimatedTextWord text='¡Bienvenido a Idioma Spot!' />
+      </h1>
     </>
   );
 };
