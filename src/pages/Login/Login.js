@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import {
   saveToken,
   saveUser,
@@ -10,8 +10,6 @@ import {
   Avatar,
   Button,
   TextField,
-  FormControlLabel,
-  Checkbox,
   Paper,
   Box,
   Typography,
@@ -30,10 +28,10 @@ import { Link as RouterLink, useNavigate } from 'react-router-dom';
 const Login = () => {
   const [{ data, isLoading, hasError, errorMessage }, setRequest] =
     useSignRequest();
-  const [remember, setRemember] = useState(false);
   const [open, setOpen] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const student = useSelector((state) => state.student);
 
   const notificationMessage = (error) =>
     error
@@ -48,11 +46,6 @@ const Login = () => {
     const dataForm = new FormData(event.currentTarget);
     if (someEmpty(dataForm)) {
       return;
-    }
-    if (remember) {
-      localStorage.setItem('email', dataForm.get('email'));
-    } else {
-      localStorage.setItem('email', '');
     }
     setRequest({
       type: 'login',
@@ -85,11 +78,23 @@ const Login = () => {
         if (role === 'admin') {
           navigate('/admin');
         } else {
-          navigate('/student');
+          if (student?.selectedOffer) {
+            navigate('/student/enrollment');
+          } else {
+            navigate('/student');
+          }
         }
       }
     }
-  }, [isLoading, hasError, errorMessage, data, navigate, dispatch]);
+  }, [
+    isLoading,
+    hasError,
+    errorMessage,
+    data,
+    navigate,
+    dispatch,
+    student?.selectedOffer,
+  ]);
 
   const handleClose = (event, reason) => {
     if (reason === 'clickaway') {
@@ -143,19 +148,6 @@ const Login = () => {
               autoFocus
             />
             <PasswordInput />
-            <FormControlLabel
-              control={
-                <Checkbox
-                  value='remember'
-                  color='primary'
-                  checked={remember}
-                  onChange={() => {
-                    setRemember((rem) => !rem);
-                  }}
-                />
-              }
-              label='Recuérdame'
-            />
             <Button
               type='submit'
               fullWidth

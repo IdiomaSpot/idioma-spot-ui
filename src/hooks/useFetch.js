@@ -13,7 +13,7 @@ const useFetch = (initialUrl = '', initialOptions = {}) => {
   const [hasError, setHasError] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
   const dispatch = useDispatch();
-  const userToken = useSelector((state) => state.user.token);
+  const userToken = useSelector((state) => state.user.access_token);
 
   useEffect(() => {
     if (!fetchingData.url) return;
