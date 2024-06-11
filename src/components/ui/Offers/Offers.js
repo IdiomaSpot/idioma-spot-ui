@@ -1,4 +1,3 @@
-import React from 'react';
 import './Offers.scss';
 import {
   Card,
@@ -85,7 +84,9 @@ const Offers = ({ handleNext, responsiveValues }) => (
             justifyContent='center'
             alignItems='center'
             key={offerType}
-            onClick={() => handleNext ? handleNext(offer) : console.log(offer)}
+            onClick={() =>
+              handleNext ? handleNext(offer) : console.log(offer)
+            }
           >
             {card(offerType, htmlBody, {
               img: images[offerType],
@@ -99,18 +100,18 @@ const Offers = ({ handleNext, responsiveValues }) => (
 );
 
 Offers.propTypes = {
-  handleNext: Function,
-  responsiveValues: {
+  handleNext: PropTypes.func,
+  responsiveValues: PropTypes.shape({
     xs: PropTypes.number,
     sm: PropTypes.number,
     md: PropTypes.number,
-    lg: PropTypes.number
-  },
+    lg: PropTypes.number,
+  }),
 };
 
 Offers.defaultProps = {
   handleNext: undefined,
-  responsiveValues: { xs: 12, sm: 6, md: 6, lg: 3 }
+  responsiveValues: { xs: 12, sm: 6, md: 6, lg: 3 },
 };
 
 export default Offers;

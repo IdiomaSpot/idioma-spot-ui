@@ -7,7 +7,7 @@ const randomColor = localStorage.getItem('bgcolor');
 export const userSlice = createSlice({
   name: 'user',
   initialState: {
-    token: token || null,
+    access_token: token || null,
     name: user?.name || null,
     surname: user?.surname || null,
     phone: user?.phone || null,
@@ -17,8 +17,8 @@ export const userSlice = createSlice({
   },
   reducers: {
     saveToken: (state, action) => {
-      state.token = action.payload;
-      localStorage.setItem('token', action.payload);
+      state.access_token = action.payload;
+      localStorage.setItem('access_token', action.payload);
     },
     saveUser: (state, action) => {
       state.name = action.payload.name || '';
@@ -33,7 +33,7 @@ export const userSlice = createSlice({
       localStorage.setItem('bgcolor', action.payload);
     },
     resetUser: (state) => {
-      state.token = null;
+      state.access_token = null;
       state.name = null;
       state.surname = null;
       state.phone = null;
