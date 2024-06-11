@@ -6,17 +6,16 @@ const IsPoints = ({ total }) => {
   return (
     <div className='is-points'>
       <span>{total}</span>
-
       <TbMedal />
     </div>
   );
 };
 
 IsPoints.propTypes = {
-  total: PropTypes.number,
+  total: PropTypes.string,
 };
 IsPoints.defaultProps = {
-  total: 0,
+  total: '0',
 };
 
 export default IsPoints;

@@ -80,7 +80,7 @@ const StudentDashboard = () => {
           >
             {content.name || 'Inicio'}
           </Typography>
-          <IsPoints total={points} />
+          <IsPoints total={points.toString()} />
           <SignMenu user={user} />
         </Toolbar>
       </AppBar>

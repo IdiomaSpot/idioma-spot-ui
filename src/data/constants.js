@@ -1,5 +1,4 @@
-const IDIOMA_SPOT_API =
-  'https://fb2f-2806-2f0-2180-21b8-d1c5-61c4-8e04-bd5d.ngrok-free.app/api';
+const IDIOMA_SPOT_API = 'http://dev.idiomaspot.com.mx:3000/api';
 
 const HEADERS = {
   Accept: 'application/json',

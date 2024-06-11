@@ -8,7 +8,6 @@ const StudentRoute = ({ children }) => {
 
   useEffect(() => {
     if (user?.role !== 'student') {
-      console.log(user);
       navigate('/');
     }
   }, [user, navigate]);

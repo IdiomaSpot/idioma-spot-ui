@@ -98,7 +98,7 @@ const SignMenu = ({ user }) => {
       </div>
     );
   };
-  return user.token ? signedMenu() : signInMenu();
+  return user.access_token ? signedMenu() : signInMenu();
 };
 
 export default SignMenu;
