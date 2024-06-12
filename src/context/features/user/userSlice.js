@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const user = JSON.parse(localStorage.getItem('user'));
-const token = localStorage.getItem('token');
+const token = localStorage.getItem('access_token');
 const randomColor = localStorage.getItem('bgcolor');
 
 export const userSlice = createSlice({

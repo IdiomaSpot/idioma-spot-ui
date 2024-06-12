@@ -28,9 +28,8 @@ const Home = () => {
   }, []);
 
   const handleClick = (offer) => {
-    console.log(offer);
     dispatch(setSelectedOffer(offer));
-    if (user.token) {
+    if (user.access_token) {
       navigate('/student/enrollment');
     } else {
       navigate('/login');
