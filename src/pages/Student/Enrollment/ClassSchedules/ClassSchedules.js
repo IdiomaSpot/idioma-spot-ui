@@ -13,6 +13,43 @@ import ListItemText from '@mui/material/ListItemText';
 import IconButton from '@mui/material/IconButton';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import { setClassScheduleId } from '../../../../context/features/enrollment/enrollmentSlice';
+import { Grid, Typography } from '@mui/material';
+
+const createPrimaryText = ({ classLevel, schedule, isAlmostFull, isFull }) => {
+  const classes = classLevel || 'Nivel no disponible';
+  const scheduleAvilable = schedule || 'Horario no disponible';
+  const availability = isFull
+    ? ' - cupo lleno'
+    : isAlmostFull
+    ? ' - ¡pocos lugares!'
+    : '';
+  return (
+    <Typography sx={{ pb: 1 }}>
+      <b>{classes}</b> {' - ' + scheduleAvilable + availability}
+    </Typography>
+  );
+};
+
+const createSecundaryText = ({ startDate, hoursDuration, cost }) => {
+  const classInit = 'Inicio de clases: ' + (startDate || 'no disponible');
+  const duration = 'Horas de estudio: ' + (hoursDuration || 'no disponibles');
+  const costByClass = cost ? 'Costo: ' + cost : '';
+  return (
+    <>
+      <Grid container spacing={1}>
+        <Grid item xs={6}>
+          {classInit}
+        </Grid>
+        <Grid item xs={6}>
+          {duration}
+        </Grid>
+        <Grid item xs={6}>
+          {costByClass}
+        </Grid>
+      </Grid>
+    </>
+  );
+};
 
 const ClassSchedules = ({ handleNext }) => {
   const [{ data, isLoading, hasError, errorMessage }, setFetch] = useFetch();
@@ -54,40 +91,56 @@ const ClassSchedules = ({ handleNext }) => {
   return (
     <>
       <List sx={{ width: '100%' }}>
-        {data?.map(({ id, schedule, isAlmostFull, isFull, ...rest }) => {
-          const data = { id, schedule, isAlmostFull, isFull, ...rest };
+        {data?.map(
+          ({
+            id,
+            schedule,
+            isAlmostFull,
+            isFull,
+            classLevel,
+            startDate,
+            hoursDuration,
+            cost,
+            ...rest
+          }) => {
+            const data = {
+              id,
+              schedule,
+              isAlmostFull,
+              isFull,
+              classLevel,
+              startDate,
+              hoursDuration,
+              cost,
+              ...rest,
+            };
 
-          return (
-            <ListItem
-              key={data.id}
-              secondaryAction={
-                <IconButton edge='end' aria-label='comments'>
-                  <ArrowForwardIosIcon />
-                </IconButton>
-              }
-              disablePadding
-              onClick={() => !data.isFull && onScheduleSelected(data)}
-            >
-              <ListItemButton
-                role={undefined}
-                disabled={data.isFull}
-                divider={true}
-                selected={true}
+            return (
+              <ListItem
+                key={data.id}
+                secondaryAction={
+                  <IconButton edge='end' aria-label='comments'>
+                    <ArrowForwardIosIcon />
+                  </IconButton>
+                }
+                disablePadding
+                onClick={() => !data.isFull && onScheduleSelected(data)}
               >
-                <ListItemText
-                  primary={data.schedule}
-                  secondary={
-                    data.isFull
-                      ? 'cupo lleno'
-                      : data.isAlmostFull
-                      ? '¡pocos lugares!'
-                      : ''
-                  }
-                />
-              </ListItemButton>
-            </ListItem>
-          );
-        })}
+                <ListItemButton
+                  role={undefined}
+                  disabled={data.isFull}
+                  divider={true}
+                  selected={true}
+                >
+                  <ListItemText
+                    primary={createPrimaryText(data)}
+                    secondary={createSecundaryText(data)}
+                  />
+                </ListItemButton>
+              </ListItem>
+            );
+          }
+        )}
       </List>
     </>
   );
