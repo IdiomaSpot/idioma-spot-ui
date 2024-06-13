@@ -13,6 +13,7 @@ import {
 import CloseIcon from '@mui/icons-material/Close';
 import SideMenuOption from './SideMenuOption';
 import { useNavigate } from 'react-router-dom';
+import logo from '../../../assets/img/logo-no_bg.png';
 
 const SideMenu = ({ width, options, setSelectedContent, open, setOpen }) => {
   const navigate = useNavigate();
@@ -57,6 +58,9 @@ const SideMenu = ({ width, options, setSelectedContent, open, setOpen }) => {
           />
         ))}
       </List>
+      <div className='logo-img-container'>
+        <img alt='idioma spot logo' loading='lazy' src={logo} />
+      </div>
     </>
   );
   return (
