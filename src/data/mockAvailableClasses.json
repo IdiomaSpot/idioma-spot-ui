@@ -1,0 +1,57 @@
+[
+  {
+    "id": "1",
+    "schedule": "Lunes y viernes de 8:00 am a 10:30",
+    "isAlmostFull": false,
+    "isFull": false,
+    "cost": 3000,
+    "startDate": "12/06/2024",
+    "classLevel": "Beginner",
+    "hoursDuration": "30",
+    "link": "https://zoom.us/es"
+  },
+  {
+    "id": "2",
+    "schedule": "Lunes y viernes de 8:00 am a 10:30",
+    "isAlmostFull": false,
+    "isFull": false,
+    "cost": 3000,
+    "startDate": "12/06/2024",
+    "classLevel": "Beginner",
+    "hoursDuration": "30",
+    "link": "https://zoom.us/es"
+  },
+  {
+    "id": "3",
+    "schedule": "Martes y jueves de 8:00 am a 11:30",
+    "isAlmostFull": false,
+    "isFull": false,
+    "cost": 3000,
+    "startDate": "15/06/2024",
+    "classLevel": "Beginner",
+    "hoursDuration": "30",
+    "link": "https://zoom.us/es"
+  },
+  {
+    "id": "4",
+    "schedule": "Martes y jueves de 11:30 am a 14:30",
+    "isAlmostFull": false,
+    "isFull": false,
+    "cost": 3000,
+    "startDate": "15/06/2024",
+    "classLevel": "Intermediate",
+    "hoursDuration": "30",
+    "link": "https://zoom.us/es"
+  },
+  {
+    "id": "5",
+    "schedule": "Lunes y viernes de 8:00 am a 10:30",
+    "isAlmostFull": false,
+    "isFull": false,
+    "cost": 3000,
+    "startDate": "20/06/2024",
+    "classLevel": "Advanced",
+    "hoursDuration": "30",
+    "link": "https://zoom.us/es"
+  }
+]

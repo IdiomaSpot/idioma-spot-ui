@@ -27,7 +27,7 @@ const useSignRequest = (initialRequest = {}) => {
   const signUp = useCallback(
     ({ name, surname, phone, email, password, role }) => {
       setFetch({
-        url: `${IDIOMA_SPOT_API}/user`, //corregir
+        url: `${IDIOMA_SPOT_API}/user`,
         options: {
           mode: 'cors',
           method: 'post',

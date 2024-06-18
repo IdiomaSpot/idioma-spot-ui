@@ -10,6 +10,7 @@ import PasswordInput from './PasswordInput/PasswordInput';
 import SideMenu from './SideMenu/SideMenu';
 import SideMenuOption from './SideMenu/SideMenuOption';
 import AnimatedTextWord from './AnimatedTextWord/AnimatedTextWord';
+import IsPoints from './IsPoints/IsPoints';
 export {
   AnimatedTextWord,
   Copyright,
@@ -23,4 +24,5 @@ export {
   TextBlock,
   SideMenu,
   SideMenuOption,
+  IsPoints,
 };

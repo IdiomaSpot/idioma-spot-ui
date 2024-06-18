@@ -1,0 +1,21 @@
+@import '../../../assets/styles/variables.scss';
+.my-classes-table-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  .my-classes-table {
+    width: 100%;
+  }
+}
+.my-classes-header {
+  display: flex !important;
+  padding: 1rem 0;
+  .title {
+    text-align: left;
+    flex-grow: 1;
+  }
+  .enrollment-button {
+    background-color: $cyan-cyan-dark !important;
+  }
+}
