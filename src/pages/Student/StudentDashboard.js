@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import './StudentDashboard.scss';
 import {
   AppBar,
@@ -10,7 +10,7 @@ import {
 } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import { IsPoints, SideMenu, SignMenu } from '../../components/ui';
-import menuOptions from '../../data/studentsMenu';
+import { optionsMenu as menuOptions } from '../../data/studentsMenu';
 import { useDispatch, useSelector } from 'react-redux';
 import { Outlet } from 'react-router-dom';
 import useStudentRequest from '../../hooks/useStudentRequest';
@@ -19,13 +19,13 @@ import { setIsPoints } from '../../context/features/student/studentSlice';
 const drawerWidth = 240;
 
 const StudentDashboard = () => {
-  const [content, setContent] = useState('');
   const [openMenu, setOpenMenu] = useState(false);
   const user = useSelector((state) => state.user);
   const [points, setPoints] = useState(0);
   const [{ data, isLoading, hasError, errorMessage }, setRequest] =
     useStudentRequest();
   const dispatch = useDispatch();
+  const student = useSelector((state) => state.student);
 
   useEffect(() => {
     if (user?.email) {
@@ -78,7 +78,7 @@ const StudentDashboard = () => {
             component='div'
             sx={{ flexGrow: 1, paddingLeft: 2, textAlign: 'left' }}
           >
-            {content.name || 'Inicio'}
+            {student.content.name || 'Inicio'}
           </Typography>
           <IsPoints total={points.toString()} />
           <SignMenu user={user} />
@@ -87,7 +87,6 @@ const StudentDashboard = () => {
       <SideMenu
         width={drawerWidth}
         options={menuOptions}
-        setSelectedContent={setContent}
         open={openMenu}
         setOpen={setOpenMenu}
       />

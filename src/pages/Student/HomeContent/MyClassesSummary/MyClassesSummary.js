@@ -42,7 +42,9 @@ const MyClassesSummary = ({ classes }) => {
           </List>
           <ListItemButton
             className='summary-class-button'
-            onClick={() => navigate('/student/my-classes')}
+            onClick={() => {
+              navigate('/student/my-classes');
+            }}
           >
             <ListItemText primary='VER MÁS...' />
           </ListItemButton>

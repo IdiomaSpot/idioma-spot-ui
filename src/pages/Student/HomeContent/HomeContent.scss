@@ -1,0 +1,28 @@
+@import '../../../assets/styles/mixins.scss';
+
+.home-title {
+  font-weight: 600;
+  width: 100%;
+  display: flex;
+  flex-flow: column;
+  font-size: 3rem;
+  padding: 2rem;
+  @include responsive('small') {
+    padding: 2rem 0;
+  }
+}
+@include responsive('large') {
+}
+
+.home-content {
+  .column-display {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    flex-flow: column;
+    img {
+      width: 20rem;
+      height: auto;
+    }
+  }
+}

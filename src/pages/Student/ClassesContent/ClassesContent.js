@@ -5,7 +5,17 @@ import mockClasses from '../../../data/mockAvailableClasses.json';
 import MyClassItem from './MyClassItem';
 import { createPrimaryText, createSecundaryText } from '../../../utils/utils';
 import './ClassesContent.scss';
+import { useDispatch } from 'react-redux';
+import { changeContent } from '../../../context/features/student/studentSlice';
+import { getMenuOption } from '../../../data/studentsMenu';
+import { useEffectOnce } from '../../../hooks/useEffectOnce';
+
 const ClassesContent = () => {
+  const dispatch = useDispatch();
+  useEffectOnce(() => {
+    dispatch(changeContent(getMenuOption('my-classes')));
+  });
+
   const goTo = (url) => {
     window.open(url, '_blank');
   };

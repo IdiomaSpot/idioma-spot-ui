@@ -2,7 +2,13 @@ import React, { useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import './TextBlock.scss';
 import { Container } from '@mui/material';
-import { motion, useInView, useMotionValue, useTransform, animate } from 'framer-motion';
+import {
+  motion,
+  useInView,
+  useMotionValue,
+  useTransform,
+  animate,
+} from 'framer-motion';
 
 const TextBlock = ({ text }) => {
   const textIndex = useMotionValue(0);
@@ -20,7 +26,7 @@ const TextBlock = ({ text }) => {
         duration: 6,
         ease: 'easeIn',
       });
-      return controls.stop
+      return controls.stop;
     }
   }, [isInView, textIndex, updatedThisRound, count, text.length]);
 
