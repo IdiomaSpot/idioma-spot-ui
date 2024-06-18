@@ -16,11 +16,11 @@ const HomeContent = () => {
     <>
       {' '}
       <p>Home Page</p>
-      <Grid container>
-        <Grid item xs={6} {...args}>
+      <Grid container spacing={3}>
+        <Grid item xs={12} sm={6} {...args}>
           <IsPointsSummary points={student.isPoints} />
         </Grid>
-        <Grid item xs={6} {...args}>
+        <Grid item xs={12} sm={6} {...args}>
           <MyClassesSummary />
         </Grid>
       </Grid>
