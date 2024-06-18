@@ -1,6 +1,7 @@
 @import '../../../../assets/styles/variables.scss';
 .summary-class {
   width: 20rem;
+  max-height: 18rem;
   border-image: linear-gradient($cyan-cyan-light, $dark-blue) 30;
   border-width: 4px;
   border-style: solid;

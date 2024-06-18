@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import AdvantagesSection from './Advantages/AdvantagesSection';
 import PromosSection from './Promos/PromosSection';
 import MainBanner from './MainBanner/MainBanner';

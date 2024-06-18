@@ -34,12 +34,7 @@ const AnimatedTextWord = ({ text }) => {
   };
 
   return (
-    <motion.div
-      style={{ overflow: 'hidden', display: 'flex', fontSize: '2rem' }}
-      variants={container}
-      initial='hidden'
-      animate='visible'
-    >
+    <motion.div variants={container} initial='hidden' animate='visible'>
       {words.map((word, index) => (
         <motion.span
           variants={child}

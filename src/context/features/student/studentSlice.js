@@ -1,10 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { getMenuOption } from '../../../data/studentsMenu';
 
 export const studentSlice = createSlice({
   name: 'student',
   initialState: {
     isPoints: 0,
     selectedOffer: null,
+    content: getMenuOption('home'),
   },
   reducers: {
     setIsPoints: (state, action) => {
@@ -13,9 +15,13 @@ export const studentSlice = createSlice({
     setSelectedOffer: (state, action) => {
       state.selectedOffer = action.payload;
     },
+    changeContent: (state, action) => {
+      state.content = action.payload;
+    },
   },
 });
 
-export const { setIsPoints, setSelectedOffer } = studentSlice.actions;
+export const { changeContent, setIsPoints, setSelectedOffer } =
+  studentSlice.actions;
 
 export default studentSlice.reducer;
