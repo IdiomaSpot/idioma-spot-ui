@@ -1,0 +1,24 @@
+[
+  {
+    "id": "1",
+    "schedule": "Lunes y viernes de 8:00 am a 10:30",
+    "isAlmostFull": false,
+    "isFull": false,
+    "cost": 3000,
+    "startDate": "12/06/2024",
+    "classLevel": "Beginner",
+    "hoursDuration": "30",
+    "link": "www.zoom.com"
+  },
+  {
+    "id": "2",
+    "schedule": "Lunes y viernes de 8:00 am a 10:30",
+    "isAlmostFull": false,
+    "isFull": false,
+    "cost": 3000,
+    "startDate": "12/06/2024",
+    "classLevel": "Beginner",
+    "hoursDuration": "30",
+    "link": "www.zoom.com"
+  }
+]

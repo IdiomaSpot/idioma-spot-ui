@@ -19,5 +19,23 @@ const optionsMenu = [
     icon: <MdOutlinePayments />,
   },
 ];
+const optionsNames = [
+  {
+    name: 'Inicio',
+    type: 'home',
+  },
+  {
+    name: 'Mis clases',
+    type: 'my-classes',
+  },
+  {
+    name: 'Pagos',
+    type: 'payment',
+  },
+];
 
-export default optionsMenu;
+const getMenuOption = (type) => {
+  return optionsNames.find((option) => option.type === type);
+};
+
+export { getMenuOption, optionsMenu };

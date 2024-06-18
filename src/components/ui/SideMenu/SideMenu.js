@@ -1,4 +1,3 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 import './SideMenu.scss';
 import {
@@ -15,7 +14,7 @@ import SideMenuOption from './SideMenuOption';
 import { useNavigate } from 'react-router-dom';
 import logo from '../../../assets/img/logo-no_bg.png';
 
-const SideMenu = ({ width, options, setSelectedContent, open, setOpen }) => {
+const SideMenu = ({ width, options, open, setOpen }) => {
   const navigate = useNavigate();
   const getMenuContent = (s) => (
     <>
@@ -51,7 +50,6 @@ const SideMenu = ({ width, options, setSelectedContent, open, setOpen }) => {
             optionName={option.name}
             icon={option.icon}
             onClick={() => {
-              setSelectedContent(option);
               navigate('/student/' + option.type);
               setOpen(false);
             }}
@@ -59,7 +57,7 @@ const SideMenu = ({ width, options, setSelectedContent, open, setOpen }) => {
         ))}
       </List>
       <div className='logo-img-container'>
-        <img alt='idioma spot logo' loading='lazy' src={logo} />
+        <img alt='idioma spot logo' src={logo} />
       </div>
     </>
   );

@@ -8,9 +8,18 @@ import ClassOffers from './ClassOffers/ClassOffers';
 import ClassSchedules from './ClassSchedules/ClassSchedules';
 import Payment from './Payment/Payment';
 import { Fragment, useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { useEffectOnce } from '../../../hooks/useEffectOnce';
+import { changeContent } from '../../../context/features/student/studentSlice';
+import { getMenuOption } from '../../../data/studentsMenu';
 
 export default function Enrollment() {
   const [activeStep, setActiveStep] = useState(0);
+  const dispatch = useDispatch();
+
+  useEffectOnce(() => {
+    dispatch(changeContent(getMenuOption('my-classes')));
+  });
 
   const handleNext = () => {
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
