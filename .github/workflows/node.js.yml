@@ -32,11 +32,11 @@ jobs:
         npm test
 
     - name: Compress build artifacts
-      if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+      if: github.event_name == 'push' && github.ref == 'refs/heads/master'
       run: tar -czf build_artifacts.tar.gz build/
 
     - name: Upload build artifacts
-      if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+      if: github.event_name == 'push' && github.ref == 'refs/heads/master'
       uses: actions/upload-artifact@v4.3.3
       with:
         name: build_artifacts
