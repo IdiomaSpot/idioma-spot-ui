@@ -1,4 +1,4 @@
-const IDIOMA_SPOT_API = 'http://dev.idiomaspot.com.mx/api';
+const IDIOMA_SPOT_API = 'https://dev.idiomaspot.com.mx/api';
 
 const HEADERS = {
   Accept: 'application/json',
