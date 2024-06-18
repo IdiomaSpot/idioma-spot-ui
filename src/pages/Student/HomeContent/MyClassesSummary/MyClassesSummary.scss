@@ -4,25 +4,44 @@
   border-image: linear-gradient($cyan-cyan-light, $dark-blue) 30;
   border-width: 4px;
   border-style: solid;
-  color: $light-gray;
-  .title {
-    padding: 0.5em;
-    font-weight: 600;
+  .summary-class-container {
+    .title {
+      padding: 0.5em;
+      font-weight: 600;
+    }
+    .summary-class-button {
+      height: 100%;
+      background-color: $cyan-cyan-dark;
+      color: aliceblue;
+      text-align: center;
+    }
+    .summary-class-button:hover {
+      background-color: $pale-cyan;
+    }
+    & ul {
+      padding: 0 !important;
+    }
   }
-  .summary-class-button {
-    height: 100%;
-    background-color: $cyan-cyan-dark;
-    color: aliceblue;
-    text-align: center;
-  }
-  .summary-class-button:hover {
-    background-color: $pale-cyan;
-  }
-  & ul {
-    padding: 0 !important;
+
+  .subscribe {
+    .subscribe-media {
+      height: 10rem;
+    }
+    .subscribe-content {
+      height: 5rem;
+      padding: 0.5rem 1rem;
+    }
+    .actions-subscribe {
+      background-color: $cyan-cyan-dark;
+      .button-subscribe {
+        width: 100%;
+      }
+    }
   }
 }
 .summary-class-list {
+  color: $light-gray;
+
   .padding-list {
     padding: 0 1rem;
   }
