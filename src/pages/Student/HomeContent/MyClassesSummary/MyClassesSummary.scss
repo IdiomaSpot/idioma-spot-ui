@@ -1,0 +1,29 @@
+@import '../../../../assets/styles/variables.scss';
+.summary-class {
+  width: 20rem;
+  border-image: linear-gradient($cyan-cyan-light, $dark-blue) 30;
+  border-width: 4px;
+  border-style: solid;
+  color: $light-gray;
+  .title {
+    padding: 0.5em;
+    font-weight: 600;
+  }
+  .summary-class-button {
+    height: 100%;
+    background-color: $cyan-cyan-dark;
+    color: aliceblue;
+    text-align: center;
+  }
+  .summary-class-button:hover {
+    background-color: $pale-cyan;
+  }
+  & ul {
+    padding: 0 !important;
+  }
+}
+.summary-class-list {
+  .padding-list {
+    padding: 0 1rem;
+  }
+}

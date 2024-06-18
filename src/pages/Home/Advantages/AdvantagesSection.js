@@ -4,7 +4,7 @@ import './AdvantagesSection.scss';
 import advantagesText from '../../../data/advantages.json';
 import Advantage from './Advantage';
 import { Container } from '@mui/material';
-import getAdvantagesIcon from '../../../utils/utils';
+import { getAdvantagesIcon } from '../../../utils/utils';
 
 const titleAdvantages = Object.keys(advantagesText)[0];
 const textObjArr = advantagesText[titleAdvantages];
