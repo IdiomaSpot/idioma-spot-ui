@@ -1,4 +1,4 @@
-const IDIOMA_SPOT_API = 'https://dev.idiomaspot.com.mx/api';
+const IDIOMA_SPOT_API = process.env.REACT_APP_API_URL;
 
 const HEADERS = {
   Accept: 'application/json',
