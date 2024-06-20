@@ -31,16 +31,19 @@ const Payment = ({ handleNext }) => {
     [setFetch]
   );
 
-  const setPreference = useCallback((preferenceId) => {
-    dispatch(
-      setPreferenceId({
-        preferenceId: preferenceId,
-      })
-    );
-  }, [dispatch]);
+  const setPreference = useCallback(
+    (preferenceId) => {
+      dispatch(
+        setPreferenceId({
+          preferenceId: preferenceId,
+        })
+      );
+    },
+    [dispatch]
+  );
 
   useEffectOnce(() => {
-    initMercadoPago("APP_USR-bca886e4-3131-43c3-b830-f7f886af1787");
+    initMercadoPago(process.env.REACT_APP_MP_PUBLIC_KEY);
     if (enrollment.classScheduleChanged) {
       //Avoid creating the same preference
       setPreference(null);
