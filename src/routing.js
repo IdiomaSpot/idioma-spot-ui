@@ -11,6 +11,7 @@ import {
   HomeContent,
   PaymentContent,
   StudentDashboard,
+  ProcessPayment,
 } from './pages/Student';
 
 const router = createBrowserRouter([
@@ -44,6 +45,7 @@ const router = createBrowserRouter([
       { path: 'payment', element: <PaymentContent /> },
       { path: 'my-classes', element: <ClassesContent /> },
       { path: 'enrollment', element: <Enrollment /> },
+      { path: 'process-payment', element: <ProcessPayment /> }
     ],
   },
   {
