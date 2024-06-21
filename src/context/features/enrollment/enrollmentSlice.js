@@ -1,24 +1,32 @@
-import { createSlice } from '@reduxjs/toolkit';
-import { CLASS_TYPE } from '../../../data/constants';
+import { createSlice } from "@reduxjs/toolkit";
 
 export const enrollmentSlice = createSlice({
-  name: 'enrollment',
+  name: "enrollment",
   initialState: {
-    classType: CLASS_TYPE.ONLIVE,
-    classScheduleId: null,
-    payment: {},
+    classType: null,
+    classSchedule: null,
+    preferenceId: null,
+    classScheduleChanged: false,
   },
   reducers: {
     setClassType: (state, action) => {
+      const changed = state.classType !== action.payload.classType;
+      state.classSchedule = changed ? null : state.classSchedule;
       state.classType = action.payload.classType || null;
     },
-    setClassScheduleId: (state, action) => {
-      state.classScheduleId = action.payload.classScheduleId || null;
+    setClassSchedule: (state, action) => {
+      state.classScheduleChanged =
+        state.classSchedule?.id !== action.payload.classSchedule.id;
+      state.classSchedule = action.payload.classSchedule || null;
+    },
+    setPreferenceId: (state, action) => {
+      state.preferenceId = action.payload.preferenceId || null;
     },
   },
 });
 
 // Action creators are generated for each case reducer function
-export const { setClassType, setClassScheduleId } = enrollmentSlice.actions;
+export const { setClassType, setClassSchedule, setPreferenceId } =
+  enrollmentSlice.actions;
 
 export default enrollmentSlice.reducer;

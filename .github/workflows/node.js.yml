@@ -28,7 +28,8 @@ jobs:
     - name: npm install, build and test
       env:
         REACT_APP_API_URL: ${{ secrets.REACT_APP_API_URL_DEV }}
-        REACT_APP_API_KEY: ${{ secrets.REACT_APP_API_KEY_DEV }}
+        REACT_APP_DEBUG: ${{ secrets.REACT_APP_DEBUG_DEV }}
+        REACT_APP_MP_PUBLIC_KEY: ${{ secrets.REACT_APP_MP_PUBLIC_KEY_DEV }}
       run: |
         npm install
         npm run build

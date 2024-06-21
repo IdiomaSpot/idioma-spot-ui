@@ -12,7 +12,7 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
 import IconButton from '@mui/material/IconButton';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
-import { setClassScheduleId } from '../../../../context/features/enrollment/enrollmentSlice';
+import { setClassSchedule } from '../../../../context/features/enrollment/enrollmentSlice';
 import {
   createPrimaryText,
   createSecundaryText,
@@ -51,7 +51,7 @@ const ClassSchedules = ({ handleNext }) => {
   }, [enrollment, getClassSchedules]);
 
   function onScheduleSelected(selectedSchedule) {
-    dispatch(setClassScheduleId({ classScheduleId: selectedSchedule.id }));
+    dispatch(setClassSchedule({ classSchedule: selectedSchedule, classType: enrollment.classType }));
     handleNext();
   }
 

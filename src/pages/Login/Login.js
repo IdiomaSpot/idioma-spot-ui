@@ -63,9 +63,10 @@ const Login = () => {
       } else if (data) {
         setOpen(true);
         dispatch(saveToken(data.accessToken));
-        const { email, name, role, surname } = data.user;
+        const { id, email, name, role, surname } = data.user;
         dispatch(
           saveUser({
+            id,
             email,
             name,
             surname,
