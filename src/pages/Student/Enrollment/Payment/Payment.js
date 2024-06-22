@@ -50,7 +50,7 @@ const Payment = ({ handleNext }) => {
       const body = {
         items: [
           {
-            id: `${user.id}${enrollment.classType}`,
+            id: `${enrollment.classSchedule.id}`,
             title: enrollment.classType,
             description: `${enrollment.classSchedule.classLevel} - ${enrollment.classSchedule.schedule}`,
             quantity: 1,
