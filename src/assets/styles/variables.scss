@@ -18,6 +18,10 @@ $small-screen-min-width: 280px;
 $small-screen-max-width: 760px;
 
 .button-text {
-  color: white;
-  text-decoration: none;
+  color: white !important;
+  text-decoration: none !important;
+}
+
+.gray-bg {
+  background-color: #e3e8f2;
 }

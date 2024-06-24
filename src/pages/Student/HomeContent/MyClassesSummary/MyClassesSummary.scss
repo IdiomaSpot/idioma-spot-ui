@@ -1,17 +1,18 @@
 @import '../../../../assets/styles/variables.scss';
 .summary-class {
   width: 20rem;
-  max-height: 18rem;
+  max-height: 19rem;
   border-image: linear-gradient($cyan-cyan-light, $dark-blue) 30;
   border-width: 4px;
   border-style: solid;
   .summary-class-container {
+    height: 100%;
+    align-content: end;
     .title {
       padding: 0.5em;
       font-weight: 600;
     }
     .summary-class-button {
-      height: 100%;
       background-color: $cyan-cyan-dark;
       color: aliceblue;
       text-align: center;
@@ -25,6 +26,8 @@
   }
 
   .subscribe {
+    height: 100%;
+    align-content: end;
     .subscribe-media {
       height: 10rem;
     }
@@ -41,6 +44,7 @@
   }
 }
 .summary-class-list {
+  min-height: 10rem;
   color: $light-gray;
 
   .padding-list {

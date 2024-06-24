@@ -11,7 +11,6 @@ import {
   Paper,
   Typography,
 } from '@mui/material';
-import mockClasses from '../../../../data/mockAvailableClassesSummary.json';
 import PropTypes from 'prop-types';
 import { createPrimaryText } from '../../../../utils/utils';
 import './MyClassesSummary.scss';
@@ -21,10 +20,11 @@ import subscribeImg from '../../../../assets/img/subscribe.jpg';
 
 const MyClassesSummary = ({ classes }) => {
   const navigate = useNavigate();
-  const secondaryText = (cl) => 'Inicio: ' + cl.startDate + ' ...';
+  const secondaryText = (cl) =>
+    'Inicio: ' + (cl.startDate || 'no disponible') + ' ...';
   return (
     <Paper elevation={3} className='summary-class'>
-      {classes ? (
+      {classes?.length ? (
         <Box className='summary-class-container'>
           <Typography className='title' variant='h5'>
             Últimas clases inscritas:
@@ -58,7 +58,7 @@ const MyClassesSummary = ({ classes }) => {
           />
           <CardContent className='subscribe-content'>
             <Typography gutterBottom variant='h6'>
-              Aún no estás inscrito a ninguna clase
+              Aún no estás inscrito a una clase
             </Typography>
           </CardContent>
           <CardActions className='actions-subscribe'>
@@ -66,7 +66,7 @@ const MyClassesSummary = ({ classes }) => {
               className='button-subscribe button-text'
               onClick={() => navigate('/student/enrollment')}
             >
-              INSCRIBETE AHORA!
+              ¡INSCRIBETE AHORA!
             </Button>
           </CardActions>
         </Card>
@@ -79,7 +79,7 @@ MyClassesSummary.propTypes = {
   classes: PropTypes.arrayOf(PropTypes.object),
 };
 MyClassesSummary.defaultProps = {
-  classes: mockClasses,
+  classes: [],
 };
 
 export default MyClassesSummary;

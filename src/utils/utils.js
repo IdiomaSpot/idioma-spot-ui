@@ -30,7 +30,14 @@ const getAdvantagesIcon = (icon) => {
   }
 };
 
-const createPrimaryText = ({ classLevel, schedule, isAlmostFull, isFull }) => {
+const createPrimaryText = ({
+  classLevel,
+  schedule,
+  isAlmostFull,
+  isFull,
+  classType,
+}) => {
+  const type = classType ? classType + ' - ' : '';
   const classes = classLevel || 'Nivel no disponible';
   const scheduleAvilable = schedule || 'Horario no disponible';
   const availability = isFull
@@ -40,7 +47,7 @@ const createPrimaryText = ({ classLevel, schedule, isAlmostFull, isFull }) => {
     : '';
   return (
     <Typography sx={{ pb: 1 }}>
-      <b>{classes}</b> {' - ' + scheduleAvilable + availability}
+      <b>{type + classes}</b> {' - ' + scheduleAvilable + availability}
     </Typography>
   );
 };
