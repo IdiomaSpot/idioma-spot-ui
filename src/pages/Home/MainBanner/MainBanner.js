@@ -12,7 +12,7 @@ function IdiomaSpotStep() {
         <Button
           className='idioma-spot-button'
           variant='contained'
-          href='https://docs.google.com/forms'
+          href='https://forms.gle/1my9Mqw8EXavydEe8'
           target='_blank'
           size='large'
         >
