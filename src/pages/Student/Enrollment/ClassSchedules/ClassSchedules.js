@@ -74,9 +74,7 @@ const ClassSchedules = ({ handleNext }) => {
           data?.isAlredyEnrolled !== undefined
         ) {
           // Handle the response for validateSelection
-          console.log(data);
           const isAlreadyEnrolled = data?.isAlredyEnrolled || false;
-          console.log('RESP', isAlreadyEnrolled);
           setOpenNotification(isAlreadyEnrolled);
           !isAlreadyEnrolled && handleNext();
         }
