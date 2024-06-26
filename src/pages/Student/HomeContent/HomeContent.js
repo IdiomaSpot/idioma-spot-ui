@@ -1,4 +1,4 @@
-import { AnimatedTextWord } from '../../../components/ui';
+import { AnimatedTextWord, Notification } from '../../../components/ui';
 import React, { useEffect, useState } from 'react';
 import IsPointsSummary from './IsPointsSummary/IsPointsSummary';
 import { useDispatch, useSelector } from 'react-redux';
@@ -18,6 +18,7 @@ const HomeContent = () => {
   const [{ data, isLoading, hasError }, setRequest] = useStudentRequest();
   const [clSummary, setClSummary] = useState();
   const user = useSelector((state) => state.user);
+  const [open, setOpen] = useState(false);
 
   const args = {
     justifyContent: 'center',
@@ -39,7 +40,9 @@ const HomeContent = () => {
   });
 
   useEffect(() => {
-    if (!isLoading && !hasError && data) {
+    if (hasError) {
+      setOpen(true);
+    } else if (!isLoading && data) {
       if (data.length > 2) {
         setClSummary(data.slice(0, 2));
       } else {
@@ -48,32 +51,47 @@ const HomeContent = () => {
     }
   }, [isLoading, hasError, data]);
 
+  const handleClose = (event, reason) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+    setOpen(false);
+  };
+
   return (
-    <div className='home-content'>
-      <Box display={{ xs: 'none', sm: 'flex' }} className='home-title'>
-        <AnimatedTextWord text='¡Bienvenido a Idioma Spot!' />
-      </Box>
-      <Box display={{ xs: 'flex', sm: 'none' }} className='home-title'>
-        <AnimatedTextWord text='¡Bienvenido a' />
-        <AnimatedTextWord text=' Idioma Spot!' />
-      </Box>
-      <Grid container spacing={3}>
-        <Grid item xs={12} sm={6} {...args}>
-          <MyClassesSummary classes={clSummary} />
+    <>
+      <Notification
+        text={'Ha ocurrido un error. Intenta de nuevo más tarde'}
+        type={'error'}
+        open={open}
+        onClose={handleClose}
+      />
+      <div className='home-content'>
+        <Box display={{ xs: 'none', sm: 'flex' }} className='home-title'>
+          <AnimatedTextWord text='¡Bienvenido a Idioma Spot!' />
+        </Box>
+        <Box display={{ xs: 'flex', sm: 'none' }} className='home-title'>
+          <AnimatedTextWord text='¡Bienvenido a' />
+          <AnimatedTextWord text=' Idioma Spot!' />
+        </Box>
+        <Grid container spacing={3}>
+          <Grid item xs={12} sm={6} {...args}>
+            <MyClassesSummary classes={clSummary} />
+          </Grid>
+          <Grid className='column-display' item xs={12} sm={6} {...args}>
+            <IsPointsSummary points={student.isPoints} />
+            <motion.img
+              className='home-img'
+              src={student1}
+              alt='estudiante idioma spot'
+              initial={{ opacity: 0, x: 40 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 2 }}
+            />
+          </Grid>
         </Grid>
-        <Grid className='column-display' item xs={12} sm={6} {...args}>
-          <IsPointsSummary points={student.isPoints} />
-          <motion.img
-            className='home-img'
-            src={student1}
-            alt='estudiante idioma spot'
-            initial={{ opacity: 0, x: 40 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 2 }}
-          />
-        </Grid>
-      </Grid>
-    </div>
+      </div>
+    </>
   );
 };
 
