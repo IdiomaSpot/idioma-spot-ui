@@ -88,10 +88,6 @@ export default function Enrollment() {
             >
               Volver
             </Button>
-            <Box sx={{ flex: "1 1 auto" }} />
-            <Button onClick={handleNext} sx={{ mr: 1 }}>
-              {activeStep === steps.length - 1 ? "Confirmar" : ""}
-            </Button>
           </Box>
         </Fragment>
       )}
