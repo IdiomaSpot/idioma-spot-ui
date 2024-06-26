@@ -24,8 +24,8 @@ const InfoFooter = () => {
             <div>
               <EmailIcon fontSize='small' /> <span>Envíanos un e-mail</span>
             </div>
-            <a className='link-color' href='mailto:idiomaspot@gmail.com'>
-              idiomaspot@gmail.com
+            <a className='link-color' href='mailto:hola@idiomaspot.com.mx'>
+              hola@idiomaspot.com.mx
             </a>
           </div>
         </li>
