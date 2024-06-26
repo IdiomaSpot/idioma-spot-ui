@@ -32,6 +32,19 @@ const useStudentRequest = (initialRequest = {}) => {
     [setFetch]
   );
 
+  const getStudentPayments = useCallback(
+    ({ userId }) => {
+      setFetch({
+        url: `${IDIOMA_SPOT_API}/payment/${userId}`,
+        options: {
+          mode: 'cors',
+          headers: HEADERS,
+        },
+      });
+    },
+    [setFetch]
+  );
+
   useEffect(() => {
     if (request && Object.keys(request).length) {
       switch (request.type) {
@@ -41,11 +54,14 @@ const useStudentRequest = (initialRequest = {}) => {
         case 'enrolled-classes':
           getStudentClasses(request.data);
           break;
+        case 'payments':
+          getStudentPayments(request.data);
+          break;
         default:
           break;
       }
     }
-  }, [request, getIsPoints, getStudentClasses]);
+  }, [request, getIsPoints, getStudentClasses, getStudentPayments]);
 
   return [{ data, isLoading, hasError, errorMessage }, setRequest];
 };
