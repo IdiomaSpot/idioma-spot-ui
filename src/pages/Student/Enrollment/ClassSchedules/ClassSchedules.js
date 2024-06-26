@@ -1,6 +1,7 @@
 import React, { useEffect, useCallback, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import useFetch from '../../../../hooks/useFetch';
+import { useEffectOnce } from '../../../../hooks/useEffectOnce';
 import {
   IDIOMA_SPOT_API,
   CLASS_TYPE,
@@ -18,16 +19,21 @@ import {
   createSecundaryText,
 } from '../../../../utils/utils';
 import './ClassSchedules.scss';
-import { LoadingPage } from '../../../../components/ui';
+import { LoadingPage, Notification } from '../../../../components/ui';
 
 const ClassSchedules = ({ handleNext }) => {
   const [loadingPage, setLoadingPage] = useState(true);
   const [{ data, isLoading, hasError, errorMessage }, setFetch] = useFetch();
   const enrollment = useSelector((state) => state.enrollment);
+  const user = useSelector((state) => state.user);
   const dispatch = useDispatch();
+  const [requestType, setRequestType] = useState(null);
+  const [classSchedules, setClassSchedules] = useState(null);
+  const [openNotification, setOpenNotification] = useState(false);
 
   const getClassSchedules = useCallback(
     ({ classType }) => {
+      setRequestType('GET_CLASS_SCHEDULES');
       setFetch({
         url: `${IDIOMA_SPOT_API}/class-schedules/${CLASS_TYPE[classType]}`,
         options: {
@@ -40,15 +46,43 @@ const ClassSchedules = ({ handleNext }) => {
     [setFetch]
   );
 
+  const validateSelection = useCallback(
+    (classSchedule) => {
+      setRequestType('VALIDATE_SELECTION');
+      setFetch({
+        url: `${IDIOMA_SPOT_API}/student/classes/validate?studentId=${user.id}&classType=${enrollment.classType}&classScheduleId=${classSchedule.id}`,
+        options: {
+          mode: 'cors',
+          method: 'get',
+          headers: HEADERS,
+        },
+      });
+    },
+    [enrollment.classType, user.id, setRequestType, setFetch]
+  );
+
   useEffect(() => {
     if (!isLoading) {
       if (hasError) {
         console.error('AN ERROR HAD OCURRED', errorMessage);
+      } else {
+        if (requestType === 'GET_CLASS_SCHEDULES') {
+          // Handle the response for getClassSchedules
+          setClassSchedules(data);
+        } else if (
+          requestType === 'VALIDATE_SELECTION' &&
+          data?.isAlredyEnrolled !== undefined
+        ) {
+          // Handle the response for validateSelection
+          const isAlreadyEnrolled = data?.isAlredyEnrolled || false;
+          setOpenNotification(isAlreadyEnrolled);
+          !isAlreadyEnrolled && handleNext();
+        }
       }
     }
-  }, [isLoading, hasError, errorMessage, data]);
+  }, [isLoading, hasError, errorMessage, data, requestType, handleNext]);
 
-  useEffect(() => {
+  useEffectOnce(() => {
     enrollment?.classType &&
       getClassSchedules({ classType: enrollment.classType });
   }, [enrollment, getClassSchedules]);
@@ -66,16 +100,30 @@ const ClassSchedules = ({ handleNext }) => {
         classType: enrollment.classType,
       })
     );
-    handleNext();
+
+    validateSelection(selectedSchedule);
   }
+
+  const handleClose = (event, reason) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+    setOpenNotification(false);
+  };
 
   return (
     <>
+      <Notification
+        text={'Ya te encuentras inscrito a la clase que intentas seleccionar'}
+        type={'error'}
+        open={openNotification}
+        onClose={handleClose}
+      />
       {loadingPage && <LoadingPage openOn={loadingPage} />}
       {!loadingPage && (
         <List sx={{ width: '100%' }}>
-          {data?.length ? (
-            data?.map(
+          {classSchedules?.length ? (
+            classSchedules?.map(
               ({
                 id,
                 schedule,
@@ -87,7 +135,7 @@ const ClassSchedules = ({ handleNext }) => {
                 cost,
                 ...rest
               }) => {
-                const data = {
+                const item = {
                   id,
                   schedule,
                   isAlmostFull,
@@ -101,26 +149,26 @@ const ClassSchedules = ({ handleNext }) => {
 
                 return (
                   <ListItem
-                    key={data.id}
+                    key={item.id}
                     secondaryAction={
-                      <IconButton edge='end' aria-label='comments'>
+                      <IconButton edge="end" aria-label="comments">
                         <ArrowForwardIosIcon />
                       </IconButton>
                     }
                     disablePadding
-                    onClick={() => !data.isFull && onScheduleSelected(data)}
+                    onClick={() => !item.isFull && onScheduleSelected(item)}
                   >
                     <ListItemButton
                       role={undefined}
-                      disabled={data.isFull}
+                      disabled={item.isFull}
                       divider={true}
                       selected={true}
                     >
                       <ListItemText
                         primaryTypographyProps={{ component: 'div' }}
                         secondaryTypographyProps={{ component: 'div' }}
-                        primary={createPrimaryText(data)}
-                        secondary={createSecundaryText(data)}
+                        primary={createPrimaryText(item)}
+                        secondary={createSecundaryText(item)}
                       />
                     </ListItemButton>
                   </ListItem>
@@ -129,8 +177,8 @@ const ClassSchedules = ({ handleNext }) => {
             )
           ) : (
             <ListItemText
-              className='not-enrolled gray-bg'
-              primary='No hay clases disponibles'
+              className="not-enrolled gray-bg"
+              primary="No hay clases disponibles"
             />
           )}
         </List>
