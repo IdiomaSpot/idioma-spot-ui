@@ -14,6 +14,7 @@ import MenuBar from './MenuBar/MenuBar';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { setSelectedOffer } from '../../context/features/student/studentSlice';
+import './Home.scss';
 
 const Home = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -37,7 +38,7 @@ const Home = () => {
   };
 
   return (
-    <>
+    <div className='home'>
       <LoadingLogo open={isLoading} />
       {!isLoading && (
         <>
@@ -54,7 +55,7 @@ const Home = () => {
           <FacebookFAB />
         </>
       )}
-    </>
+    </div>
   );
 };
 
