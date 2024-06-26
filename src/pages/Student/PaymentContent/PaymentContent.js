@@ -59,7 +59,8 @@ const getAccordionBody = (row) => {
   );
   const price = (
     <>
-      <b>Costo: </b>${row?.unitPrice || 'No disponible'} MXN
+      <b>Costo: </b>
+      {row?.unitPrice ? '$' + row?.unitPrice + ' MXN' : 'No disponible'}
     </>
   );
 
