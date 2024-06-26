@@ -55,7 +55,7 @@ const createPrimaryText = ({
 const createSecundaryText = ({ startDate, hoursDuration, cost }) => {
   const classInit = 'Inicio de clases: ' + (startDate || 'no disponible');
   const duration = 'Horas de estudio: ' + (hoursDuration || 'no disponibles');
-  const costByClass = cost ? 'Costo: ' + cost : '';
+  const costByClass = cost ? 'Costo: $' + cost + ' MXN IVA incluído' : '';
   return (
     <>
       <Grid container spacing={1}>
