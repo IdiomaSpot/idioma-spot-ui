@@ -17,6 +17,7 @@ import {
   LoadingPage,
   Notification,
   PasswordInput,
+  Privacy,
 } from '../../components/ui';
 import { Link as RouterLink, useNavigate } from 'react-router-dom';
 
@@ -70,7 +71,8 @@ const Signup = () => {
           case 409:
             setNotification({
               type: 'error',
-              message: 'El correo electrónico proporcionado ya está registrado.',
+              message:
+                'El correo electrónico proporcionado ya está registrado.',
               open: true,
             });
             break;
@@ -203,7 +205,8 @@ const Signup = () => {
                 Iniciar sesión
               </RouterLink>
             </Button>
-            <Copyright sx={{}} />
+            <Privacy color='text.secondary' />
+            <Copyright />
           </Box>
         </Box>
       </Paper>
