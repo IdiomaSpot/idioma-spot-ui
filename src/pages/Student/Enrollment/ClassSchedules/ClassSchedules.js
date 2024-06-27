@@ -30,6 +30,9 @@ const ClassSchedules = ({ handleNext }) => {
   const [requestType, setRequestType] = useState(null);
   const [classSchedules, setClassSchedules] = useState(null);
   const [openNotification, setOpenNotification] = useState(false);
+  const [textNotification, setTextNotification] = useState(
+    'Ya te encuentras inscrito a la clase que intentas seleccionar'
+  );
 
   const getClassSchedules = useCallback(
     ({ classType }) => {
@@ -64,7 +67,8 @@ const ClassSchedules = ({ handleNext }) => {
   useEffect(() => {
     if (!isLoading) {
       if (hasError) {
-        console.error('AN ERROR HAD OCURRED', errorMessage);
+        setTextNotification('Ha ocurrido un error. Intenta de nuevo más tarde.');
+        setOpenNotification(true);
       } else {
         if (requestType === 'GET_CLASS_SCHEDULES') {
           // Handle the response for getClassSchedules
@@ -109,12 +113,15 @@ const ClassSchedules = ({ handleNext }) => {
       return;
     }
     setOpenNotification(false);
+    setTextNotification(
+      'Ya te encuentras inscrito a la clase que intentas seleccionar'
+    );
   };
 
   return (
     <>
       <Notification
-        text={'Ya te encuentras inscrito a la clase que intentas seleccionar'}
+        text={textNotification}
         type={'error'}
         open={openNotification}
         onClose={handleClose}
@@ -151,7 +158,7 @@ const ClassSchedules = ({ handleNext }) => {
                   <ListItem
                     key={item.id}
                     secondaryAction={
-                      <IconButton edge="end" aria-label="comments">
+                      <IconButton edge='end' aria-label='comments'>
                         <ArrowForwardIosIcon />
                       </IconButton>
                     }
@@ -177,8 +184,8 @@ const ClassSchedules = ({ handleNext }) => {
             )
           ) : (
             <ListItemText
-              className="not-enrolled gray-bg"
-              primary="No hay clases disponibles"
+              className='not-enrolled gray-bg'
+              primary='No hay clases disponibles'
             />
           )}
         </List>
