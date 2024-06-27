@@ -67,7 +67,7 @@ const ClassSchedules = ({ handleNext }) => {
   useEffect(() => {
     if (!isLoading) {
       if (hasError) {
-        setTextNotification('Ha ocurrido un erro. Intenta de nuevo más tarde.');
+        setTextNotification('Ha ocurrido un error. Intenta de nuevo más tarde.');
         setOpenNotification(true);
       } else {
         if (requestType === 'GET_CLASS_SCHEDULES') {
