@@ -44,7 +44,7 @@ const Home = () => {
         <>
           <MenuBar />
           <MainBanner />
-          <PromosSection />
+          <PromosSection button />
           <Methodology />
           <AdvantagesSection />
           <WhyUsSection />

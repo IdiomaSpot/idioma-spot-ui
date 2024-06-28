@@ -14,7 +14,7 @@ import SideMenuOption from './SideMenuOption';
 import { useNavigate } from 'react-router-dom';
 import logo from '../../../assets/img/logo-no_bg.png';
 
-const SideMenu = ({ width, options, open, setOpen }) => {
+const SideMenu = ({ width, options, open, setOpen, role }) => {
   const navigate = useNavigate();
   const getMenuContent = (s) => (
     <>
@@ -50,7 +50,7 @@ const SideMenu = ({ width, options, open, setOpen }) => {
             optionName={option.name}
             icon={option.icon}
             onClick={() => {
-              navigate('/student/' + option.type);
+              navigate(`/${role}/` + option.type);
               setOpen(false);
             }}
           />

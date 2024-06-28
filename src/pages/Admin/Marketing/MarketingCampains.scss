@@ -1,0 +1,38 @@
+@import '../../../assets/styles/variables.scss';
+.marketing-campains {
+  max-width: 100% !important;
+}
+.promos-section {
+  width: 100% !important;
+  border-style: dotted;
+}
+.preview {
+  //border-style: dotted;
+  color: $light-gray;
+  & img {
+    opacity: 0.8;
+  }
+  .preview-title {
+    padding: 2rem;
+  }
+}
+.edit {
+  .space {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+  }
+  .edit-drop {
+    height: 30rem;
+    .drop-area {
+      height: 23rem;
+    }
+  }
+
+  .save {
+    & button {
+      width: 20rem;
+    }
+  }
+}
