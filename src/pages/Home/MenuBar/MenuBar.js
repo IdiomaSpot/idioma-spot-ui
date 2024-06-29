@@ -16,7 +16,6 @@ import { useSelector } from 'react-redux';
 
 const pages = [
   { name: 'Inicio', target: 'main-banner' },
-  { name: 'Promociones', target: 'promos-section' },
   { name: 'Ventajas', target: 'advantages-section' },
   { name: '¿Por qué IS?', target: 'whyus-section' },
   { name: 'Clases', target: 'offers-section' },

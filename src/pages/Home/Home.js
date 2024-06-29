@@ -14,6 +14,8 @@ import MenuBar from './MenuBar/MenuBar';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { setSelectedOffer } from '../../context/features/student/studentSlice';
+import { useEffectOnce } from '../../hooks/useEffectOnce';
+import useAdminRequest from '../../hooks/useAdminRequest';
 import './Home.scss';
 
 const Home = () => {
@@ -21,6 +23,9 @@ const Home = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const user = useSelector((state) => state.user);
+  const [{ data: responseGet, isLoading: loadingGet }, setGetRequest] =
+    useAdminRequest();
+  const [currentCampaign, setCurrentCampaign] = useState(true);
 
   useEffect(() => {
     setTimeout(() => {
@@ -37,14 +42,35 @@ const Home = () => {
     }
   };
 
+  //#region Promos
+  useEffect(() => {
+    if (responseGet?.length > 0) {
+      setCurrentCampaign(responseGet[0]);
+    }
+  }, [responseGet]);
+
+  useEffectOnce(() => {
+    setGetRequest({
+      type: 'get-campain',
+    });
+  });
+  //#endregion
+
   return (
-    <div className='home'>
-      <LoadingLogo open={isLoading} />
+    <div className="home">
+      <LoadingLogo open={isLoading || loadingGet} />
       {!isLoading && (
         <>
           <MenuBar />
           <MainBanner />
-          <PromosSection button />
+          {currentCampaign && (
+            <PromosSection
+              button={currentCampaign.enableenableSignUpButton}
+              img={currentCampaign.image}
+              text={currentCampaign.description}
+              title={currentCampaign.title}
+            />
+          )}
           <Methodology />
           <AdvantagesSection />
           <WhyUsSection />

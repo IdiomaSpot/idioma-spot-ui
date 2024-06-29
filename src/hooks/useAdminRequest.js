@@ -15,7 +15,7 @@ const useAdminRequest = (initialRequest = {}) => {
       body.append('enableSignUpButton', enableSignUpButton);
 
       setFetch({
-        url: `${IDIOMA_SPOT_API}/offer/create`,
+        url: `${IDIOMA_SPOT_API}/promo/create`,
         options: {
           mode: 'cors',
           method: 'post',
@@ -28,7 +28,7 @@ const useAdminRequest = (initialRequest = {}) => {
 
   const getCurrentCampain = useCallback(() => {
     setFetch({
-      url: `${IDIOMA_SPOT_API}/offer`,
+      url: `${IDIOMA_SPOT_API}/promo`,
       options: {
         mode: 'cors',
         headers: HEADERS,

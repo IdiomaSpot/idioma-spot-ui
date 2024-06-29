@@ -53,6 +53,7 @@ const MarketingCampains = () => {
       setTitle(currentCampain[0]?.title);
       setText(currentCampain[0]?.description);
       setFile(currentCampain[0]?.image);
+      setPreview(currentCampain[0]?.image);
       setActive(currentCampain[0]?.enableSignUpButton);
     }
   }, [currentCampain]);
@@ -179,7 +180,7 @@ const MarketingCampains = () => {
                 margin='normal'
                 required
                 fullWidth
-                inputProps={{ maxLength: 500 }}
+                inputProps={{ maxLength: 800 }}
                 value={text}
                 onChange={handleChange}
               />
@@ -187,7 +188,7 @@ const MarketingCampains = () => {
           </Grid>
           <Grid item xs={12} md={4} className='edit-drop space'>
             <Alert variant='outlined' severity='warning'>
-              Tamaño máximo: 500 x 500 2MB
+              Tamaño máximo: 800 x 800 2MB
             </Alert>
             <div className='drop-area'>
               <DropzoneArea
