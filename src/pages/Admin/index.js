@@ -1,4 +1,4 @@
 import AdminDashboard from './AdminDashboard';
-import MarketingCampains from './Marketing/MarketingCampains';
+import MarketingCampaigns from './Marketing/MarketingCampaigns';
 import Payments from './Payments/Payments';
-export { AdminDashboard, MarketingCampains, Payments };
+export { AdminDashboard, MarketingCampaigns, Payments };

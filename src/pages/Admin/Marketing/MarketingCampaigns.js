@@ -1,4 +1,4 @@
-import './MarketingCampains.scss';
+import './MarketingCampaigns.scss';
 import { useEffectOnce } from '../../../hooks/useEffectOnce';
 import { useDispatch } from 'react-redux';
 import { changeContent } from '../../../context/features/admin/adminSlice';
@@ -22,7 +22,7 @@ import { useEffect, useState } from 'react';
 import useAdminRequest from '../../../hooks/useAdminRequest';
 import { LoadingPage, Notification } from '../../../components/ui';
 
-const MarketingCampains = () => {
+const MarketingCampaigns = () => {
   const [file, setFile] = useState();
   const [active, setActive] = useState(false);
   const [title, setTitle] = useState('');
@@ -35,7 +35,7 @@ const MarketingCampains = () => {
   });
   const [{ data, isLoading, hasError }, setPostRequest] = useAdminRequest();
   const [
-    { data: currentCampain, isLoading: loadingGet, hasError: errorGet },
+    { data: currentCampaign, isLoading: loadingGet, hasError: errorGet },
     setGetRequest,
   ] = useAdminRequest();
   const dispatch = useDispatch();
@@ -44,19 +44,19 @@ const MarketingCampains = () => {
   useEffectOnce(() => {
     dispatch(changeContent(getMenuOption('marketing')));
     setGetRequest({
-      type: 'get-campain',
+      type: 'get-campaign',
     });
   });
 
   useEffect(() => {
-    if (currentCampain?.length > 0) {
-      setTitle(currentCampain[0]?.title);
-      setText(currentCampain[0]?.description);
-      setFile(currentCampain[0]?.image);
-      setPreview(currentCampain[0]?.image);
-      setActive(currentCampain[0]?.enableSignUpButton);
+    if (currentCampaign?.length > 0) {
+      setTitle(currentCampaign[0]?.title);
+      setText(currentCampaign[0]?.description);
+      setFile(currentCampaign[0]?.image);
+      setPreview(currentCampaign[0]?.image);
+      setActive(currentCampaign[0]?.enableSignUpButton);
     }
-  }, [currentCampain]);
+  }, [currentCampaign]);
 
   useEffect(() => {
     if (!hasError && data) {
@@ -98,7 +98,7 @@ const MarketingCampains = () => {
     }
 
     setPostRequest({
-      type: 'save-campain',
+      type: 'save-campaign',
       data: {
         image: file,
         title: title,
@@ -121,7 +121,7 @@ const MarketingCampains = () => {
   };
 
   return (
-    <Container className='marketing-campains'>
+    <Container className='marketing-campaigns'>
       {(isLoading || loadingGet) && (
         <LoadingPage openOn={isLoading || loadingGet} />
       )}
@@ -231,4 +231,4 @@ const MarketingCampains = () => {
   );
 };
 
-export default MarketingCampains;
+export default MarketingCampaigns;

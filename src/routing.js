@@ -1,6 +1,6 @@
 import { createBrowserRouter } from 'react-router-dom';
 import { AdminRoute, ProtectedRoute, StudentRoute } from './components/routes';
-import { AdminDashboard, MarketingCampains, Payments } from './pages/Admin';
+import { AdminDashboard, MarketingCampaigns, Payments } from './pages/Admin';
 import { Home } from './pages/Home';
 import { Login } from './pages/Login';
 import NotFound from './pages/NotFound';
@@ -60,9 +60,9 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <MarketingCampains />,
+        element: <MarketingCampaigns />,
       },
-      { path: 'marketing', element: <MarketingCampains /> },
+      { path: 'marketing', element: <MarketingCampaigns /> },
       { path: 'payments', element: <Payments /> },
     ],
   },

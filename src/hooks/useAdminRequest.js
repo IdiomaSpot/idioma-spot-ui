@@ -6,7 +6,7 @@ const useAdminRequest = (initialRequest = {}) => {
   const [request, setRequest] = useState(initialRequest);
   const [{ data, isLoading, hasError, errorMessage }, setFetch] = useFetch();
 
-  const saveCampain = useCallback(
+  const saveCampaign = useCallback(
     ({ image, title, description, enableSignUpButton }) => {
       const body = new FormData();
       body.append('title', title);
@@ -26,7 +26,7 @@ const useAdminRequest = (initialRequest = {}) => {
     [setFetch]
   );
 
-  const getCurrentCampain = useCallback(() => {
+  const getCurrentCampaign = useCallback(() => {
     setFetch({
       url: `${IDIOMA_SPOT_API}/promo`,
       options: {
@@ -39,17 +39,17 @@ const useAdminRequest = (initialRequest = {}) => {
   useEffect(() => {
     if (request && Object.keys(request).length) {
       switch (request.type) {
-        case 'save-campain':
-          saveCampain(request.data);
+        case 'save-campaign':
+          saveCampaign(request.data);
           break;
-        case 'get-campain':
-          getCurrentCampain();
+        case 'get-campaign':
+          getCurrentCampaign();
           break;
         default:
           break;
       }
     }
-  }, [saveCampain, getCurrentCampain, request]);
+  }, [saveCampaign, getCurrentCampaign, request]);
 
   return [{ data, isLoading, hasError, errorMessage }, setRequest];
 };

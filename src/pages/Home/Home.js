@@ -51,7 +51,7 @@ const Home = () => {
 
   useEffectOnce(() => {
     setGetRequest({
-      type: 'get-campain',
+      type: 'get-campaign',
     });
   });
   //#endregion
