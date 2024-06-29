@@ -36,6 +36,16 @@ const useAdminRequest = (initialRequest = {}) => {
     });
   }, [setFetch]);
 
+  const getPayments = useCallback(() => {
+    setFetch({
+      url: `${IDIOMA_SPOT_API}/payment`,
+      options: {
+        mode: 'cors',
+        headers: HEADERS,
+      },
+    });
+  }, [setFetch]);
+
   useEffect(() => {
     if (request && Object.keys(request).length) {
       switch (request.type) {
@@ -45,11 +55,14 @@ const useAdminRequest = (initialRequest = {}) => {
         case 'get-campaign':
           getCurrentCampaign();
           break;
+        case 'get-payments':
+          getPayments();
+          break;
         default:
           break;
       }
     }
-  }, [saveCampaign, getCurrentCampaign, request]);
+  }, [saveCampaign, getCurrentCampaign, getPayments, request]);
 
   return [{ data, isLoading, hasError, errorMessage }, setRequest];
 };
