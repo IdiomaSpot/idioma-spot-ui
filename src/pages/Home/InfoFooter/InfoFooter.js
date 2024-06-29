@@ -3,6 +3,7 @@ import './InfoFooter.scss';
 import PhoneIcon from '@mui/icons-material/Phone';
 import EmailIcon from '@mui/icons-material/Email';
 import { AiOutlineWhatsApp } from 'react-icons/ai';
+import { Privacy } from '../../../components/ui';
 
 const InfoFooter = () => {
   return (
@@ -47,6 +48,9 @@ const InfoFooter = () => {
               565-858-00-66
             </a>
           </div>
+        </li>
+        <li className='privacy'>
+          <Privacy />
         </li>
       </ul>
     </footer>
