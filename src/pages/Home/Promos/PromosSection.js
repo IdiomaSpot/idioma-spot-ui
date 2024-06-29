@@ -5,7 +5,7 @@ import { Box, Button, Container, Grid } from '@mui/material';
 import imagePromoUrl from '../../../assets/img/promoImg2.png';
 import { Link } from 'react-router-dom';
 
-const PromosSection = ({ title, text, imgUrl }) => {
+const PromosSection = ({ title, text, img, button }) => {
   return (
     <div id='promos-section' className='promos-section'>
       <Container maxWidth='lg'>
@@ -17,13 +17,23 @@ const PromosSection = ({ title, text, imgUrl }) => {
             md={6}
             className='promos-container'
           >
-            <h1 className='promos-title'>{title}</h1>
-            <div className='promos-text space-between'>{text}</div>
-            <Button className='promos-button' size='large' variant='contained'>
-              <Link to='/signup' className='button-text'>
-                REGISTRARSE
-              </Link>
-            </Button>
+            <h1 className='promos-title'>
+              {title || 'Título de la campaña de marketing'}
+            </h1>
+            <div className='promos-text space-between'>
+              {text || 'Texto que se mostrará en la campaña de marketing'}
+            </div>
+            {button && (
+              <Button
+                className='promos-button'
+                size='large'
+                variant='contained'
+              >
+                <Link to='/signup' className='button-text'>
+                  REGISTRARSE
+                </Link>
+              </Button>
+            )}
           </Box>
           <Box
             item
@@ -37,7 +47,7 @@ const PromosSection = ({ title, text, imgUrl }) => {
             <div className='img-container'>
               <img
                 className='promos-img'
-                src={imgUrl}
+                src={img || imagePromoUrl}
                 alt='current promotion'
               />
             </div>
@@ -51,7 +61,8 @@ const PromosSection = ({ title, text, imgUrl }) => {
 PromosSection.propTypes = {
   title: PropTypes.string,
   text: PropTypes.string,
-  imgUrl: PropTypes.string,
+  img: PropTypes.string,
+  button: PropTypes.bool,
 };
 PromosSection.defaultProps = {
   title: 'OBTEN DESCUENTOS Y PROMOCIONES',
@@ -59,7 +70,8 @@ PromosSection.defaultProps = {
     'Para obtener promociones es muy sencillo solo tienes que registrarte y te llegaran a tu correo cada nueva promoción disponible o en tu panel' +
     ' principal podrás ver las promociones disponibles, recuerda que puedes invitar a tus amigos y ganar $100 pesos cada que uno de ellos se registren' +
     ' e inicien un curso.',
-  imgUrl: imagePromoUrl,
+  img: imagePromoUrl,
+  button: false,
 };
 
 export default PromosSection;

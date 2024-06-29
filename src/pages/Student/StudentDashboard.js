@@ -1,25 +1,14 @@
 import { useEffect, useState } from 'react';
 import './StudentDashboard.scss';
-import {
-  AppBar,
-  Box,
-  CssBaseline,
-  IconButton,
-  Toolbar,
-  Typography,
-} from '@mui/material';
-import MenuIcon from '@mui/icons-material/Menu';
-import { IsPoints, SideMenu, SignMenu } from '../../components/ui';
+
+import { DashboardMenu } from '../../components/ui';
 import { optionsMenu as menuOptions } from '../../data/studentsMenu';
 import { useDispatch, useSelector } from 'react-redux';
-import { Outlet } from 'react-router-dom';
 import useStudentRequest from '../../hooks/useStudentRequest';
 import { setIsPoints } from '../../context/features/student/studentSlice';
-
-const drawerWidth = 240;
+import { Outlet } from 'react-router-dom';
 
 const StudentDashboard = () => {
-  const [openMenu, setOpenMenu] = useState(false);
   const user = useSelector((state) => state.user);
   const [points, setPoints] = useState(0);
   const [{ data, isLoading, hasError, errorMessage }, setRequest] =
@@ -51,53 +40,14 @@ const StudentDashboard = () => {
   }, [isLoading, hasError, errorMessage, data, dispatch]);
 
   return (
-    <Box sx={{ display: 'flex' }} className='student-dashboard'>
-      <CssBaseline />
-      <AppBar
-        className='bar-menu'
-        position='fixed'
-        sx={{
-          width: { xs: '100%', md: `calc(100% - ${drawerWidth}px)` },
-          ml: { xs: 0, md: `${drawerWidth}px` },
-        }}
-      >
-        <Toolbar>
-          <IconButton
-            aria-label='menu'
-            sx={{ display: { xs: 'initial', md: 'none' } }}
-            onClick={() => {
-              setOpenMenu(!openMenu);
-            }}
-          >
-            <MenuIcon />
-          </IconButton>
-          <Typography
-            className='title-menu'
-            variant='h6'
-            noWrap
-            component='div'
-            sx={{ flexGrow: 1, paddingLeft: 2, textAlign: 'left' }}
-          >
-            {student.content.name || 'Inicio'}
-          </Typography>
-          <IsPoints total={points.toString()} />
-          <SignMenu user={user} />
-        </Toolbar>
-      </AppBar>
-      <SideMenu
-        width={drawerWidth}
-        options={menuOptions}
-        open={openMenu}
-        setOpen={setOpenMenu}
-      />
-      <Box
-        component='main'
-        sx={{ flexGrow: 1, bgcolor: 'background.default', p: 3 }}
-      >
-        <Toolbar />
-        <Outlet />
-      </Box>
-    </Box>
+    <DashboardMenu
+      menuOptions={menuOptions}
+      user={user}
+      points={points}
+      content={student.content}
+    >
+      <Outlet />
+    </DashboardMenu>
   );
 };
 

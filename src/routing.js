@@ -1,6 +1,6 @@
 import { createBrowserRouter } from 'react-router-dom';
 import { AdminRoute, ProtectedRoute, StudentRoute } from './components/routes';
-import { AdminDashboard } from './pages/Admin';
+import { AdminDashboard, MarketingCampaigns, Payments } from './pages/Admin';
 import { Home } from './pages/Home';
 import { Login } from './pages/Login';
 import NotFound from './pages/NotFound';
@@ -45,7 +45,7 @@ const router = createBrowserRouter([
       { path: 'payment', element: <PaymentContent /> },
       { path: 'my-classes', element: <ClassesContent /> },
       { path: 'enrollment', element: <Enrollment /> },
-      { path: 'process-payment', element: <ProcessPayment /> }
+      { path: 'process-payment', element: <ProcessPayment /> },
     ],
   },
   {
@@ -57,6 +57,14 @@ const router = createBrowserRouter([
         </AdminRoute>
       </ProtectedRoute>
     ),
+    children: [
+      {
+        index: true,
+        element: <MarketingCampaigns />,
+      },
+      { path: 'marketing', element: <MarketingCampaigns /> },
+      { path: 'payments', element: <Payments /> },
+    ],
   },
   {
     path: '*',

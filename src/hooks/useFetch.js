@@ -21,11 +21,12 @@ const useFetch = (initialUrl = '', initialOptions = {}) => {
       setIsLoading(true);
       try {
         //Add Authorization Bearer
-        if (fetchingData?.options?.headers)
+        if (fetchingData?.options) {
           fetchingData.options.headers = {
-            ...fetchingData.options.headers,
+            ...fetchingData.options?.headers,
             Authorization: userToken ? `Bearer ${userToken}` : undefined,
           };
+        }
 
         const response = await fetch(fetchingData.url, fetchingData.options);
         const result = await response.json();

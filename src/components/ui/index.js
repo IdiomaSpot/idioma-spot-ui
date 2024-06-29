@@ -11,7 +11,9 @@ import SideMenu from './SideMenu/SideMenu';
 import SideMenuOption from './SideMenu/SideMenuOption';
 import AnimatedTextWord from './AnimatedTextWord/AnimatedTextWord';
 import IsPoints from './IsPoints/IsPoints';
+import DashboardMenu from './DashboardMenu/DashboardMenu';
 import Privacy from './Privacy/Privacy';
+
 export {
   AnimatedTextWord,
   Copyright,
@@ -26,5 +28,6 @@ export {
   SideMenu,
   SideMenuOption,
   IsPoints,
+  DashboardMenu,
   Privacy,
 };
