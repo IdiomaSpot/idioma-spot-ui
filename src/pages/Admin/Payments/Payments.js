@@ -16,7 +16,7 @@ const Payments = () => {
     useAdminRequest();
 
   useEffectOnce(() => {
-    dispatch(changeContent(getMenuOption('marketing')));
+    dispatch(changeContent(getMenuOption('payment')));
     setGetRequest({
       type: 'get-payments',
     });
