@@ -1,0 +1,22 @@
+@import '../../../../assets/styles/variables.scss';
+
+.space {
+  &.dot {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    .yellow {
+      color: rgb(255, 225, 0);
+    }
+    .green {
+      color: rgb(42, 159, 42);
+    }
+    .red {
+      color: rgb(163, 33, 33);
+    }
+    .gray {
+      color: $light-gray;
+    }
+  }
+}
