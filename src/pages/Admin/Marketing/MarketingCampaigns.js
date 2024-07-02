@@ -9,37 +9,47 @@ import {
   Button,
   Checkbox,
   Container,
+  Fab,
   FormControlLabel,
   FormGroup,
   FormLabel,
   Grid,
   TextField,
-  Typography,
 } from '@mui/material';
-import PromosSection from '../../Home/Promos/PromosSection';
+import SaveIcon from '@mui/icons-material/Save';
+import DeleteIcon from '@mui/icons-material/Delete';
 import { DropzoneArea } from 'mui-file-dropzone';
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import useAdminRequest from '../../../hooks/useAdminRequest';
 import { LoadingPage, Notification } from '../../../components/ui';
+import Preview from './Preview/PreviewSection';
 
 const MarketingCampaigns = () => {
-  const [file, setFile] = useState();
-  const [active, setActive] = useState(false);
-  const [title, setTitle] = useState('');
-  const [text, setText] = useState('');
-  const [open, setOpen] = useState(false);
+  const [campaign, setCampaign] = useState({
+    campaignId: '',
+    file: null,
+    active: false,
+    title: '',
+    text: '',
+  });
   const [missingField, setMissingField] = useState({
     file: false,
     title: false,
     text: false,
   });
+  const [open, setOpen] = useState(false);
+  const [preview, setPreview] = useState();
+
   const [{ data, isLoading, hasError }, setPostRequest] = useAdminRequest();
   const [
     { data: currentCampaign, isLoading: loadingGet, hasError: errorGet },
     setGetRequest,
   ] = useAdminRequest();
+  const [
+    { data: dataDelete, isLoading: loadingDelete, hasError: errorDelete },
+    setDeleteRequest,
+  ] = useAdminRequest();
   const dispatch = useDispatch();
-  const [preview, setPreview] = useState();
 
   useEffectOnce(() => {
     dispatch(changeContent(getMenuOption('marketing')));
@@ -50,11 +60,17 @@ const MarketingCampaigns = () => {
 
   useEffect(() => {
     if (currentCampaign?.length > 0) {
-      setTitle(currentCampaign[0]?.title);
-      setText(currentCampaign[0]?.description);
-      setFile(currentCampaign[0]?.image);
-      setPreview(currentCampaign[0]?.image);
-      setActive(currentCampaign[0]?.enableSignUpButton);
+      const { id, title, description, image, enableSignUpButton } =
+        currentCampaign[0];
+
+      setCampaign({
+        campaignId: id,
+        file: image,
+        active: enableSignUpButton,
+        title: title,
+        text: description,
+      });
+      setPreview(image);
     }
   }, [currentCampaign]);
 
@@ -64,21 +80,44 @@ const MarketingCampaigns = () => {
     }
   }, [data, hasError]);
 
-  const handleFileChange = (files) => {
-    if (files.length > 0) {
-      setFile(files[0]);
-      const fileURL = URL.createObjectURL(files[0]);
-      setPreview(fileURL);
+  useEffect(() => {
+    if (!errorDelete && dataDelete) {
+      setCampaign({
+        campaignId: '',
+        file: null,
+        active: false,
+        title: '',
+        text: '',
+      });
+      setPreview(null);
+      setOpen(true);
     }
-  };
+  }, [errorDelete, dataDelete]);
 
-  const handleChange = (event) => {
-    if (event.target.name === 'title') {
-      setTitle(event.target.value);
-    } else {
-      setText(event.target.value);
-    }
-  };
+  const handleCampaignChange = useCallback((field, value) => {
+    setCampaign((prevState) => ({
+      ...prevState,
+      [field]: value,
+    }));
+  }, []);
+
+  const handleFileChange = useCallback(
+    (files) => {
+      if (files.length > 0) {
+        handleCampaignChange('file', files[0]);
+        const fileURL = URL.createObjectURL(files[0]);
+        setPreview(fileURL);
+      }
+    },
+    [handleCampaignChange]
+  );
+
+  const handleChange = useCallback(
+    (event) => {
+      handleCampaignChange(event.target.name, event.target.value);
+    },
+    [handleCampaignChange]
+  );
 
   const updateMissingField = (field, condition) => {
     setMissingField((fields) => ({
@@ -87,29 +126,44 @@ const MarketingCampaigns = () => {
     }));
   };
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    updateMissingField('file', !file);
-    updateMissingField('title', !title?.length);
-    updateMissingField('text', !text?.length);
+  const handleSubmit = useCallback(
+    (event) => {
+      event.preventDefault();
+      const { file, title, text, active } = campaign;
+      updateMissingField('file', !file);
+      updateMissingField('title', !title?.length);
+      updateMissingField('text', !text?.length);
 
-    if (Object.values(missingField).some((value) => value === true)) {
-      return;
-    }
+      if (Object.values(missingField).some((value) => value === true)) {
+        return;
+      }
 
-    setPostRequest({
-      type: 'save-campaign',
-      data: {
-        image: file,
-        title: title,
-        description: text,
-        enableSignUpButton: active,
-      },
-    });
-  };
+      setPostRequest({
+        type: 'save-campaign',
+        data: {
+          image: file,
+          title: title,
+          description: text,
+          enableSignUpButton: active,
+        },
+      });
+    },
+    [campaign, missingField, setPostRequest]
+  );
+
+  const handleDeleteCampaign = useCallback(
+    (event) => {
+      event.preventDefault();
+      const { campaignId } = campaign;
+      if (campaignId) {
+        setDeleteRequest({ type: 'delete-campaign', campaignId });
+      }
+    },
+    [campaign, setDeleteRequest]
+  );
 
   const handleDeleteFile = () => {
-    setFile(null);
+    handleCampaignChange('file', null);
     setPreview(null);
   };
 
@@ -122,11 +176,17 @@ const MarketingCampaigns = () => {
 
   return (
     <Container className='marketing-campaigns'>
-      {(isLoading || loadingGet) && (
-        <LoadingPage openOn={isLoading || loadingGet} />
+      {(isLoading || loadingGet || loadingDelete) && (
+        <LoadingPage openOn={isLoading || loadingGet || loadingDelete} />
       )}
       <Notification
-        type={hasError || errorGet ? 'error' : data ? 'success' : ''}
+        type={
+          hasError || errorGet || errorDelete
+            ? 'error'
+            : data || dataDelete
+            ? 'success'
+            : ''
+        }
         open={open}
         onClose={handleClose}
       />
@@ -149,7 +209,7 @@ const MarketingCampaigns = () => {
               autoFocus
               variant='outlined'
               inputProps={{ maxLength: 100 }}
-              value={title}
+              value={campaign.title}
               onChange={handleChange}
             />
             <FormGroup>
@@ -157,14 +217,14 @@ const MarketingCampaigns = () => {
               <FormControlLabel
                 control={
                   <Checkbox
-                    checked={active}
+                    checked={campaign.active}
                     onChange={(event) => {
-                      setActive(event.target.checked);
+                      handleCampaignChange('active', event.target.checked);
                     }}
                     inputProps={{ 'aria-label': 'controlled' }}
                   />
                 }
-                label={active ? 'activo' : 'inactivo'}
+                label={campaign.active ? 'activo' : 'inactivo'}
               />
             </FormGroup>
           </Grid>
@@ -181,7 +241,7 @@ const MarketingCampaigns = () => {
                 required
                 fullWidth
                 inputProps={{ maxLength: 800 }}
-                value={text}
+                value={campaign.text}
                 onChange={handleChange}
               />
             }
@@ -209,24 +269,76 @@ const MarketingCampaigns = () => {
               </Alert>
             )}
           </Grid>
-          <Grid item xs={12} className='save'>
-            <Button type='submit' variant='contained' sx={{ mt: 3, mb: 2 }}>
+          <Grid
+            component={Grid}
+            item
+            xs={6}
+            sx={{ display: { xs: 'block', md: 'none' } }}
+            className='save-btn'
+          >
+            <Fab
+              type='submit'
+              aria-label='submit'
+              variant='contained'
+              size='large'
+              color='primary'
+            >
+              <SaveIcon fontSize='large' />
+            </Fab>
+          </Grid>
+          <Grid
+            component={Grid}
+            item
+            xs={6}
+            sx={{ display: { xs: 'none', md: 'block' } }}
+            className='save'
+          >
+            <Button
+              type='submit'
+              variant='contained'
+              sx={{ mt: 3, mb: 2 }}
+              startIcon={<SaveIcon />}
+            >
               Guardar
+            </Button>
+          </Grid>
+          <Grid
+            item
+            xs={6}
+            className='delete-btn'
+            sx={{ display: { xs: 'block', md: 'none' } }}
+          >
+            <Fab
+              aria-label='delete'
+              variant='contained'
+              onClick={handleDeleteCampaign}
+              color='error'
+              size='large'
+            >
+              <DeleteIcon fontSize='large' />
+            </Fab>
+          </Grid>
+          <Grid
+            component={Grid}
+            item
+            xs={6}
+            sx={{ display: { xs: 'none', md: 'block' } }}
+            className='delete'
+          >
+            <Button
+              type='delete'
+              variant='contained'
+              color='error'
+              sx={{ mt: 3, mb: 2 }}
+              startIcon={<DeleteIcon />}
+              onClick={handleDeleteCampaign}
+            >
+              Borrar
             </Button>
           </Grid>
         </Grid>
       </Box>
-      <Box className='preview'>
-        <Typography className='preview-title' variant='h5'>
-          Vista previa:
-        </Typography>
-        <PromosSection
-          title={title}
-          text={text}
-          img={preview}
-          button={active}
-        />
-      </Box>
+      <Preview campaign={campaign} preview={preview} />
     </Container>
   );
 };

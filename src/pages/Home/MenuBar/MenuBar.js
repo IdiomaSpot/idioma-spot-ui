@@ -16,11 +16,11 @@ import { useSelector } from 'react-redux';
 
 const pages = [
   { name: 'Inicio', target: 'main-banner' },
+  { name: 'Metodología IIS', target: 'methodology-section' },
   { name: 'Ventajas', target: 'advantages-section' },
   { name: '¿Por qué IS?', target: 'whyus-section' },
   { name: 'Clases', target: 'offers-section' },
   { name: 'Misión y Visión', target: 'mission-vision-section' },
-  { name: 'Metodología IIS', target: 'methodology-section' },
   { name: 'Contacto', target: 'contact-section' },
 ];
 

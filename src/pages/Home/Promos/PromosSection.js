@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './PromosSection.scss';
 import { Box, Button, Container, Grid } from '@mui/material';
-import imagePromoUrl from '../../../assets/img/promoImg2.png';
+import imagePromoUrl from '../../../assets/img/promo.jpg';
 import { Link } from 'react-router-dom';
 
 const PromosSection = ({ title, text, img, button }) => {

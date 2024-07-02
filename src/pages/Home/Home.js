@@ -25,7 +25,7 @@ const Home = () => {
   const user = useSelector((state) => state.user);
   const [{ data: responseGet, isLoading: loadingGet }, setGetRequest] =
     useAdminRequest();
-  const [currentCampaign, setCurrentCampaign] = useState(true);
+  const [currentcampaign, setCurrentcampaign] = useState(false);
 
   useEffect(() => {
     setTimeout(() => {
@@ -45,7 +45,7 @@ const Home = () => {
   //#region Promos
   useEffect(() => {
     if (responseGet?.length > 0) {
-      setCurrentCampaign(responseGet[0]);
+      setCurrentcampaign(responseGet[0]);
     }
   }, [responseGet]);
 
@@ -57,18 +57,18 @@ const Home = () => {
   //#endregion
 
   return (
-    <div className="home">
+    <div className='home'>
       <LoadingLogo open={isLoading || loadingGet} />
       {!isLoading && (
         <>
           <MenuBar />
           <MainBanner />
-          {currentCampaign && (
+          {currentcampaign && (
             <PromosSection
-              button={currentCampaign.enableenableSignUpButton}
-              img={currentCampaign.image}
-              text={currentCampaign.description}
-              title={currentCampaign.title}
+              button={currentcampaign.enableenableSignUpButton}
+              img={currentcampaign.image}
+              text={currentcampaign.description}
+              title={currentcampaign.title}
             />
           )}
           <Methodology />

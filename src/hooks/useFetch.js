@@ -48,7 +48,7 @@ const useFetch = (initialUrl = '', initialOptions = {}) => {
   }, [fetchingData, userToken]);
 
   useEffect(() => {
-    if (errorMessage?.status === 401) {
+    if (errorMessage?.status === 401 || errorMessage?.statusCode === 401) {
       dispatch(resetUser());
     }
   }, [errorMessage, dispatch]);
