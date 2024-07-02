@@ -46,6 +46,20 @@ const useAdminRequest = (initialRequest = {}) => {
     });
   }, [setFetch]);
 
+  const deleteCampaign = useCallback(
+    (id) => {
+      setFetch({
+        url: `${IDIOMA_SPOT_API}/promo/${id}`,
+        options: {
+          mode: 'cors',
+          method: 'delete',
+          headers: HEADERS,
+        },
+      });
+    },
+    [setFetch]
+  );
+
   useEffect(() => {
     if (request && Object.keys(request).length) {
       switch (request.type) {
@@ -58,11 +72,14 @@ const useAdminRequest = (initialRequest = {}) => {
         case 'get-payments':
           getPayments();
           break;
+        case 'delete-campaign':
+          deleteCampaign(request.campaignId);
+          break;
         default:
           break;
       }
     }
-  }, [saveCampaign, getCurrentCampaign, getPayments, request]);
+  }, [saveCampaign, getCurrentCampaign, getPayments, deleteCampaign, request]);
 
   return [{ data, isLoading, hasError, errorMessage }, setRequest];
 };

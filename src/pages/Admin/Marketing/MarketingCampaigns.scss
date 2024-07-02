@@ -1,12 +1,13 @@
 @import '../../../assets/styles/variables.scss';
 .marketing-campaigns {
   max-width: 100% !important;
+  .promos-section {
+    border-style: dotted;
+    width: 100% !important;
+  }
 }
-.promos-section {
-  width: 100% !important;
-}
+
 .preview {
-  border-style: dotted;
   color: $light-gray;
   & img {
     opacity: 0.8;
@@ -16,6 +17,7 @@
   }
 }
 .edit {
+  padding: 1rem 0;
   .space {
     display: flex;
     align-items: center;
@@ -29,7 +31,8 @@
     }
   }
 
-  .save {
+  .save,
+  .delete {
     & button {
       width: 20rem;
     }
